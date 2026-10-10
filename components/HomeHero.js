@@ -3,7 +3,7 @@
 // Home hero with the entrance sequence: a viewfinder draws the thirds grid, a focus
 // reticle locks on the upper-left power point, a shutter opens on a grid of letters,
 // and the letters of "Rule of Thirds" fly (GSAP Flip) into the headline.
-// Plays once per browser session; skipped entirely for reduced-motion visitors.
+// Plays on every visit to the homepage; skipped entirely for reduced-motion visitors.
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,7 +14,6 @@ import InlineScript from './InlineScript';
 
 gsap.registerPlugin(Flip);
 
-const SEEN_KEY = 'rot-intro-seen';
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const LINES = [
   [{ text: 'RULE' }, { text: 'OF' }],
@@ -22,16 +21,13 @@ const LINES = [
 ];
 
 // Hide the intro cover before first paint when it shouldn't play.
-const SKIP_SCRIPT = `try{if(sessionStorage.getItem('${SEEN_KEY}')||matchMedia('(prefers-reduced-motion: reduce)').matches)document.getElementById('rot-intro').setAttribute('data-skip','')}catch(e){}`;
+const SKIP_SCRIPT = `try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.getElementById('rot-intro').setAttribute('data-skip','')}catch(e){}`;
 
 const useIsoLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
 function shouldSkip() {
   try {
-    return (
-      !!sessionStorage.getItem(SEEN_KEY) ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    );
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   } catch {
     return false;
   }
@@ -146,10 +142,7 @@ export default function HomeHero() {
         // 6. Guides settle into faint layout lines; the rest of the page arrives
         .to('.hero-guides span', { autoAlpha: 1, backgroundColor: line, duration: 0.8, ease: 'power1.out' }, '+=1.1')
         .set(chars, { clearProps: 'color,opacity' })
-        .call(() => {
-          try { sessionStorage.setItem(SEEN_KEY, '1'); } catch {}
-          finish();
-        })
+        .call(finish)
         .to(chrome, { autoAlpha: 1, duration: 0.7, ease: 'power3.out', stagger: 0.08 }, '<');
     }, stage);
 
