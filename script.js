@@ -1,33 +1,31 @@
-// Golden Hour Loft — interactions
+// Golden Hour Loft — interactions (v2)
 
 (function () {
-  var header = document.getElementById('siteHeader');
-  var toggle = document.getElementById('menuToggle');
-  var overlay = document.getElementById('menuOverlay');
+  var chrome = document.getElementById('chrome');
+  var menuBtn = document.getElementById('menuBtn');
+  var menu = document.getElementById('menu');
 
-  // Sticky header background on scroll
+  // Chrome background on scroll
   function onScroll() {
-    header.classList.toggle('scrolled', window.scrollY > 24);
+    chrome.classList.toggle('scrolled', window.scrollY > 24);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Fullscreen mobile menu
+  // Fullscreen menu
   function setMenu(open) {
-    toggle.classList.toggle('open', open);
-    overlay.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    overlay.setAttribute('aria-hidden', open ? 'false' : 'true');
-    document.body.style.overflow = open ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
   }
-  toggle.addEventListener('click', function () {
-    setMenu(!overlay.classList.contains('open'));
+  menuBtn.addEventListener('click', function () {
+    setMenu(!document.body.classList.contains('menu-open'));
   });
-  overlay.querySelectorAll('a').forEach(function (link) {
+  menu.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', function () { setMenu(false); });
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) setMenu(false);
+    if (e.key === 'Escape' && document.body.classList.contains('menu-open')) setMenu(false);
   });
 
   // Reveal on scroll
@@ -40,7 +38,7 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('visible'); });

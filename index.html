@@ -13,39 +13,34 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23FAF7F1'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23C08A3E'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
 
-  <header class="site-header" id="siteHeader">
-    <div class="header-inner">
-      <a href="#top" class="wordmark">Golden Hour Loft<sup>®</sup></a>
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="#spaces">Spaces</a>
-        <a href="#about">About</a>
-        <a href="#details">Details</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <a class="btn btn-small" href="https://www.peerspace.com/pages/listings/67981614acf549c7b9556489" target="_blank" rel="noopener">Book the space</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span>
-        </button>
-      </div>
+  <header class="chrome" id="chrome">
+    <a href="#top" class="wordmark">Golden Hour Loft<sup>®</sup></a>
+    <div class="chrome-actions">
+      <a class="btn btn-small" href="https://www.peerspace.com/pages/listings/67981614acf549c7b9556489" target="_blank" rel="noopener">Book</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span class="menu-label">Menu</span>
+        <span class="menu-bars"><span></span><span></span></span>
+      </button>
     </div>
   </header>
 
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <div class="menu" id="menu" aria-hidden="true">
     <nav aria-label="Menu">
-      <a href="#spaces">Spaces</a>
-      <a href="#about">About</a>
-      <a href="#details">Details</a>
-      <a href="#contact">Contact</a>
-      <a class="menu-book" href="https://www.peerspace.com/pages/listings/67981614acf549c7b9556489" target="_blank" rel="noopener">Book the space ↗</a>
+      <a href="#spaces"><span class="menu-index">01</span>Spaces</a>
+      <a href="#about"><span class="menu-index">02</span>About</a>
+      <a href="#details"><span class="menu-index">03</span>Details</a>
+      <a href="#contact"><span class="menu-index">04</span>Contact</a>
     </nav>
-    <p class="menu-foot">Golden Hour Loft — Brooklyn, NY</p>
+    <div class="menu-foot">
+      <a href="https://www.peerspace.com/pages/listings/67981614acf549c7b9556489" target="_blank" rel="noopener">Book on Peerspace ↗</a>
+      <p>Golden Hour Loft — Brooklyn, NY<br>A Rule of Thirds Space</p>
+    </div>
   </div>
 
   <main id="top">
@@ -53,20 +48,42 @@
     <!-- HERO -->
     <section class="hero">
       <p class="eyebrow reveal">A Rule of Thirds Space — Brooklyn, NY</p>
-      <h1 class="reveal">A loft built<br>for golden hour.</h1>
+      <h1 class="reveal" aria-label="Golden Hour Loft">
+        <span class="h-line h-l1">Golden</span>
+        <span class="h-line h-l2">Hour <em>Loft</em></span>
+      </h1>
       <p class="hero-sub reveal">A 5,000 sq ft Brooklyn production loft with floor-to-ceiling windows, a working chef&rsquo;s kitchen, and a private rooftop. Built for photo, film, and content.</p>
       <div class="hero-ctas reveal">
         <a class="btn" href="https://www.peerspace.com/pages/listings/67981614acf549c7b9556489" target="_blank" rel="noopener">Book the space</a>
         <a class="btn btn-ghost" href="#spaces">Explore the loft</a>
       </div>
-      <figure class="hero-media reveal">
-        <img src="images/living-staircase.jpg"
-             srcset="images/living-staircase-sm.jpg 960w, images/living-staircase.jpg 1320w"
-             sizes="100vw"
-             alt="Sunlit living room of Golden Hour Loft with staircase, burnt-orange armchairs, and styled shelves"
-             fetchpriority="high" decoding="async">
-      </figure>
-      <dl class="hero-stats reveal">
+    </section>
+
+    <!-- FILMSTRIP -->
+    <div class="filmstrip reveal" aria-hidden="true">
+      <div class="film-track">
+        <img src="images/living-staircase-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/kitchen-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/lounge-art-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/loft-double-height-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/art-abstract-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/art-boxing-gloves-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/vinyl-wall-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/living-wide-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/living-staircase-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/kitchen-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/lounge-art-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/loft-double-height-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/art-abstract-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/art-boxing-gloves-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/vinyl-wall-sm.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/living-wide-sm.jpg" alt="" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <section class="stats reveal">
+      <dl>
         <div><dt>5,000</dt><dd>Sq ft of open floor</dd></div>
         <div><dt>$125</dt><dd>Per hour</dd></div>
         <div><dt>4.98 ★</dt><dd>Across 51 reviews</dd></div>
@@ -86,7 +103,7 @@
     <section class="spaces" id="spaces">
       <div class="section-head reveal">
         <p class="eyebrow">The Space</p>
-        <h2>Multiple looks,<br>one booking.</h2>
+        <h2>Multiple looks,<br><em>one</em> booking.</h2>
         <p class="section-sub">Distinct setups live under one roof — shoot a full day of looks without a single company move.</p>
       </div>
 
@@ -147,7 +164,7 @@
       <div class="about-grid">
         <div class="reveal">
           <p class="eyebrow">About</p>
-          <h2>One roof,<br>every setup.</h2>
+          <h2>One roof,<br><em>every</em> setup.</h2>
           <p>Golden Hour Loft is a 5,000 sq ft Brooklyn production space under Rule of Thirds, built for the way modern shoots actually run — product and e-commerce, branded content, short films, podcasts, and social, all in one day.</p>
           <p>The clean backdrops, styled kitchen, lounge, and private rooftop give you versatile, on-brand sets without leaving the building. Shoot a full catalog, or a week of posts, before the light changes.</p>
           <p class="pullquote">&ldquo;Producing something specific? Message before you book — we&rsquo;ll talk through your shoot and help you plan the day.&rdquo;</p>
@@ -166,7 +183,7 @@
     <section class="details" id="details">
       <div class="section-head reveal">
         <p class="eyebrow">Details</p>
-        <h2>Good to know.</h2>
+        <h2>Good to <em>know.</em></h2>
       </div>
       <div class="details-grid">
         <div class="detail-col reveal">
@@ -214,7 +231,7 @@
     <!-- BOOKING CTA -->
     <section class="book" id="book">
       <p class="eyebrow reveal">Booking</p>
-      <h2 class="reveal">Ready to shoot?</h2>
+      <h2 class="reveal">Ready to <em>shoot?</em></h2>
       <p class="reveal">Check availability and book instantly on Peerspace.<br>Fast response — we&rsquo;d love to host your production.</p>
       <a class="btn btn-large reveal" href="https://www.peerspace.com/pages/listings/67981614acf549c7b9556489" target="_blank" rel="noopener">Book on Peerspace ↗</a>
     </section>
