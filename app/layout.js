@@ -2,11 +2,12 @@ import './globals.css';
 import { Inter, Newsreader } from 'next/font/google';
 import { CartProvider } from '../components/cart';
 import Nav from '../components/Nav';
+import PerspectiveBar from '../components/PerspectiveBar';
 import Footer from '../components/Footer';
 import CartDrawer from '../components/CartDrawer';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
-const newsreader = Newsreader({ subsets: ['latin'], style: 'italic', variable: '--font-serif' });
+const newsreader = Newsreader({ subsets: ['latin'], style: ['normal', 'italic'], variable: '--font-serif' });
 
 export const metadata = {
   title: {
@@ -32,8 +33,9 @@ export default function RootLayout({ children }) {
       <body>
         <CartProvider>
           <Nav />
-          <main>{children}</main>
+          <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />
+          <PerspectiveBar />
           <CartDrawer />
         </CartProvider>
       </body>
