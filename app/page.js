@@ -14,32 +14,33 @@ const PEERSPACE = 'https://www.peerspace.com/pages/listings/67981614acf549c7b955
 export default function Home() {
   return (
     <>
-      {/* HERO */}
-      <section className="page-hero home-hero">
-        <Reveal>
-          <p className="eyebrow">A creative space — Brooklyn, NY</p>
-          <h1>
-            Rule of <em>Thirds</em>
-          </h1>
-        </Reveal>
-        <Reveal>
-          <div className="hero-media">
-            <Image
-              src="/images/living-staircase.jpg"
-              alt="Sunlit interior of the Golden Hour Loft studio"
-              width={1320}
-              height={880}
-              priority
-            />
-          </div>
-        </Reveal>
+      <section className="perspective-hero" aria-labelledby="home-title">
+        <div className="hero-kicker"><span>A creative space</span><span>Imagery / Culture / Objects</span></div>
+        <h1 id="home-title" className="perspective-title"><span>Rule of</span><em>Thirds<span className="title-period">.</span></em></h1>
+        <div className="contact-sheet" aria-label="Explore Rule of Thirds">
+          {[
+            { src: 'living-staircase.jpg', alt: 'Sunlit Golden Hour Loft interior with orange chairs', label: '01 — The space', href: '/about#studio' },
+            { src: 'hat-front.jpg', alt: 'Rust corduroy Without Music, Life Would B-flat hat', label: '02 — The objects', href: '/shop' },
+            { src: 'vinyl-wall.jpg', alt: 'Vinyl record display at Golden Hour Loft', label: '03 — The details', href: '/about#studio' },
+            { src: 'loft-double-height.jpg', alt: 'Double-height Brooklyn loft and mezzanine', label: '04 — The perspective', href: '/about' },
+            { src: 'hat-lifestyle.jpg', alt: 'Rule of Thirds corduroy hat styled in the studio', label: '05 — The everyday', href: '/shop' },
+          ].map((item, i) => (
+            <Link href={item.href} className="contact-sheet-frame" key={item.src}>
+              <div><Image src={`/images/${item.src}`} alt={item.alt} width={560} height={640}
+                sizes="(max-width: 600px) 66vw, 22vw" priority={i < 2} /></div>
+              <span>{item.label}<span aria-hidden="true">↗</span></span>
+            </Link>
+          ))}
+        </div>
+        <div className="hero-bottom"><span>Photography. Film. Art. Design.</span><a href="#perspective">Explore the perspective ↓</a></div>
       </section>
 
       {/* INTRO */}
-      <section className="intro-block">
+      <section id="perspective" className="intro-block editorial-intro">
         <Reveal>
-          <h2>An exercise in perspective.</h2>
-          <p className="lede" style={{ margin: '0 auto' }}>
+          <p className="eyebrow">01 / The philosophy</p>
+          <h2>An exercise in <em>perspective.</em></h2>
+          <p className="lede" >
             A creative space dedicated to the intersection of imagery, storytelling, culture,
             and design. Through photography, moving images, and thoughtfully created objects,
             we explore the ways in which art influences how we see and experience the world.
@@ -50,14 +51,14 @@ export default function Home() {
       {/* FEATURED PRODUCT */}
       <section className="wrap" style={{ paddingBottom: '5rem' }}>
         <Reveal>
-          <p className="eyebrow">Featured Object</p>
+          <p className="eyebrow section-label">02 / Featured object <span>First edition — Preorder</span></p>
         </Reveal>
         <Reveal>
           <div className="product-card">
             <div className="product-visual product-visual-photo">
               <Image
                 src="/images/hat-front.jpg"
-                alt='Rust corduroy hat embroidered with "Without Music, Life Would flat"'
+                alt='Rust corduroy hat embroidered with "Without Music, Life Would B-flat"'
                 width={1320}
                 height={880}
               />
@@ -92,7 +93,7 @@ export default function Home() {
             />
           </Reveal>
           <Reveal>
-            <p className="eyebrow">The Studio</p>
+            <p className="eyebrow">03 / The studio</p>
             <h2>
               Golden Hour <em>Loft</em>
             </h2>
