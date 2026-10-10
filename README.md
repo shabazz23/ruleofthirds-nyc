@@ -1,30 +1,42 @@
-# Golden Hour Loft — ruleofthirds.nyc
+# Rule of Thirds — ruleofthirds.nyc
 
-A light editorial one-page site for **Golden Hour Loft**, a 5,000 sq ft Brooklyn
-production space under the **Rule of Thirds** umbrella.
+Next.js (App Router) site for the **Rule of Thirds** creative platform: portfolio,
+shop (preorder merch), and the **Golden Hour Loft** Brooklyn production studio.
 
-Static site — no build step, no dependencies. Just HTML, CSS, and vanilla JS.
+## Pages
 
-## Structure
+- `/` — Home: hero, intro, featured preorder hat, Golden Hour Loft feature
+- `/about` — About the studio + full Golden Hour Loft section (space cards, Peerspace booking)
+- `/gallery` — Placeholder ("A collection in progress")
+- `/shop` — Objects / Shop: embroidered hat preorder (checkout wired later via Shopify)
+- `/contact` — Contact form (goes live with the store launch)
 
-- `index.html` — page content and structure
-- `styles.css` — light editorial design system
-- `script.js` — sticky header, mobile menu, scroll reveals
-- `images/` — optimized photos (`*-sm.jpg` variants are used for mobile via `srcset`)
-- `tools/optimize_images.py` — the script used to select & compress the photos
+## Commerce status
 
-## Deploy (GitHub + Vercel)
+- Client-side bag (add / quantity / remove, persisted to localStorage) is fully working.
+- Checkout is **disabled** until the Shopify store exists — the drawer says so honestly.
+- Product data lives in `components/products.js` (`price: null` renders as "TBA").
+- To go live: create the Shopify store, then wire checkout (Storefront API or Buy Button)
+  and flip the drawer button.
 
-1. Create a new GitHub repo (e.g. `ruleofthirds-nyc`) and push this folder's contents.
-2. In Vercel: **Add New → Project → Import** the repo. Framework preset: **Other**.
-   No build command, no output directory — Vercel serves it as a static site.
-3. Add the custom domain `ruleofthirds.nyc` in the project settings and add the
-   DNS records Vercel gives you at your registrar.
+## Still TBD (owner)
 
-## Editing content
+- Hat price, colors, product photos, preorder shipping window
+- Business email + social links
+- Real legal policies (Shipping & Returns, Preorder Policy, Privacy, Terms) — footer
+  lists them as plain text until real policies exist. No placeholders.
 
-- Copy lives in `index.html`, clearly sectioned (hero, spaces, about, details, booking, footer).
-- Booking buttons point at the Peerspace listing — search `peerspace.com` in
-  `index.html` to update the URL in one pass.
-- To swap a photo: drop the new file in `images/` and update the `src`/`srcset`
-  on the relevant `<img>` tag.
+## Develop
+
+```bash
+npm install
+npm run dev
+```
+
+Deploy: push to `master` → Vercel auto-deploys. Custom domain: `ruleofthirds.nyc`
+(A record `@ → 216.198.79.1` at Namecheap; `www` per Vercel's requested record).
+
+## Images
+
+Studio photography in `public/images/` (optimized full + `-sm` variants).
+Only original/user-supplied photos are used.
