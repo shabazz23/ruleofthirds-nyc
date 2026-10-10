@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useCart, formatPrice } from './cart';
 
 export default function CartDrawer() {
@@ -21,8 +22,12 @@ export default function CartDrawer() {
           ) : (
             items.map((item) => (
               <div className="cart-item" key={item.id}>
-                <div className="ci-visual" aria-hidden="true">
-                  ♭
+                <div className="ci-visual">
+                  {item.image ? (
+                    <Image src={item.image} alt="" width={168} height={168} />
+                  ) : (
+                    <span aria-hidden="true">♭</span>
+                  )}
                 </div>
                 <div>
                   <p className="ci-name">{item.name}</p>

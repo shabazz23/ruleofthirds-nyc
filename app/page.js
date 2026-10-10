@@ -53,17 +53,20 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <div className="product-card">
-            <div className="product-visual">
-              <p className="hat-mark">
-                Without Music,
-                <br />
-                Life Would ♭
-              </p>
+            <div className="product-visual product-visual-photo">
+              <Image
+                src="/images/hat-front.jpg"
+                alt='Rust corduroy hat embroidered with "Without Music, Life Would flat"'
+                width={1320}
+                height={880}
+              />
             </div>
             <div className="product-info">
               <span className="preorder-tag">Preorder</span>
               <h3>{HAT.name}</h3>
-              <p className="desc">{HAT.blurb}</p>
+              <p className="desc">
+                {HAT.detail} — {HAT.color}. {HAT.blurb}
+              </p>
               <p className="price">Price TBA</p>
               <div className="product-actions">
                 <AddToBag product={HAT} />

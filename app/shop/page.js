@@ -1,5 +1,6 @@
 import Reveal from '../../components/Reveal';
 import AddToBag from '../../components/AddToBag';
+import ProductGallery from '../../components/ProductGallery';
 import { HAT } from '../../components/products';
 
 export const metadata = {
@@ -21,23 +22,25 @@ export default function Shop() {
 
       <section className="wrap" style={{ paddingBottom: '4rem' }}>
         <Reveal>
-          <div className="product-card">
-            <div className="product-visual">
-              <p className="hat-mark">
-                Without Music,
-                <br />
-                Life Would ♭
-              </p>
-            </div>
+          <div className="product-card product-card-shop">
+            <ProductGallery images={HAT.images} />
             <div className="product-info">
               <span className="preorder-tag">Preorder</span>
               <h3>{HAT.name}</h3>
+              <p className="desc">
+                {HAT.detail} — {HAT.color}
+              </p>
               <p className="desc">{HAT.blurb}</p>
               {HAT.description.map((para, i) => (
                 <p className="desc" key={i} style={{ marginTop: '1rem' }}>
                   {para}
                 </p>
               ))}
+              <ul className="detail-list">
+                {HAT.details.map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
               <p className="price">Price TBA</p>
               <div className="product-actions">
                 <AddToBag product={HAT} label="Preorder — Add to Bag" />
