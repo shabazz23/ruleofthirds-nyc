@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Reveal from '../components/Reveal';
 import AddToBag from '../components/AddToBag';
+import { formatPrice } from '../components/format';
 import { HAT } from '../components/products';
 
 export const metadata = {
@@ -67,7 +68,7 @@ export default function Home() {
               <p className="desc">
                 {HAT.detail} — {HAT.color}. {HAT.blurb}
               </p>
-              <p className="price">Price TBA</p>
+              <p className="price">{formatPrice(HAT.price)}</p>
               <div className="product-actions">
                 <AddToBag product={HAT} />
                 <Link href="/shop" className="btn btn-ghost">

@@ -6,8 +6,10 @@ export const HAT = {
   name: 'Without Music, Life Would ♭',
   detail: 'Embroidered Corduroy Hat',
   color: 'Rust',
-  price: null,
+  price: 50,
   preorder: true,
+  shipping: 'Ships in 7 days',
+  shippingCost: 6.99,
   image: '/images/hat-front.jpg',
   images: [
     {

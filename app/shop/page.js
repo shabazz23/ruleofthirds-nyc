@@ -1,6 +1,7 @@
 import Reveal from '../../components/Reveal';
 import AddToBag from '../../components/AddToBag';
 import ProductGallery from '../../components/ProductGallery';
+import { formatPrice } from '../../components/format';
 import { HAT } from '../../components/products';
 
 export const metadata = {
@@ -41,13 +42,16 @@ export default function Shop() {
                   <li key={d}>{d}</li>
                 ))}
               </ul>
-              <p className="price">Price TBA</p>
+              <p className="price">{formatPrice(HAT.price)}</p>
+              <p className="desc" style={{ marginTop: '-0.75rem' }}>
+                {HAT.shipping} · {formatPrice(HAT.shippingCost)} shipping
+              </p>
               <div className="product-actions">
                 <AddToBag product={HAT} label="Preorder — Add to Bag" />
               </div>
               <p className="form-note" style={{ marginTop: '1.25rem' }}>
-                This is a preorder item. Estimated shipping window and final pricing will be
-                announced before checkout opens.
+                This is a preorder item. {HAT.shipping}. Secure checkout opens with our
+                store launch.
               </p>
             </div>
           </div>

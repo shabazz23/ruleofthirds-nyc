@@ -1,10 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import { useCart, formatPrice } from './cart';
+import { useCart } from './cart';
+import { formatPrice } from './format';
 
 export default function CartDrawer() {
   const { items, isOpen, closeCart, setQty, removeItem, subtotal } = useCart();
+
+  const shipping = items.length > 0 ? Math.max(...items.map((i) => i.shippingCost || 0)) : 0;
+  const total = subtotal != null ? subtotal + shipping : null;
 
   return (
     <>
@@ -52,9 +56,17 @@ export default function CartDrawer() {
         </div>
         {items.length > 0 && (
           <div className="cart-foot">
-            <div className="cart-row">
+            <div className="cart-row cart-row-sub">
               <span>Subtotal</span>
               <span>{subtotal != null ? formatPrice(subtotal) : 'TBA'}</span>
+            </div>
+            <div className="cart-row cart-row-sub">
+              <span>Shipping</span>
+              <span>{formatPrice(shipping)}</span>
+            </div>
+            <div className="cart-row">
+              <span>Total</span>
+              <span>{total != null ? formatPrice(total) : 'TBA'}</span>
             </div>
             <button className="btn" disabled>
               Checkout — coming soon
