@@ -3,7 +3,8 @@
 // Home hero with the entrance sequence: a viewfinder draws the thirds grid, a focus
 // reticle locks on the upper-left power point, a shutter opens on a grid of letters,
 // and the letters of "Rule of Thirds" fly (GSAP Flip) into the headline.
-// Plays on every visit to the homepage; skipped entirely for reduced-motion visitors.
+// The first homepage load of a browser session plays the full sequence; later loads play a
+// ~3 second version (letter grid → headline only). Skipped entirely for reduced-motion visitors.
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,6 +15,7 @@ import InlineScript from './InlineScript';
 
 gsap.registerPlugin(Flip);
 
+const SEEN_KEY = 'rot-intro-seen';
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const LINES = [
   [{ text: 'RULE' }, { text: 'OF' }],
@@ -96,14 +98,46 @@ export default function HomeHero() {
       grid.appendChild(cell);
     }
 
+    let repeat = false;
+    try {
+      repeat = !!sessionStorage.getItem(SEEN_KEY);
+      sessionStorage.setItem(SEEN_KEY, '1');
+    } catch {}
+
     window.scrollTo(0, 0);
     document.body.classList.add('locked');
+    const startScramble = () => {
+      scrambleTimer = window.setInterval(() => {
+        for (const f of fills) if (Math.random() < 0.35) f.textContent = ALPHABET[Math.floor(Math.random() * 26)];
+      }, 70);
+    };
 
     const ctx = gsap.context(() => {
       gsap.set(chrome, { autoAlpha: 0 });
       gsap.set(chars, { opacity: 0.35, color: muted });
-      gsap.set('.hero-guides span', { backgroundColor: ink });
 
+      if (repeat) {
+        // Short version (~3s): straight to the letter grid, then the name flies home.
+        gsap.set(['.vf-corner', '.vf-reticle', '.vf-readout'], { autoAlpha: 0 });
+        gsap.set(grid, { autoAlpha: 1 });
+        startScramble();
+        gsap
+          .timeline({ defaults: { ease: 'power2.inOut' } })
+          .call(() => window.clearInterval(scrambleTimer), null, 0.5)
+          .to(chars, { opacity: 1, color: ink, duration: 0.15, stagger: { each: 0.02, from: 'random' } })
+          .to(fills, { opacity: 0, filter: 'blur(10px)', duration: 0.45, stagger: { amount: 0.25, from: 'random' } }, '<0.1')
+          .call(() => {
+            const state = Flip.getState(chars);
+            goHome();
+            flipTween = Flip.from(state, { duration: 1, ease: 'power3.inOut', scale: true, stagger: 0.02 });
+          }, null, '+=0.05')
+          .set(chars, { clearProps: 'color,opacity' }, '+=1.25')
+          .call(finish)
+          .to(chrome, { autoAlpha: 1, duration: 0.5, ease: 'power3.out', stagger: 0.05 }, '<-0.3');
+        return;
+      }
+
+      gsap.set('.hero-guides span', { backgroundColor: ink });
       gsap
         .timeline({ defaults: { ease: 'power2.inOut' } })
         // 1. Viewfinder
@@ -122,11 +156,7 @@ export default function HomeHero() {
         .to('.vf-shutter', { y: 0, duration: 0.22, ease: 'power4.in' }, '+=0.1')
         .set(['.vf-corner', '.vf-reticle', '.vf-readout', '.hero-guides span'], { autoAlpha: 0 })
         .set(grid, { autoAlpha: 1 })
-        .call(() => {
-          scrambleTimer = window.setInterval(() => {
-            for (const f of fills) if (Math.random() < 0.35) f.textContent = ALPHABET[Math.floor(Math.random() * 26)];
-          }, 70);
-        })
+        .call(startScramble)
         .to('.vf-shutter.top', { y: '-101%', duration: 0.5, ease: 'power3.out' }, '+=0.06')
         .to('.vf-shutter.bot', { y: '101%', duration: 0.5, ease: 'power3.out' }, '<')
         // 4. The hidden name sharpens; everything else blurs away
