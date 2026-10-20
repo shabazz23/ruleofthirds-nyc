@@ -1,4 +1,8 @@
+import { Pinyon_Script } from 'next/font/google';
 import Reveal from '../../components/Reveal';
+import { GALLERY } from '../../components/gallery';
+
+const script = Pinyon_Script({ subsets: ['latin'], weight: '400' });
 
 export const metadata = {
   title: 'Gallery',
@@ -9,19 +13,61 @@ export default function Gallery() {
     <>
       <section className="page-hero center">
         <Reveal>
-          <p className="eyebrow">Selected Work</p>
           <h1>Gallery</h1>
+          <p className={`gallery-script ${script.className}`}>shot inside the space</p>
         </Reveal>
       </section>
       <section className="wrap" style={{ paddingBottom: '4rem' }}>
-        <Reveal>
-          <div className="gallery-blank">
-            <h2>
-              A collection <em>in progress</em>.
-            </h2>
-            <p>Photography, film, and artwork — coming soon.</p>
+        {GALLERY.length === 0 ? (
+          <Reveal>
+            <div className="gallery-blank">
+              <h2>
+                A collection <em>in progress</em>.
+              </h2>
+              <p>Photography, film, and artwork — coming soon.</p>
+            </div>
+          </Reveal>
+        ) : (
+          <div className="gallery-grid">
+            {GALLERY.map((g) => (
+              <Reveal key={g.href} className="gallery-cell">
+                <figure className={`gallery-item gallery-${g.shape || 'wide'}`}>
+                  <a
+                    className="gallery-media"
+                    href={g.href}
+                    target="_blank"
+                    rel="noopener"
+                    aria-label={[g.linkLabel, g.title, g.titleEm, g.artist && `by ${g.artist}`].filter(Boolean).join(' ')}
+                  >
+                    {g.video ? (
+                      <video autoPlay muted loop playsInline preload="metadata" poster={g.poster} aria-hidden="true">
+                        {g.video.webm && <source src={g.video.webm} type="video/webm" />}
+                        <source src={g.video.mp4} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img src={g.image} alt="" loading="lazy" />
+                    )}
+                    <span className="gallery-cta">
+                      {g.linkLabel} <span aria-hidden="true">↗</span>
+                    </span>
+                  </a>
+                  {(g.kind || g.title || g.titleEm || g.artist) && (
+                    <figcaption>
+                      {g.kind && <span className="gallery-kind">{g.kind}</span>}
+                      {(g.title || g.titleEm || g.artist) && (
+                        <span className="gallery-title">
+                          {g.title}
+                          {g.titleEm && <em className="gallery-title-em"> {g.titleEm}</em>}
+                          {g.artist && <em>{(g.title || g.titleEm) && ' — '}{g.artist}</em>}
+                        </span>
+                      )}
+                    </figcaption>
+                  )}
+                </figure>
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
+        )}
       </section>
     </>
   );
