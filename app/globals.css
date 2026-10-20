@@ -242,6 +242,7 @@ body.cart-open .cart-drawer { transform: none; }
 .gallery-kind { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 .gallery-title { font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; }
 .gallery-title em { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--muted); }
+.gallery-title em.gallery-title-em { color: var(--ink); }
 @media (hover: none) {
   .gallery-cta { opacity: 1; transform: none; }
 }

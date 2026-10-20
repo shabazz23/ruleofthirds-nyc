@@ -5,6 +5,7 @@
 //
 //   {
 //     title: 'Song Title',                      // optional
+//     titleEm: 'in italics',                    // optional, set in the serif italic after the title
 //     artist: 'Artist Name',                    // optional
 //     kind: 'Music Video',                      // small label above the title
 //     href: 'https://www.youtube.com/watch?v=…',
@@ -14,9 +15,10 @@
 //   },
 export const GALLERY = [
   {
-    title: '', // TODO: song name from SH
-    artist: '', // TODO: artist and song name from SH
-    kind: 'Music Video',
+    kind: 'Music Video · Shot in the Loft',
+    title: 'Golden Hour,',
+    titleEm: 'after hours',
+    artist: '',
     href: 'https://www.youtube.com/watch?v=gTep-8LflL4',
     linkLabel: 'Watch on YouTube',
     video: { mp4: '/gallery/music-video.mp4', webm: '/gallery/music-video.webm' },

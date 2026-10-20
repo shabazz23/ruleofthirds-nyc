@@ -34,7 +34,7 @@ export default function Gallery() {
                     href={g.href}
                     target="_blank"
                     rel="noopener"
-                    aria-label={[g.linkLabel, g.title, g.artist && `by ${g.artist}`].filter(Boolean).join(' ')}
+                    aria-label={[g.linkLabel, g.title, g.titleEm, g.artist && `by ${g.artist}`].filter(Boolean).join(' ')}
                   >
                     {g.video ? (
                       <video autoPlay muted loop playsInline preload="metadata" poster={g.poster} aria-hidden="true">
@@ -50,10 +50,11 @@ export default function Gallery() {
                   </a>
                   <figcaption>
                     <span className="gallery-kind">{g.kind}</span>
-                    {(g.title || g.artist) && (
+                    {(g.title || g.titleEm || g.artist) && (
                       <span className="gallery-title">
                         {g.title}
-                        {g.artist && <em>{g.title && ' — '}{g.artist}</em>}
+                        {g.titleEm && <em className="gallery-title-em"> {g.titleEm}</em>}
+                        {g.artist && <em>{(g.title || g.titleEm) && ' — '}{g.artist}</em>}
                       </span>
                     )}
                   </figcaption>
