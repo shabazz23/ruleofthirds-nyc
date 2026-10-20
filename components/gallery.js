@@ -4,7 +4,7 @@
 // Put files in public/gallery/ and add an entry:
 //
 //   {
-//     title: 'Song Title',
+//     title: 'Song Title',                      // optional
 //     artist: 'Artist Name',                    // optional
 //     kind: 'Music Video',                      // small label above the title
 //     href: 'https://www.youtube.com/watch?v=…',
@@ -14,7 +14,7 @@
 //   },
 export const GALLERY = [
   {
-    title: 'Filmed at Rule of Thirds',
+    title: '', // TODO: song name from SH
     artist: '', // TODO: artist and song name from SH
     kind: 'Music Video',
     href: 'https://www.youtube.com/watch?v=gTep-8LflL4',
