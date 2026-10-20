@@ -218,22 +218,25 @@ body.cart-open .cart-drawer { transform: none; }
 .gallery-blank h2 { font-size: clamp(1.6rem, 4vw, 2.6rem); text-transform: uppercase; }
 .gallery-blank p { color: var(--muted); }
 
+/* Tight mosaic on a thirds grid: wide frames span two thirds, tall frames keep
+   their own proportions (so bottom edges stagger a little), portrait frames
+   span two rows and stretch to fill, and dense packing closes the gaps. */
 .gallery-grid {
-  display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 2.5rem; row-gap: 6rem;
-  align-items: start; padding-top: 1rem;
+  display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-flow: dense;
+  gap: clamp(0.6rem, 1.4vw, 1.1rem); max-width: 1180px; margin: 0 auto; padding-top: 0.5rem;
 }
-/* Rule-of-thirds stagger: a big piece on two thirds, a small one dropped into the last third, then mirrored. */
-.gallery-cell:nth-child(4n + 1) { grid-column: 1 / span 8; }
-.gallery-cell:nth-child(4n + 2) { grid-column: 9 / span 4; margin-top: 10rem; }
-.gallery-cell:nth-child(4n + 3) { grid-column: 2 / span 4; margin-top: -3rem; }
-.gallery-cell:nth-child(4n + 4) { grid-column: 6 / span 7; margin-top: 7rem; }
+.gallery-cell:has(.gallery-wide) { grid-column: span 2; }
+.gallery-cell:has(.gallery-portrait) { grid-row: span 2; }
+.gallery-cell, .gallery-item { height: 100%; }
+.gallery-cell:has(.gallery-tall) { align-self: start; height: auto; }
 .gallery-script { margin-top: 0.4rem; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.2; color: var(--accent); }
 .gallery-item { margin: 0; }
 .gallery-media {
   position: relative; display: block; overflow: hidden; border-radius: 3px;
-  aspect-ratio: 2 / 1; background: var(--ink);
+  height: 100%; background: var(--ink);
 }
-.gallery-tall .gallery-media { aspect-ratio: 4 / 5; }
+.gallery-wide .gallery-media { aspect-ratio: 2 / 1; }
+.gallery-tall .gallery-media { aspect-ratio: var(--ratio, 4 / 5); }
 .gallery-media video, .gallery-media img {
   width: 100%; height: 100%; object-fit: cover; display: block;
   transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.5s ease;
@@ -248,19 +251,48 @@ body.cart-open .cart-drawer { transform: none; }
 .gallery-media:focus-visible video, .gallery-media:focus-visible img { transform: scale(1.03); filter: brightness(0.85); }
 .gallery-media:hover .gallery-cta, .gallery-media:focus-visible .gallery-cta { opacity: 1; transform: none; }
 .gallery-media:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.gallery-media-multi::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(17, 17, 16, 0.6), rgba(17, 17, 16, 0) 55%);
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.gallery-links {
+  position: absolute; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; z-index: 1;
+  list-style: none; display: flex; flex-direction: column; align-items: flex-start; gap: 0.45rem;
+  opacity: 0; transform: translateY(8px); transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.gallery-links a {
+  display: inline-block; padding: 0.55rem 0.95rem; border-radius: 2px; background: var(--paper); color: var(--ink);
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.gallery-links a:hover, .gallery-links a:focus-visible { background: var(--accent); color: var(--paper); outline: none; }
+.gallery-links .gallery-credit {
+  margin-bottom: 0.2rem; color: var(--paper);
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+}
+.gallery-links .gallery-credit a {
+  padding: 0; background: none; color: var(--paper); text-transform: none; letter-spacing: 0.02em;
+  font-size: 0.85rem; border-bottom: 1px solid currentColor;
+}
+.gallery-links .gallery-credit a:hover, .gallery-links .gallery-credit a:focus-visible { background: none; color: var(--accent); }
+.gallery-media-multi:hover video, .gallery-media-multi:hover img,
+.gallery-media-multi:focus-within video, .gallery-media-multi:focus-within img { transform: scale(1.03); filter: brightness(0.85); }
+.gallery-media-multi:hover::after, .gallery-media-multi:focus-within::after,
+.gallery-media-multi:hover .gallery-links, .gallery-media-multi:focus-within .gallery-links { opacity: 1; transform: none; }
 .gallery-item figcaption { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
 .gallery-kind { display: flex; align-items: baseline; gap: 0.9rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 .gallery-title { font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; }
 .gallery-title em { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--muted); }
 .gallery-title em.gallery-title-em { color: var(--ink); }
 @media (max-width: 900px) {
-  .gallery-grid { grid-template-columns: 1fr; row-gap: 4rem; }
-  .gallery-cell:nth-child(n) { grid-column: 1; margin-top: 0; }
-  .gallery-cell:has(.gallery-tall):nth-child(even) { margin-left: 22%; }
-  .gallery-cell:has(.gallery-tall):nth-child(odd) { margin-right: 22%; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-links { left: 0.6rem; right: 0.6rem; bottom: 0.6rem; gap: 0.3rem; }
+  .gallery-links a { padding: 0.4rem 0.6rem; font-size: 0.58rem; letter-spacing: 0.12em; }
+  .gallery-cta { left: 0.6rem; bottom: 0.6rem; padding: 0.45rem 0.7rem; font-size: 0.6rem; }
 }
 @media (hover: none) {
-  .gallery-cta { opacity: 1; transform: none; }
+  .gallery-cta, .gallery-links, .gallery-media-multi::after { opacity: 1; transform: none; }
 }
 
 /* ---------- featured artists ---------- */
