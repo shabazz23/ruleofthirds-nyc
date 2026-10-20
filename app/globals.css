@@ -253,7 +253,6 @@ body.cart-open .cart-drawer { transform: none; }
 .gallery-title { font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; }
 .gallery-title em { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--muted); }
 .gallery-title em.gallery-title-em { color: var(--ink); }
-.gallery-index { font-family: var(--font-serif); font-style: italic; font-size: 0.95rem; letter-spacing: 0; color: var(--muted); text-transform: none; }
 @media (max-width: 900px) {
   .gallery-grid { grid-template-columns: 1fr; row-gap: 4rem; }
   .gallery-cell:nth-child(n) { grid-column: 1; margin-top: 0; }
