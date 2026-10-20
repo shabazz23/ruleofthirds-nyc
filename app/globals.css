@@ -248,6 +248,26 @@ body.cart-open .cart-drawer { transform: none; }
 .gallery-media:focus-visible video, .gallery-media:focus-visible img { transform: scale(1.03); filter: brightness(0.85); }
 .gallery-media:hover .gallery-cta, .gallery-media:focus-visible .gallery-cta { opacity: 1; transform: none; }
 .gallery-media:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.gallery-media-multi::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(17, 17, 16, 0.6), rgba(17, 17, 16, 0) 55%);
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.gallery-links {
+  position: absolute; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; z-index: 1;
+  list-style: none; display: flex; flex-direction: column; align-items: flex-start; gap: 0.45rem;
+  opacity: 0; transform: translateY(8px); transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.gallery-links a {
+  display: inline-block; padding: 0.55rem 0.95rem; border-radius: 2px; background: var(--paper); color: var(--ink);
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.gallery-links a:hover, .gallery-links a:focus-visible { background: var(--accent); color: var(--paper); outline: none; }
+.gallery-media-multi:hover video, .gallery-media-multi:hover img,
+.gallery-media-multi:focus-within video, .gallery-media-multi:focus-within img { transform: scale(1.03); filter: brightness(0.85); }
+.gallery-media-multi:hover::after, .gallery-media-multi:focus-within::after,
+.gallery-media-multi:hover .gallery-links, .gallery-media-multi:focus-within .gallery-links { opacity: 1; transform: none; }
 .gallery-item figcaption { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
 .gallery-kind { display: flex; align-items: baseline; gap: 0.9rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 .gallery-title { font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; }
@@ -260,7 +280,7 @@ body.cart-open .cart-drawer { transform: none; }
   .gallery-cell:has(.gallery-tall):nth-child(odd) { margin-right: 22%; }
 }
 @media (hover: none) {
-  .gallery-cta { opacity: 1; transform: none; }
+  .gallery-cta, .gallery-links, .gallery-media-multi::after { opacity: 1; transform: none; }
 }
 
 /* ---------- featured artists ---------- */
