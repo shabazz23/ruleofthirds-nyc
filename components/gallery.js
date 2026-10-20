@@ -4,8 +4,9 @@
 // A piece with several links uses `links` instead of href/linkLabel; they
 // appear as a small menu over the clip on hover (always shown on phones).
 // Pieces pack into a tight mosaic on a three-column grid; `shape` sets each
-// frame: 'wide' (two columns), 'tall' (one square cell) or 'portrait' (one
-// column, two rows high, for phone video). List order decides placement.
+// frame: 'wide' (two columns, 2:1), 'tall' (one column, 4:5 unless `ratio`
+// says otherwise) or 'portrait' (one column, two rows high, for phone video).
+// List order decides placement.
 // Put files in public/gallery/ and add an entry:
 //
 //   {
@@ -14,6 +15,7 @@
 //     artist: 'Artist Name',                    // optional
 //     kind: 'Music Video',                      // small label above the title
 //     shape: 'wide',                            // 'wide', 'tall' or 'portrait'
+//     ratio: '3 / 4',                           // optional, tall frames only
 //     href: 'https://www.youtube.com/watch?v=…',
 //     linkLabel: 'Watch on YouTube',            // shown on hover
 //     // or: links: [{ label: 'Instagram', href: '…' }, { label: 'Shop', href: '…' }],
@@ -48,6 +50,7 @@ export const GALLERY = [
   },
   {
     shape: 'tall',
+    ratio: '3 / 4',
     links: [
       { label: 'Instagram', href: 'https://www.instagram.com/chefmarie.a__/' },
       { label: 'Substack', href: 'https://chefmariea1.substack.com/' },

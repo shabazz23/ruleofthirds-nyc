@@ -218,8 +218,9 @@ body.cart-open .cart-drawer { transform: none; }
 .gallery-blank h2 { font-size: clamp(1.6rem, 4vw, 2.6rem); text-transform: uppercase; }
 .gallery-blank p { color: var(--muted); }
 
-/* Tight mosaic on a thirds grid: square cells set the row height, wide frames
-   span two thirds, portrait frames span two rows, and dense packing fills gaps. */
+/* Tight mosaic on a thirds grid: wide frames span two thirds, tall frames keep
+   their own proportions (so bottom edges stagger a little), portrait frames
+   span two rows and stretch to fill, and dense packing closes the gaps. */
 .gallery-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-flow: dense;
   gap: clamp(0.6rem, 1.4vw, 1.1rem); max-width: 1180px; margin: 0 auto; padding-top: 0.5rem;
@@ -227,13 +228,15 @@ body.cart-open .cart-drawer { transform: none; }
 .gallery-cell:has(.gallery-wide) { grid-column: span 2; }
 .gallery-cell:has(.gallery-portrait) { grid-row: span 2; }
 .gallery-cell, .gallery-item { height: 100%; }
+.gallery-cell:has(.gallery-tall) { align-self: start; height: auto; }
 .gallery-script { margin-top: 0.4rem; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.2; color: var(--accent); }
 .gallery-item { margin: 0; }
 .gallery-media {
   position: relative; display: block; overflow: hidden; border-radius: 3px;
   height: 100%; background: var(--ink);
 }
-.gallery-tall .gallery-media { aspect-ratio: 1 / 1; }
+.gallery-wide .gallery-media { aspect-ratio: 2 / 1; }
+.gallery-tall .gallery-media { aspect-ratio: var(--ratio, 4 / 5); }
 .gallery-media video, .gallery-media img {
   width: 100%; height: 100%; object-fit: cover; display: block;
   transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.5s ease;
