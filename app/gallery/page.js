@@ -26,9 +26,9 @@ export default function Gallery() {
           </Reveal>
         ) : (
           <div className="gallery-grid">
-            {GALLERY.map((g) => (
-              <Reveal key={g.href}>
-                <figure className="gallery-item">
+            {GALLERY.map((g, i) => (
+              <Reveal key={g.href} className="gallery-cell">
+                <figure className={`gallery-item gallery-${g.shape || 'wide'}`}>
                   <a
                     className="gallery-media"
                     href={g.href}
@@ -49,7 +49,10 @@ export default function Gallery() {
                     </span>
                   </a>
                   <figcaption>
-                    <span className="gallery-kind">{g.kind}</span>
+                    <span className="gallery-kind">
+                      <span className="gallery-index">{String(i + 1).padStart(2, '0')}</span>
+                      {g.kind}
+                    </span>
                     {(g.title || g.titleEm || g.artist) && (
                       <span className="gallery-title">
                         {g.title}
