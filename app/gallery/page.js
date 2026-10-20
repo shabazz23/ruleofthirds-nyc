@@ -36,6 +36,14 @@ export default function Gallery() {
                     <div className="gallery-media gallery-media-multi">
                       <GalleryMedia g={g} />
                       <ul className="gallery-links">
+                        {g.credit && (
+                          <li className="gallery-credit">
+                            {g.credit.label}{' '}
+                            <a href={g.credit.href} target="_blank" rel="noopener">
+                              {g.credit.name}
+                            </a>
+                          </li>
+                        )}
                         {g.links.map((l) => (
                           <li key={l.href}>
                             <a href={l.href} target="_blank" rel="noopener">

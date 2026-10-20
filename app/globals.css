@@ -227,6 +227,9 @@ body.cart-open .cart-drawer { transform: none; }
 .gallery-cell:nth-child(4n + 2) { grid-column: 9 / span 4; margin-top: 10rem; }
 .gallery-cell:nth-child(4n + 3) { grid-column: 2 / span 4; margin-top: -3rem; }
 .gallery-cell:nth-child(4n + 4) { grid-column: 6 / span 7; margin-top: 7rem; }
+/* Upright frames never take a big slot; they keep to a third. */
+.gallery-cell:nth-child(4n + 1):has(.gallery-tall, .gallery-portrait) { grid-column: 1 / span 4; }
+.gallery-cell:nth-child(4n + 4):has(.gallery-tall, .gallery-portrait) { grid-column: 8 / span 4; }
 .gallery-script { margin-top: 0.4rem; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.2; color: var(--accent); }
 .gallery-item { margin: 0; }
 .gallery-media {
@@ -234,6 +237,7 @@ body.cart-open .cart-drawer { transform: none; }
   aspect-ratio: 2 / 1; background: var(--ink);
 }
 .gallery-tall .gallery-media { aspect-ratio: 4 / 5; }
+.gallery-portrait .gallery-media { aspect-ratio: 9 / 16; }
 .gallery-media video, .gallery-media img {
   width: 100%; height: 100%; object-fit: cover; display: block;
   transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.5s ease;
@@ -264,6 +268,15 @@ body.cart-open .cart-drawer { transform: none; }
   transition: background 0.2s ease, color 0.2s ease;
 }
 .gallery-links a:hover, .gallery-links a:focus-visible { background: var(--accent); color: var(--paper); outline: none; }
+.gallery-links .gallery-credit {
+  margin-bottom: 0.2rem; color: var(--paper);
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+}
+.gallery-links .gallery-credit a {
+  padding: 0; background: none; color: var(--paper); text-transform: none; letter-spacing: 0.02em;
+  font-size: 0.85rem; border-bottom: 1px solid currentColor;
+}
+.gallery-links .gallery-credit a:hover, .gallery-links .gallery-credit a:focus-visible { background: none; color: var(--accent); }
 .gallery-media-multi:hover video, .gallery-media-multi:hover img,
 .gallery-media-multi:focus-within video, .gallery-media-multi:focus-within img { transform: scale(1.03); filter: brightness(0.85); }
 .gallery-media-multi:hover::after, .gallery-media-multi:focus-within::after,
@@ -276,8 +289,9 @@ body.cart-open .cart-drawer { transform: none; }
 @media (max-width: 900px) {
   .gallery-grid { grid-template-columns: 1fr; row-gap: 4rem; }
   .gallery-cell:nth-child(n) { grid-column: 1; margin-top: 0; }
-  .gallery-cell:has(.gallery-tall):nth-child(even) { margin-left: 22%; }
-  .gallery-cell:has(.gallery-tall):nth-child(odd) { margin-right: 22%; }
+  .gallery-cell:has(.gallery-tall, .gallery-portrait):nth-child(n) { grid-column: 1; }
+  .gallery-cell:has(.gallery-tall, .gallery-portrait):nth-child(even) { margin-left: 22%; }
+  .gallery-cell:has(.gallery-tall, .gallery-portrait):nth-child(odd) { margin-right: 22%; }
 }
 @media (hover: none) {
   .gallery-cta, .gallery-links, .gallery-media-multi::after { opacity: 1; transform: none; }
