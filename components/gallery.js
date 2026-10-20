@@ -19,18 +19,13 @@
 export const GALLERY = [
   {
     shape: 'wide',
-    artist: '',
     href: 'https://www.youtube.com/watch?v=gTep-8LflL4',
     linkLabel: 'Watch on YouTube',
     video: { mp4: '/gallery/music-video.mp4', webm: '/gallery/music-video.webm' },
     poster: '/gallery/music-video-poster.jpg',
   },
   {
-    kind: 'Series · Conversations in the Loft',
     shape: 'tall',
-    title: 'Express Yourself,',
-    titleEm: 'Black Man',
-    artist: '',
     href: 'https://www.expressyourselfblackman.com/',
     linkLabel: 'Visit the site',
     video: { mp4: '/gallery/express-yourself.mp4', webm: '/gallery/express-yourself.webm' },
