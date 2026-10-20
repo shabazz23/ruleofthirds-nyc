@@ -3,8 +3,9 @@
 // Each piece is a looping clip (or a still image) that links out when clicked.
 // A piece with several links uses `links` instead of href/linkLabel; they
 // appear as a small menu over the clip on hover (always shown on phones).
-// Pieces are staggered across the page automatically (big, small, small, big…);
-// `shape` sets each frame: 'wide' (2:1), 'tall' (4:5) or 'portrait' (9:16, phone video).
+// Pieces pack into a tight mosaic on a three-column grid; `shape` sets each
+// frame: 'wide' (two columns), 'tall' (one square cell) or 'portrait' (one
+// column, two rows high, for phone video). List order decides placement.
 // Put files in public/gallery/ and add an entry:
 //
 //   {
@@ -29,6 +30,16 @@ export const GALLERY = [
     poster: '/gallery/music-video-poster.jpg',
   },
   {
+    shape: 'portrait',
+    links: [
+      { label: 'Instagram', href: 'https://www.instagram.com/lgtgcollective/' },
+      { label: 'Linktree', href: 'https://linktr.ee/letgotogrow.co' },
+    ],
+    credit: { label: 'Shot by', name: '@chillzoeee', href: 'https://www.instagram.com/chillzoeee/' },
+    video: { mp4: '/gallery/let-go-to-grow.mp4', webm: '/gallery/let-go-to-grow.webm' },
+    poster: '/gallery/let-go-to-grow-poster.jpg',
+  },
+  {
     shape: 'tall',
     href: 'https://www.expressyourselfblackman.com/',
     linkLabel: 'Visit the site',
@@ -45,15 +56,5 @@ export const GALLERY = [
     ],
     video: { mp4: '/gallery/chef-marie.mp4', webm: '/gallery/chef-marie.webm' },
     poster: '/gallery/chef-marie-poster.jpg',
-  },
-  {
-    shape: 'portrait',
-    links: [
-      { label: 'Instagram', href: 'https://www.instagram.com/lgtgcollective/' },
-      { label: 'Linktree', href: 'https://linktr.ee/letgotogrow.co' },
-    ],
-    credit: { label: 'Shot by', name: '@chillzoeee', href: 'https://www.instagram.com/chillzoeee/' },
-    video: { mp4: '/gallery/let-go-to-grow.mp4', webm: '/gallery/let-go-to-grow.webm' },
-    poster: '/gallery/let-go-to-grow-poster.jpg',
   },
 ];
