@@ -19,8 +19,6 @@
 export const GALLERY = [
   {
     shape: 'wide',
-    title: 'Golden Hour,',
-    titleEm: 'after hours',
     artist: '',
     href: 'https://www.youtube.com/watch?v=gTep-8LflL4',
     linkLabel: 'Watch on YouTube',
