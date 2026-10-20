@@ -18,7 +18,6 @@
 //   },
 export const GALLERY = [
   {
-    kind: 'Music Video · Shot in the Loft',
     shape: 'wide',
     title: 'Golden Hour,',
     titleEm: 'after hours',

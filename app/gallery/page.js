@@ -10,7 +10,6 @@ export default function Gallery() {
     <>
       <section className="page-hero center">
         <Reveal>
-          <p className="eyebrow">Selected Work</p>
           <h1>Gallery</h1>
         </Reveal>
       </section>
