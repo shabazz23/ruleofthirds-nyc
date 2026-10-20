@@ -1,5 +1,8 @@
+import { Pinyon_Script } from 'next/font/google';
 import Reveal from '../../components/Reveal';
 import { GALLERY } from '../../components/gallery';
+
+const script = Pinyon_Script({ subsets: ['latin'], weight: '400' });
 
 export const metadata = {
   title: 'Gallery',
@@ -11,6 +14,7 @@ export default function Gallery() {
       <section className="page-hero center">
         <Reveal>
           <h1>Gallery</h1>
+          <p className={`gallery-script ${script.className}`}>shot inside the space</p>
         </Reveal>
       </section>
       <section className="wrap" style={{ paddingBottom: '4rem' }}>
