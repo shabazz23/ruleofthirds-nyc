@@ -30,7 +30,7 @@ export default function Gallery() {
         ) : (
           <div className="gallery-grid">
             {GALLERY.map((g) => (
-              <Reveal key={g.href || g.links[0].href} className="gallery-cell">
+              <Reveal key={g.href || g.links?.[0].href || g.image || g.video.mp4} className="gallery-cell">
                 <figure className={`gallery-item gallery-${g.shape || 'wide'}`} style={g.ratio && { '--ratio': g.ratio }}>
                   {g.links ? (
                     <div className="gallery-media gallery-media-multi">
@@ -52,6 +52,10 @@ export default function Gallery() {
                           </li>
                         ))}
                       </ul>
+                    </div>
+                  ) : !g.href ? (
+                    <div className="gallery-media">
+                      <GalleryMedia g={g} />
                     </div>
                   ) : (
                     <a
@@ -96,6 +100,6 @@ function GalleryMedia({ g }) {
       <source src={g.video.mp4} type="video/mp4" />
     </video>
   ) : (
-    <img src={g.image} alt="" loading="lazy" />
+    <img src={g.image} alt={g.alt || ''} loading="lazy" />
   );
 }

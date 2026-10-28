@@ -5,8 +5,9 @@
 // appear as a small menu over the clip on hover (always shown on phones).
 // Pieces pack into a tight mosaic on a three-column grid; `shape` sets each
 // frame: 'wide' (two columns, 2:1), 'full' (all three columns, 21:9),
-// 'tall' (one column, 4:5) or 'portrait' (one column, two rows high, for
-// phone video); `ratio` overrides wide/full/tall.
+// 'square' (one cell), 'tall' (one column, 4:5) or 'portrait' (one column,
+// two rows high, for phone video); `ratio` overrides the frame's shape.
+// A piece with neither href nor links is shown without a link.
 // List order decides placement, so arrange entries to fill the grid.
 // Put files in public/gallery/ and add an entry:
 //
@@ -15,7 +16,7 @@
 //     titleEm: 'in italics',                    // optional, set in the serif italic after the title
 //     artist: 'Artist Name',                    // optional
 //     kind: 'Music Video',                      // small label above the title
-//     shape: 'wide',                            // 'wide', 'full', 'tall' or 'portrait'
+//     shape: 'wide',                            // 'wide', 'full', 'square', 'tall' or 'portrait'
 //     ratio: '16 / 9',                          // optional, wide, full or tall frames
 //     href: 'https://www.youtube.com/watch?v=…',
 //     linkLabel: 'Watch on YouTube',            // shown on hover
@@ -33,6 +34,13 @@ export const GALLERY = [
     image: '/gallery/black-folks-rock.jpg',
   },
   {
+    shape: 'wide',
+    href: 'https://www.youtube.com/watch?v=gTep-8LflL4',
+    linkLabel: 'Watch on YouTube',
+    video: { mp4: '/gallery/music-video.mp4', webm: '/gallery/music-video.webm' },
+    poster: '/gallery/music-video-poster.jpg',
+  },
+  {
     shape: 'portrait',
     links: [
       { label: 'Instagram', href: 'https://www.instagram.com/lgtgcollective/' },
@@ -41,13 +49,6 @@ export const GALLERY = [
     credit: { label: 'Shot by', name: '@chillzoeee', href: 'https://www.instagram.com/chillzoeee/' },
     video: { mp4: '/gallery/let-go-to-grow.mp4', webm: '/gallery/let-go-to-grow.webm' },
     poster: '/gallery/let-go-to-grow-poster.jpg',
-  },
-  {
-    shape: 'wide',
-    href: 'https://www.youtube.com/watch?v=gTep-8LflL4',
-    linkLabel: 'Watch on YouTube',
-    video: { mp4: '/gallery/music-video.mp4', webm: '/gallery/music-video.webm' },
-    poster: '/gallery/music-video-poster.jpg',
   },
   {
     shape: 'portrait',
@@ -71,11 +72,16 @@ export const GALLERY = [
     poster: '/gallery/khasim-lockhart-poster.jpg',
   },
   {
-    shape: 'portrait',
+    shape: 'square',
     href: 'https://www.expressyourselfblackman.com/',
     linkLabel: 'Visit the site',
     video: { mp4: '/gallery/express-yourself.mp4', webm: '/gallery/express-yourself.webm' },
     poster: '/gallery/express-yourself-poster.jpg',
+  },
+  {
+    shape: 'portrait',
+    image: '/gallery/loft-shoot-bts.jpg',
+    alt: 'Behind the scenes of a film shoot in the loft',
   },
   {
     shape: 'wide',
@@ -88,7 +94,7 @@ export const GALLERY = [
     poster: '/gallery/slizzy-poster.jpg',
   },
   {
-    shape: 'full',
+    shape: 'wide',
     links: [
       { label: 'YouTube', href: 'https://www.youtube.com/watch?v=nvkdgsLvzKc' },
       { label: 'Instagram', href: 'https://www.instagram.com/smoovel_4/' },
