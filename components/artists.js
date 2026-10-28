@@ -65,10 +65,10 @@ export const ARTISTS = [
   },
   {
     first: 'Sena',
-    role: 'Artist & Creative Director',
+    role: 'Attorney, Artist & Creative Director',
     hometown: 'South Jamaica, Queens',
     portrait: '/artists/sena.jpg',
-    bio: 'Sena is an artist and creative director from South Jamaica, Queens. Two of Sena\u2019s pieces hang in the space.',
+    bio: 'Sena is an attorney, artist and creative director from South Jamaica, Queens. Two of Sena\u2019s pieces hang in the space.',
     work: {
       image: '/artists/sena-gloves.jpg',
       also: { image: '/artists/sena-abstract.jpg' },
