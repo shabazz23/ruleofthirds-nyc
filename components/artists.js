@@ -27,6 +27,7 @@ export const ARTISTS = [
     last: 'Seyffert',
     role: 'Attorney & Artist',
     hometown: 'Brooklyn, NY',
+    portrait: '/artists/george-seyffert.jpg',
     bio: 'George Seyffert is an attorney and artist from Brooklyn, New York. His painting Greenpoint hangs in the space.',
     work: {
       title: 'Greenpoint',
