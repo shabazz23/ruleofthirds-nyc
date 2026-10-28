@@ -41,7 +41,7 @@ export default function Nav() {
       <header className={`site-nav${scrolled ? ' scrolled' : ''}`}>
         <div className="nav-inner">
           <Link href="/" className="brand">
-            Rule of Thirds<sup>®</sup>
+            Rule of Thirds
           </Link>
           <nav className="nav-links" aria-label="Primary">
             {LINKS.map((l) => (

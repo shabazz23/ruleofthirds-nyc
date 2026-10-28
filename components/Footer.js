@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-grid">
         <div>
-          <p className="footer-brand">Rule of Thirds®</p>
+          <p className="footer-brand">Rule of Thirds</p>
           <p>
             An exercise in perspective — photography, film, art, and thoughtfully made objects.
           </p>
