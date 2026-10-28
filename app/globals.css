@@ -226,6 +226,7 @@ body.cart-open .cart-drawer { transform: none; }
   gap: clamp(0.6rem, 1.4vw, 1.1rem); max-width: 1180px; margin: 0 auto; padding-top: 0.5rem;
 }
 .gallery-cell:has(.gallery-wide) { grid-column: span 2; }
+.gallery-cell:has(.gallery-full) { grid-column: 1 / -1; }
 .gallery-cell:has(.gallery-portrait) { grid-row: span 2; }
 .gallery-cell, .gallery-item { height: 100%; }
 .gallery-cell:has(.gallery-tall) { align-self: start; height: auto; }
@@ -236,6 +237,7 @@ body.cart-open .cart-drawer { transform: none; }
   height: 100%; background: var(--ink);
 }
 .gallery-wide .gallery-media { aspect-ratio: var(--ratio, 2 / 1); }
+.gallery-full .gallery-media { aspect-ratio: var(--ratio, 21 / 9); }
 .gallery-tall .gallery-media { aspect-ratio: var(--ratio, 4 / 5); }
 .gallery-media video, .gallery-media img {
   width: 100%; height: 100%; object-fit: cover; display: block;

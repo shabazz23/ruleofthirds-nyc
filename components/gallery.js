@@ -4,8 +4,9 @@
 // A piece with several links uses `links` instead of href/linkLabel; they
 // appear as a small menu over the clip on hover (always shown on phones).
 // Pieces pack into a tight mosaic on a three-column grid; `shape` sets each
-// frame: 'wide' (two columns, 2:1), 'tall' (one column, 4:5) or 'portrait'
-// (one column, two rows high, for phone video); `ratio` overrides wide/tall.
+// frame: 'wide' (two columns, 2:1), 'full' (all three columns, 21:9),
+// 'tall' (one column, 4:5) or 'portrait' (one column, two rows high, for
+// phone video); `ratio` overrides wide/full/tall.
 // List order decides placement, so arrange entries to fill the grid.
 // Put files in public/gallery/ and add an entry:
 //
@@ -14,8 +15,8 @@
 //     titleEm: 'in italics',                    // optional, set in the serif italic after the title
 //     artist: 'Artist Name',                    // optional
 //     kind: 'Music Video',                      // small label above the title
-//     shape: 'wide',                            // 'wide', 'tall' or 'portrait'
-//     ratio: '16 / 9',                          // optional, wide or tall frames
+//     shape: 'wide',                            // 'wide', 'full', 'tall' or 'portrait'
+//     ratio: '16 / 9',                          // optional, wide, full or tall frames
 //     href: 'https://www.youtube.com/watch?v=…',
 //     linkLabel: 'Watch on YouTube',            // shown on hover
 //     // or: links: [{ label: 'Instagram', href: '…' }, { label: 'Shop', href: '…' }],
@@ -68,5 +69,15 @@ export const GALLERY = [
     ],
     video: { mp4: '/gallery/slizzy.mp4' },
     poster: '/gallery/slizzy-poster.jpg',
+  },
+  {
+    shape: 'full',
+    links: [
+      { label: 'YouTube', href: 'https://www.youtube.com/watch?v=nvkdgsLvzKc' },
+      { label: 'Instagram', href: 'https://www.instagram.com/smoovel_4/' },
+    ],
+    credit: { label: 'Shot by', name: '@qasquiat', href: 'https://www.instagram.com/qasquiat/' },
+    video: { mp4: '/gallery/smoovl.mp4' },
+    poster: '/gallery/smoovl-poster.jpg',
   },
 ];
