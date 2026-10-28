@@ -40,19 +40,27 @@ export default function FeaturedArtists() {
 }
 
 function Artist({ a, index }) {
-  const name = `${a.first} ${a.last}`;
+  const name = [a.first, a.last].filter(Boolean).join(' ');
   const w = a.work;
   const workName = w.title ? `${w.title} by ${name}` : `A painting by ${name}`;
+  const also = w.also && (w.also.title ? `${w.also.title} by ${name}` : `Another piece by ${name}`);
   return (
     <article className={`fa${index % 2 === 0 ? ' fa-flip' : ''}${w.wide ? ' fa-wide' : ''}`}>
       <Reveal className="fa-head">
         <p className="fa-index">{String(index).padStart(2, '0')}</p>
         <h2>
-          {a.first} <em>{a.last}</em>
+          {a.last ? (
+            <>
+              {a.first} <em>{a.last}</em>
+            </>
+          ) : (
+            <em>{a.first}</em>
+          )}
         </h2>
         <p className="fa-role">
-          {a.role}
-          {a.hometown && <span>{a.hometown}</span>}
+          {[a.role, a.hometown].filter(Boolean).map((t) => (
+            <span key={t}>{t}</span>
+          ))}
         </p>
       </Reveal>
 
@@ -90,6 +98,19 @@ function Artist({ a, index }) {
           </Reveal>
         )}
 
+        {!w.video && w.also && (
+          <Reveal className="fa-clip">
+            <figure>
+              <div className="fa-frame fa-r34">
+                <Image src={w.also.image} alt={`${also}, hanging in the space`} fill sizes="(max-width: 900px) 50vw, 26vw" />
+              </div>
+              <figcaption>
+                <span>{w.also.title || 'Also in the space'}</span>
+              </figcaption>
+            </figure>
+          </Reveal>
+        )}
+
         <Reveal className="fa-info">
           <div className="fa-portrait">
             {a.portrait ? (
@@ -97,7 +118,7 @@ function Artist({ a, index }) {
             ) : (
               <span aria-hidden="true">
                 {a.first[0]}
-                {a.last[0]}
+                {a.last?.[0]}
               </span>
             )}
           </div>
