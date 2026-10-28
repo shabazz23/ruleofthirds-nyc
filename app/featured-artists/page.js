@@ -129,6 +129,16 @@ function Artist({ a, index }) {
             </p>
           )}
           <p className="fa-bio">{a.bio}</p>
+          {w.context && (
+            <figure className="fa-context">
+              <div className="fa-frame fa-r34">
+                <Image src={w.context} alt={`${workName}, on the wall in the space`} fill sizes="(max-width: 900px) 60vw, 18vw" />
+              </div>
+              <figcaption>
+                <span>On the wall</span>
+              </figcaption>
+            </figure>
+          )}
           {a.links?.length > 0 && (
             <ul className="fa-links">
               {a.links.map((l) => (

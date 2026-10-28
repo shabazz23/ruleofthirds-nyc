@@ -18,6 +18,7 @@
 //       video: { mp4: '/artists/jane-doe-work.mp4', webm: '/artists/jane-doe-work.webm' }, // optional silent detail clip (9:16)
 //       poster: '/artists/jane-doe-work-poster.jpg',
 //       also: { title: 'Second Piece', image: '/artists/jane-doe-work-2.jpg' }, // optional second piece (3:4), shown instead of a clip
+//       context: '/artists/jane-doe-work-wall.jpg', // optional smaller wider shot of the piece on the wall (3:4), under the bio
 //     },
 //     links: [
 //       { label: 'Instagram', href: 'https://instagram.com/janedoe' },
@@ -72,6 +73,7 @@ export const ARTISTS = [
     work: {
       image: '/artists/sena-gloves.jpg',
       also: { image: '/artists/sena-abstract.jpg' },
+      context: '/artists/sena-gloves-wall.jpg',
     },
   },
 ];
