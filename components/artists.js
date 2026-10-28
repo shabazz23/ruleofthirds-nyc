@@ -75,6 +75,5 @@ export const ARTISTS = [
       also: { image: '/artists/sena-abstract.jpg' },
       context: '/artists/sena-gloves-wall.jpg',
     },
-    links: [{ label: 'Instagram', href: 'https://www.instagram.com/bobharlley/' }],
   },
 ];
