@@ -245,10 +245,16 @@ body.cart-open .cart-drawer { transform: none; }
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
   transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.5s ease;
 }
+.gallery-cta, .gallery-links a {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 0.9rem; border-radius: 999px; color: #faf8f3; text-decoration: none;
+  background: rgba(17, 17, 16, 0.3); border: 1px solid rgba(250, 248, 243, 0.45);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  font-size: 0.64rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
 .gallery-cta {
   position: absolute; left: 1.25rem; bottom: 1.25rem;
-  padding: 0.65rem 1.1rem; border-radius: 2px; background: var(--paper); color: var(--ink);
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
   opacity: 0; transform: translateY(8px); transition: opacity 0.35s ease, transform 0.35s ease;
 }
 .gallery-media.is-open video, .gallery-media.is-open img,
@@ -265,21 +271,19 @@ body.cart-open .cart-drawer { transform: none; }
   list-style: none; display: flex; flex-direction: column; align-items: flex-start; gap: 0.45rem;
   opacity: 0; transform: translateY(8px); transition: opacity 0.35s ease, transform 0.35s ease;
 }
-.gallery-links a {
-  display: inline-block; padding: 0.55rem 0.95rem; border-radius: 2px; background: var(--paper); color: var(--ink);
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.gallery-links a:hover, .gallery-links a:focus-visible { background: var(--accent); color: var(--paper); outline: none; }
+.gallery-links a:hover, .gallery-links a:focus-visible,
+.gallery-media:hover .gallery-cta:hover { background: #faf8f3; color: var(--ink); border-color: #faf8f3; outline: none; }
 .gallery-links .gallery-credit {
-  margin-bottom: 0.2rem; color: var(--paper);
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  margin-bottom: 0.15rem; color: rgba(250, 248, 243, 0.8);
+  font-size: 0.6rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
 }
 .gallery-links .gallery-credit a {
-  padding: 0; background: none; color: var(--paper); text-transform: none; letter-spacing: 0.02em;
-  font-size: 0.85rem; border-bottom: 1px solid currentColor;
+  display: inline; padding: 0; border: 0; border-radius: 0; background: none; color: #faf8f3;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  text-transform: none; letter-spacing: 0.02em; font-size: 0.82rem; font-weight: 500;
+  border-bottom: 1px solid rgba(250, 248, 243, 0.5);
 }
-.gallery-links .gallery-credit a:hover, .gallery-links .gallery-credit a:focus-visible { background: none; color: var(--accent); }
+.gallery-links .gallery-credit a:hover, .gallery-links .gallery-credit a:focus-visible { background: none; color: var(--accent); border-color: currentColor; }
 .gallery-media-multi:focus-within video, .gallery-media-multi:focus-within img { transform: scale(1.03); filter: brightness(0.85); }
 .gallery-media-multi.is-open::after, .gallery-media-multi:focus-within::after,
 .gallery-media-multi.is-open .gallery-links, .gallery-media-multi:focus-within .gallery-links { opacity: 1; transform: none; }
@@ -299,8 +303,8 @@ body.cart-open .cart-drawer { transform: none; }
   .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .gallery-cell:has(.gallery-tall), .gallery-cell:has(.gallery-square) { grid-column: span 2; }
   .gallery-links { left: 0.6rem; right: 0.6rem; bottom: 0.6rem; gap: 0.3rem; }
-  .gallery-links a { padding: 0.4rem 0.6rem; font-size: 0.58rem; letter-spacing: 0.12em; }
-  .gallery-cta { left: 0.6rem; bottom: 0.6rem; padding: 0.45rem 0.7rem; font-size: 0.6rem; }
+  .gallery-links a, .gallery-cta { padding: 0.4rem 0.75rem; font-size: 0.56rem; letter-spacing: 0.14em; gap: 0.4rem; }
+  .gallery-cta { left: 0.6rem; bottom: 0.6rem; }
 }
 @media (hover: none) {
   .gallery-hint {

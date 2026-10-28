@@ -50,7 +50,7 @@ export default function Gallery() {
                         {g.links.map((l) => (
                           <li key={l.href}>
                             <a href={l.href} target="_blank" rel="noopener">
-                              {l.label} <span aria-hidden="true">↗</span>
+                              {l.label} <Arrow size={8} />
                             </a>
                           </li>
                         ))}
@@ -71,7 +71,7 @@ export default function Gallery() {
                       <GalleryMedia g={g} />
                       <GalleryHint />
                       <span className="gallery-cta">
-                        {g.linkLabel} <span aria-hidden="true">↗</span>
+                        {g.linkLabel} <Arrow size={8} />
                       </span>
                     </a>
                   )}
@@ -97,12 +97,18 @@ export default function Gallery() {
   );
 }
 
+function Arrow({ size = 10 }) {
+  return (
+    <svg viewBox="0 0 12 12" width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M3 9 9 3M4.5 3H9v4.5" />
+    </svg>
+  );
+}
+
 function GalleryHint() {
   return (
     <span className="gallery-hint" aria-hidden="true">
-      <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9 9 3M4.5 3H9v4.5" />
-      </svg>
+      <Arrow />
     </span>
   );
 }
