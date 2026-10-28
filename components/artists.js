@@ -53,8 +53,9 @@ export const ARTISTS = [
     role: 'Healthcare Professional & Artist',
     hometown: 'Long Island, NY',
     portrait: '/artists/richard-edouard.jpg',
-    bio: 'Richard Edouard is a healthcare professional and artist from Long Island, New York. His painting hangs in the space.',
+    bio: 'Richard Edouard is a healthcare professional and artist from Long Island, New York. His painting Paid In Full, a piece about abundance, hangs in the space.',
     work: {
+      title: 'Paid In Full',
       image: '/artists/richard-edouard-painting.jpg',
       wide: true,
     },
