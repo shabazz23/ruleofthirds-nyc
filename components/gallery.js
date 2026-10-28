@@ -26,13 +26,6 @@
 //   },
 export const GALLERY = [
   {
-    shape: 'wide',
-    href: 'https://www.youtube.com/watch?v=gTep-8LflL4',
-    linkLabel: 'Watch on YouTube',
-    video: { mp4: '/gallery/music-video.mp4', webm: '/gallery/music-video.webm' },
-    poster: '/gallery/music-video-poster.jpg',
-  },
-  {
     shape: 'portrait',
     links: [
       { label: 'Instagram', href: 'https://www.instagram.com/lgtgcollective/' },
@@ -41,6 +34,13 @@ export const GALLERY = [
     credit: { label: 'Shot by', name: '@chillzoeee', href: 'https://www.instagram.com/chillzoeee/' },
     video: { mp4: '/gallery/let-go-to-grow.mp4', webm: '/gallery/let-go-to-grow.webm' },
     poster: '/gallery/let-go-to-grow-poster.jpg',
+  },
+  {
+    shape: 'wide',
+    href: 'https://www.youtube.com/watch?v=gTep-8LflL4',
+    linkLabel: 'Watch on YouTube',
+    video: { mp4: '/gallery/music-video.mp4', webm: '/gallery/music-video.webm' },
+    poster: '/gallery/music-video-poster.jpg',
   },
   {
     shape: 'portrait',
@@ -54,7 +54,17 @@ export const GALLERY = [
     poster: '/gallery/chef-marie-poster.jpg',
   },
   {
-    shape: 'tall',
+    shape: 'portrait',
+    links: [
+      { label: 'Instagram', href: 'https://www.instagram.com/reel/Da6FJvOsCxy/' },
+      { label: 'YouTube', href: 'https://www.youtube.com/@KepLockhart' },
+    ],
+    credit: { label: 'Shot by', name: '@seene.riley', href: 'https://www.instagram.com/seene.riley/' },
+    video: { mp4: '/gallery/khasim-lockhart.mp4' },
+    poster: '/gallery/khasim-lockhart-poster.jpg',
+  },
+  {
+    shape: 'portrait',
     href: 'https://www.expressyourselfblackman.com/',
     linkLabel: 'Visit the site',
     video: { mp4: '/gallery/express-yourself.mp4', webm: '/gallery/express-yourself.webm' },
