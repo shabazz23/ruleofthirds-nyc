@@ -26,6 +26,13 @@
 //   },
 export const GALLERY = [
   {
+    shape: 'full',
+    ratio: '2 / 1',
+    href: 'https://www.instagram.com/blackfolksrock/',
+    linkLabel: 'Instagram',
+    image: '/gallery/black-folks-rock.jpg',
+  },
+  {
     shape: 'portrait',
     links: [
       { label: 'Instagram', href: 'https://www.instagram.com/lgtgcollective/' },
