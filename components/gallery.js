@@ -4,9 +4,9 @@
 // A piece with several links uses `links` instead of href/linkLabel; they
 // appear as a small menu over the clip on hover (always shown on phones).
 // Pieces pack into a tight mosaic on a three-column grid; `shape` sets each
-// frame: 'wide' (two columns, 2:1), 'tall' (one column, 4:5 unless `ratio`
-// says otherwise) or 'portrait' (one column, two rows high, for phone video).
-// List order decides placement.
+// frame: 'wide' (two columns, 2:1), 'tall' (one column, 4:5) or 'portrait'
+// (one column, two rows high, for phone video); `ratio` overrides wide/tall.
+// List order decides placement, so arrange entries to fill the grid.
 // Put files in public/gallery/ and add an entry:
 //
 //   {
@@ -15,7 +15,7 @@
 //     artist: 'Artist Name',                    // optional
 //     kind: 'Music Video',                      // small label above the title
 //     shape: 'wide',                            // 'wide', 'tall' or 'portrait'
-//     ratio: '3 / 4',                           // optional, tall frames only
+//     ratio: '16 / 9',                          // optional, wide or tall frames
 //     href: 'https://www.youtube.com/watch?v=…',
 //     linkLabel: 'Watch on YouTube',            // shown on hover
 //     // or: links: [{ label: 'Instagram', href: '…' }, { label: 'Shop', href: '…' }],
@@ -42,15 +42,7 @@ export const GALLERY = [
     poster: '/gallery/let-go-to-grow-poster.jpg',
   },
   {
-    shape: 'tall',
-    href: 'https://www.expressyourselfblackman.com/',
-    linkLabel: 'Visit the site',
-    video: { mp4: '/gallery/express-yourself.mp4', webm: '/gallery/express-yourself.webm' },
-    poster: '/gallery/express-yourself-poster.jpg',
-  },
-  {
-    shape: 'tall',
-    ratio: '3 / 4',
+    shape: 'portrait',
     links: [
       { label: 'Instagram', href: 'https://www.instagram.com/chefmarie.a__/' },
       { label: 'Substack', href: 'https://chefmariea1.substack.com/' },
@@ -59,5 +51,22 @@ export const GALLERY = [
     ],
     video: { mp4: '/gallery/chef-marie.mp4', webm: '/gallery/chef-marie.webm' },
     poster: '/gallery/chef-marie-poster.jpg',
+  },
+  {
+    shape: 'tall',
+    href: 'https://www.expressyourselfblackman.com/',
+    linkLabel: 'Visit the site',
+    video: { mp4: '/gallery/express-yourself.mp4', webm: '/gallery/express-yourself.webm' },
+    poster: '/gallery/express-yourself-poster.jpg',
+  },
+  {
+    shape: 'wide',
+    ratio: '16 / 9',
+    links: [
+      { label: 'YouTube', href: 'https://www.youtube.com/watch?v=3xMrVAhUy_M' },
+      { label: 'Instagram', href: 'https://www.instagram.com/reel/DX95mHJuyc1/' },
+    ],
+    video: { mp4: '/gallery/slizzy.mp4' },
+    poster: '/gallery/slizzy-poster.jpg',
   },
 ];
