@@ -251,9 +251,9 @@ body.cart-open .cart-drawer { transform: none; }
   font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
   opacity: 0; transform: translateY(8px); transition: opacity 0.35s ease, transform 0.35s ease;
 }
-.gallery-media:hover video, .gallery-media:hover img,
+.gallery-media.is-open video, .gallery-media.is-open img,
 .gallery-media:focus-visible video, .gallery-media:focus-visible img { transform: scale(1.03); filter: brightness(0.85); }
-.gallery-media:hover .gallery-cta, .gallery-media:focus-visible .gallery-cta { opacity: 1; transform: none; }
+.gallery-media.is-open .gallery-cta, .gallery-media:focus-visible .gallery-cta { opacity: 1; transform: none; }
 .gallery-media:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .gallery-media-multi::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -280,10 +280,16 @@ body.cart-open .cart-drawer { transform: none; }
   font-size: 0.85rem; border-bottom: 1px solid currentColor;
 }
 .gallery-links .gallery-credit a:hover, .gallery-links .gallery-credit a:focus-visible { background: none; color: var(--accent); }
-.gallery-media-multi:hover video, .gallery-media-multi:hover img,
 .gallery-media-multi:focus-within video, .gallery-media-multi:focus-within img { transform: scale(1.03); filter: brightness(0.85); }
-.gallery-media-multi:hover::after, .gallery-media-multi:focus-within::after,
-.gallery-media-multi:hover .gallery-links, .gallery-media-multi:focus-within .gallery-links { opacity: 1; transform: none; }
+.gallery-media-multi.is-open::after, .gallery-media-multi:focus-within::after,
+.gallery-media-multi.is-open .gallery-links, .gallery-media-multi:focus-within .gallery-links { opacity: 1; transform: none; }
+.gallery-hint { display: none; }
+/* Hover reveals the links with a mouse; on touch screens a tap toggles .is-open (GalleryTap). */
+@media (hover: hover) {
+  .gallery-media:hover video, .gallery-media:hover img { transform: scale(1.03); filter: brightness(0.85); }
+  .gallery-media:hover .gallery-cta,
+  .gallery-media-multi:hover::after, .gallery-media-multi:hover .gallery-links { opacity: 1; transform: none; }
+}
 .gallery-item figcaption { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
 .gallery-kind { display: flex; align-items: baseline; gap: 0.9rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 .gallery-title { font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 600; letter-spacing: -0.02em; }
@@ -297,7 +303,12 @@ body.cart-open .cart-drawer { transform: none; }
   .gallery-cta { left: 0.6rem; bottom: 0.6rem; padding: 0.45rem 0.7rem; font-size: 0.6rem; }
 }
 @media (hover: none) {
-  .gallery-cta, .gallery-links, .gallery-media-multi::after { opacity: 1; transform: none; }
+  .gallery-hint {
+    display: grid; place-items: center; position: absolute; top: 0.5rem; right: 0.5rem; z-index: 1;
+    width: 1.6rem; height: 1.6rem; border-radius: 50%; background: rgba(250, 248, 243, 0.85); color: var(--ink);
+    font-size: 0.75rem; line-height: 1; transition: opacity 0.3s ease;
+  }
+  .gallery-media.is-open .gallery-hint { opacity: 0; }
 }
 
 /* ---------- featured artists ---------- */
