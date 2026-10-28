@@ -42,7 +42,7 @@ export const ARTISTS = [
       { label: 'Instagram', href: 'https://www.instagram.com/george.seyffert/' },
       { label: 'Website', href: 'https://www.georgeseyffert.com/' },
       { label: 'Shop', href: 'https://www.georgeseyffert.com/shop' },
-      { label: 'Seyff Co.', href: 'https://www.seyff.co/founder' },
+      { label: 'Seyff', href: 'https://www.seyff.co/founder' },
     ],
   },
 ];
