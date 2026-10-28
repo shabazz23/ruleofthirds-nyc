@@ -315,6 +315,14 @@ body.cart-open .cart-drawer { transform: none; }
 .fa-frame img, .fa-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .fa-r34 { aspect-ratio: 3 / 4; }
 .fa-r916 { aspect-ratio: 9 / 16; }
+.fa-r43 { aspect-ratio: 4 / 3; }
+/* Landscape piece with no clip: the photo takes two columns. Mirrored entries put the artist on the right. */
+.fa-wide .fa-photo { grid-column: 2 / 4; }
+.fa-flip .fa-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.35fr) minmax(0, 0.85fr); }
+.fa-flip .fa-info { grid-column: 3; }
+.fa-flip .fa-photo { grid-column: 2; }
+.fa-flip .fa-clip { grid-column: 1; }
+.fa-flip.fa-wide .fa-photo { grid-column: 1 / 3; }
 .fa figcaption {
   display: flex; justify-content: space-between; gap: 1rem; margin-top: 0.7rem;
   font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
@@ -347,14 +355,20 @@ body.cart-open .cart-drawer { transform: none; }
   .fa-head { grid-template-columns: 1fr; }
   .fa-index { grid-row: auto; margin-bottom: 1rem; }
   .fa-role { grid-column: 1; }
-  .fa-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2.5rem; }
+  .fa .fa-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2.5rem; }
   .fa-photo { grid-column: 1 / 3; }
   .fa-clip { grid-column: 2; grid-row: 2; margin-top: 0; }
   .fa-info { grid-column: 1; grid-row: 2; max-width: none; }
+  .fa-flip .fa-photo, .fa-flip.fa-wide .fa-photo, .fa-wide .fa-photo { grid-column: 1 / 3; }
+  .fa-flip .fa-clip { grid-column: 2; }
+  .fa-flip .fa-info { grid-column: 1; }
+  .fa-wide .fa-info { grid-column: 1 / 3; max-width: 560px; }
 }
 @media (max-width: 560px) {
-  .fa-grid { grid-template-columns: 1fr; }
-  .fa-photo, .fa-clip, .fa-info { grid-column: 1; grid-row: auto; }
+  .fa .fa-grid { grid-template-columns: 1fr; }
+  .fa .fa-grid > .reveal { grid-column: 1; grid-row: auto; }
+  .fa-role { flex-direction: column; }
+  .fa-role span::before { display: none; }
   .fa-clip { width: 70%; justify-self: end; }
 }
 

@@ -42,8 +42,9 @@ export default function FeaturedArtists() {
 function Artist({ a, index }) {
   const name = `${a.first} ${a.last}`;
   const w = a.work;
+  const workName = w.title ? `${w.title} by ${name}` : `A painting by ${name}`;
   return (
-    <article className="fa">
+    <article className={`fa${index % 2 === 0 ? ' fa-flip' : ''}${w.wide ? ' fa-wide' : ''}`}>
       <Reveal className="fa-head">
         <p className="fa-index">{String(index).padStart(2, '0')}</p>
         <h2>
@@ -58,8 +59,13 @@ function Artist({ a, index }) {
       <div className="fa-grid">
         <Reveal className="fa-photo">
           <figure>
-            <div className="fa-frame fa-r34">
-              <Image src={w.image} alt={`${w.title} by ${name}, hanging in the space`} fill sizes="(max-width: 900px) 100vw, 42vw" />
+            <div className={`fa-frame ${w.wide ? 'fa-r43' : 'fa-r34'}`}>
+              <Image
+                src={w.image}
+                alt={`${workName}, hanging in the space`}
+                fill
+                sizes={w.wide ? '(max-width: 900px) 100vw, 66vw' : '(max-width: 900px) 100vw, 42vw'}
+              />
             </div>
             <figcaption>
               <span>In the space</span>
@@ -95,10 +101,12 @@ function Artist({ a, index }) {
               </span>
             )}
           </div>
-          <p className="fa-work">
-            <em>{w.title}</em>
-            {w.status && <span className="fa-status">{w.status}</span>}
-          </p>
+          {w.title && (
+            <p className="fa-work">
+              <em>{w.title}</em>
+              {w.status && <span className="fa-status">{w.status}</span>}
+            </p>
+          )}
           <p className="fa-bio">{a.bio}</p>
           {a.links?.length > 0 && (
             <ul className="fa-links">
