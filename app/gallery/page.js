@@ -37,7 +37,7 @@ export default function Gallery() {
                   {g.links ? (
                     <div className="gallery-media gallery-media-multi">
                       <GalleryMedia g={g} />
-                      <span className="gallery-hint" aria-hidden="true">↗</span>
+                      <GalleryHint />
                       <ul className="gallery-links">
                         {g.credit && (
                           <li className="gallery-credit">
@@ -69,7 +69,7 @@ export default function Gallery() {
                       aria-label={[g.linkLabel, g.title, g.titleEm, g.artist && `by ${g.artist}`].filter(Boolean).join(' ')}
                     >
                       <GalleryMedia g={g} />
-                      <span className="gallery-hint" aria-hidden="true">↗</span>
+                      <GalleryHint />
                       <span className="gallery-cta">
                         {g.linkLabel} <span aria-hidden="true">↗</span>
                       </span>
@@ -94,6 +94,16 @@ export default function Gallery() {
         )}
       </section>
     </>
+  );
+}
+
+function GalleryHint() {
+  return (
+    <span className="gallery-hint" aria-hidden="true">
+      <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9 9 3M4.5 3H9v4.5" />
+      </svg>
+    </span>
   );
 }
 

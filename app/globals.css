@@ -305,8 +305,9 @@ body.cart-open .cart-drawer { transform: none; }
 @media (hover: none) {
   .gallery-hint {
     display: grid; place-items: center; position: absolute; top: 0.5rem; right: 0.5rem; z-index: 1;
-    width: 1.6rem; height: 1.6rem; border-radius: 50%; background: rgba(250, 248, 243, 0.85); color: var(--ink);
-    font-size: 0.75rem; line-height: 1; transition: opacity 0.3s ease;
+    width: 1.5rem; height: 1.5rem; border-radius: 50%; color: #faf8f3;
+    background: rgba(17, 17, 16, 0.28); border: 1px solid rgba(250, 248, 243, 0.4);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: opacity 0.3s ease;
   }
   .gallery-media.is-open .gallery-hint { opacity: 0; }
 }
