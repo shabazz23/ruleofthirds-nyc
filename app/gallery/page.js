@@ -1,5 +1,6 @@
 import { Pinyon_Script } from 'next/font/google';
 import Reveal from '../../components/Reveal';
+import GalleryTap from '../../components/GalleryTap';
 import { GALLERY } from '../../components/gallery';
 
 const script = Pinyon_Script({ subsets: ['latin'], weight: '400' });
@@ -29,12 +30,14 @@ export default function Gallery() {
           </Reveal>
         ) : (
           <div className="gallery-grid">
+            <GalleryTap />
             {GALLERY.map((g) => (
               <Reveal key={g.href || g.links?.[0].href || g.image || g.video.mp4} className="gallery-cell">
                 <figure className={`gallery-item gallery-${g.shape || 'wide'}`} style={g.ratio && { '--ratio': g.ratio }}>
                   {g.links ? (
                     <div className="gallery-media gallery-media-multi">
                       <GalleryMedia g={g} />
+                      <span className="gallery-hint" aria-hidden="true">↗</span>
                       <ul className="gallery-links">
                         {g.credit && (
                           <li className="gallery-credit">
@@ -66,6 +69,7 @@ export default function Gallery() {
                       aria-label={[g.linkLabel, g.title, g.titleEm, g.artist && `by ${g.artist}`].filter(Boolean).join(' ')}
                     >
                       <GalleryMedia g={g} />
+                      <span className="gallery-hint" aria-hidden="true">↗</span>
                       <span className="gallery-cta">
                         {g.linkLabel} <span aria-hidden="true">↗</span>
                       </span>
