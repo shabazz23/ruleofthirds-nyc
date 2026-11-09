@@ -51,6 +51,18 @@ export const GALLERY = [
     poster: '/gallery/let-go-to-grow-poster.jpg',
   },
   {
+    shape: 'square',
+    href: 'https://www.expressyourselfblackman.com/',
+    linkLabel: 'Visit the site',
+    video: { mp4: '/gallery/express-yourself.mp4', webm: '/gallery/express-yourself.webm' },
+    poster: '/gallery/express-yourself-poster.jpg',
+  },
+  {
+    shape: 'square',
+    image: '/gallery/record-wall.jpg',
+    alt: 'Ella Fitzgerald and Mr. Appleton records on the wall under a slim light',
+  },
+  {
     shape: 'portrait',
     links: [
       { label: 'Instagram', href: 'https://www.instagram.com/chefmarie.a__/' },
@@ -72,11 +84,9 @@ export const GALLERY = [
     poster: '/gallery/khasim-lockhart-poster.jpg',
   },
   {
-    shape: 'square',
-    href: 'https://www.expressyourselfblackman.com/',
-    linkLabel: 'Visit the site',
-    video: { mp4: '/gallery/express-yourself.mp4', webm: '/gallery/express-yourself.webm' },
-    poster: '/gallery/express-yourself-poster.jpg',
+    shape: 'portrait',
+    image: '/gallery/framed-mask.jpg',
+    alt: 'Carved wooden mask in a hand-carved frame on the wall',
   },
   {
     shape: 'portrait',

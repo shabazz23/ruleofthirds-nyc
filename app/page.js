@@ -15,8 +15,6 @@ const PEERSPACE = 'https://www.peerspace.com/pages/listings/67981614acf549c7b955
 // Studio photographs, placed on the thirds grid (see .t-photos in globals.css).
 const STUDIO_PHOTOS = [
   { src: '/images/living-wide.jpg', alt: 'Dining area of Golden Hour Loft with orange chairs', w: 1320, h: 880, caption: 'Dining room', cls: 'p1' },
-  { src: '/images/loft-double-height.jpg', alt: 'Double-height living space of Golden Hour Loft with mezzanine', w: 1320, h: 1981, caption: 'Double-height space', cls: 'p2' },
-  { src: '/images/kitchen.jpg', alt: "Chef's kitchen at Golden Hour Loft", w: 1320, h: 880, caption: 'Kitchen', cls: 'p3' },
   { src: '/images/lounge-art.jpg', alt: 'Lounge with a colourful abstract painting', w: 1320, h: 881, caption: 'Lounge', cls: 'p4' },
   { src: '/images/vinyl-wall.jpg', alt: 'Seating corner with mirror and wall art', w: 1320, h: 1981, caption: 'Living room', cls: 'p5' },
 ];
