@@ -11,13 +11,16 @@ After every step that adds or changes an env var in Vercel, redeploy the
 site (Vercel → Deployments → ⋯ → Redeploy). Env vars only take effect on a
 new deployment.
 
-## 1. Create the database (Vercel Postgres)
+## 1. Create the database (Postgres)
 
 1. In Vercel, open the `ruleofthirds-nyc` project → **Storage** → **Create
-   Database** → **Postgres**. The free tier is enough to start.
+   Database** → **Postgres**. The free tier is enough to start. (Vercel
+   provisions Prisma Postgres; the site uses the standard postgres.js
+   driver, so any Postgres works.)
 2. Connect it to the project when asked. Vercel automatically adds
-   `POSTGRES_URL` (and related vars) to the project's env vars — you don't
-   need to copy anything by hand.
+   `POSTGRES_URL` (and related vars, including the pooled
+   `POSTGRES_DATABASE_URL_POOLED` the site prefers on serverless) to the
+   project's env vars — you don't need to copy anything by hand.
 3. Open the database → **Query** tab, paste the contents of
    `db/schema.sql` from this repo, and run it. This creates the `users`,
    `accounts`, `sessions`, `verification_tokens`, and `orders` tables.
