@@ -420,6 +420,10 @@ body.cart-open .cart-drawer { transform: none; }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--ink); }
 .field textarea { min-height: 160px; resize: vertical; }
 .form-note { font-size: 0.85rem; color: var(--muted); margin-top: 1rem; }
+.form-note a { color: inherit; }
+.form-error { color: #9b2c1f; }
+.form-trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.btn:disabled { opacity: 0.6; cursor: wait; }
 .form-done { border: 1px solid var(--line); border-radius: 3px; padding: 2.5rem; text-align: center; }
 .form-done h3 { margin-bottom: 0.75rem; }
 .form-done p { color: var(--muted); }
@@ -622,4 +626,24 @@ body.cart-open .cart-drawer { transform: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .page-hero { padding-top: 7.5rem; }
 }
+<<<<<<< HEAD
 .checkout-complete h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); }
+=======
+
+/* "Coming soon" label on product photos: frosted pill, thin outline */
+.soon-badge {
+  position: absolute; top: 1rem; left: 1rem; z-index: 2; pointer-events: none;
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 0.5rem 1rem 0.5rem 0.85rem; border-radius: 999px;
+  background: rgba(250, 248, 242, 0.72);
+  -webkit-backdrop-filter: blur(10px) saturate(140%); backdrop-filter: blur(10px) saturate(140%);
+  border: 1px solid rgba(17, 17, 16, 0.14);
+  color: var(--ink); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  box-shadow: 0 6px 24px rgba(17, 17, 16, 0.08);
+}
+.soon-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(185, 127, 46, 0.18);
+}
+@media (max-width: 760px) { .soon-badge { top: 0.75rem; left: 0.75rem; font-size: 0.62rem; } }
+>>>>>>> origin/master

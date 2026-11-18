@@ -3,7 +3,8 @@ const isDev = process.env.NODE_ENV !== 'production';
 // Content Security Policy: tells browsers which sources this site may load
 // scripts, images, fonts and media from, so injected code from elsewhere is
 // refused. 'unsafe-inline' is kept because the homepage intro uses a small
-// inline script. vercel.live is Vercel's preview toolbar (preview links only).
+// inline script. api.web3forms.com delivers the contact form to the inbox.
+// vercel.live is Vercel's preview toolbar (preview links only).
 const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline' https://vercel.live${isDev ? " 'unsafe-eval'" : ''}`,
@@ -11,7 +12,7 @@ const csp = [
   "img-src 'self' data: blob: https://vercel.live https://vercel.com",
   "font-src 'self' data: https://vercel.live https://assets.vercel.com",
   "media-src 'self' blob:",
-  "connect-src 'self' https://vercel.live wss://ws-us3.pusher.com",
+  "connect-src 'self' https://api.web3forms.com https://vercel.live wss://ws-us3.pusher.com",
   "frame-src https://vercel.live",
   "object-src 'none'",
   "base-uri 'self'",

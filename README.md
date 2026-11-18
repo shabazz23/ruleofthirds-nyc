@@ -54,7 +54,7 @@ Environment variables (set in Vercel, never committed):
 | Name | Value |
 | --- | --- |
 | `STRIPE_SECRET_KEY` | `sk_test_…` for testing, `sk_live_…` when live |
-| `PAYPAL_CLIENT_ID` | PayPal REST app client ID |
+| `PAYPAL_CLIENT_ID` (or `NEXT_PUBLIC_PAYPAL_CLIENT_ID`) | PayPal REST app client ID |
 | `PAYPAL_CLIENT_SECRET` | PayPal REST app secret |
 | `PAYPAL_ENV` | `sandbox` for testing, `live` when live |
 | `SITE_URL` (optional) | e.g. `https://ruleofthirds.nyc` |
