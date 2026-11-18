@@ -8,9 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "@auth/drizzle-adapter": "^1.11.3",
+    "@neondatabase/serverless": "^1.2.1",
+    "@paypal/react-paypal-js": "^10.6.1",
+    "bcryptjs": "^3.0.3",
+    "drizzle-orm": "^0.45.4",
     "gsap": "^3.12.5",
     "next": "16.4.6",
+    "next-auth": "^5.0.0-beta.32",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "stripe": "^23.1.0"
   }
 }

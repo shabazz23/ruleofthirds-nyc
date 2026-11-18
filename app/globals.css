@@ -608,6 +608,47 @@ body.cart-open .cart-drawer { transform: none; }
 .legal a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
 .legal a:hover { color: var(--accent); }
 
+/* ---------- auth ---------- */
+.auth-wrap { max-width: 560px; padding-bottom: 4rem; }
+.auth-card { border: 1px solid var(--line); border-radius: 3px; padding: 2.5rem; background: var(--paper); }
+.auth-divider {
+  display: flex; align-items: center; gap: 1rem;
+  color: var(--muted); font-size: 0.8rem; margin: 0 0 1.5rem;
+}
+.auth-divider::before, .auth-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--line);
+}
+.form-error { color: #a33b2e; }
+.nav-auth {
+  font-size: 0.76rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none; color: var(--muted); white-space: nowrap;
+}
+.nav-auth:hover { color: var(--ink); }
+
+/* ---------- checkout ---------- */
+.checkout-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 3.5rem; align-items: start;
+  max-width: 980px; margin: 0 auto;
+}
+.order-summary, .payment-choice { border: 1px solid var(--line); border-radius: 3px; padding: 2rem; }
+.order-summary h2, .payment-choice h2 {
+  font-size: 1.05rem; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 1.25rem;
+}
+.payment-choice .auth-divider { margin: 1.75rem 0; }
+.checkout-empty { text-align: center; padding: 3rem 0; }
+
+/* ---------- account ---------- */
+.account-head { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.order-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem; max-width: 720px; }
+.order-card { border: 1px solid var(--line); border-radius: 3px; padding: 1.75rem; }
+.order-meta {
+  display: flex; gap: 1.25rem; flex-wrap: wrap;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1rem;
+}
+.order-status { color: var(--accent); }
+.order-ref { font-size: 0.78rem; color: var(--muted); margin-top: 1rem; word-break: break-all; }
+
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .burger { display: block; }
@@ -618,4 +659,6 @@ body.cart-open .cart-drawer { transform: none; }
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .page-hero { padding-top: 7.5rem; }
+  .checkout-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .auth-card { padding: 1.75rem; }
 }

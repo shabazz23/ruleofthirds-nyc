@@ -1,6 +1,13 @@
 'use client';
 
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 const CartContext = createContext(null);
 
@@ -23,14 +30,14 @@ export function CartProvider({ children }) {
     } catch {
       /* ignore */
     }
-  }, [items ]);
+  }, [items]);
 
   useEffect(() => {
     document.body.classList.toggle('cart-open', isOpen);
     document.body.classList.toggle('locked', isOpen);
   }, [isOpen]);
 
-  const addItem = (product, qty = 1) => {
+  const addItem = useCallback((product, qty = 1) => {
     setItems((prev) => {
       const found = prev.find((i) => i.id === product.id);
       if (found) {
@@ -39,14 +46,26 @@ export function CartProvider({ children }) {
       return [...prev, { ...product, qty }];
     });
     setIsOpen(true);
-  };
+  }, []);
 
-  const removeItem = (id) => setItems((prev) => prev.filter((i) => i.id !== id));
+  const removeItem = useCallback(
+    (id) => setItems((prev) => prev.filter((i) => i.id !== id)),
+    [],
+  );
 
-  const setQty = (id, qty) => {
-    if (qty <= 0) return removeItem(id);
-    setItems((prev) => prev.map((i) => (i.id === id ? { ...i, qty } : i)));
-  };
+  const setQty = useCallback(
+    (id, qty) => {
+      if (qty <= 0) return removeItem(id);
+      setItems((prev) => prev.map((i) => (i.id === id ? { ...i, qty } : i)));
+    },
+    [removeItem],
+  );
+
+  // Empties the bag — used after a completed checkout.
+  const clearCart = useCallback(() => setItems([]), []);
+
+  const openCart = useCallback(() => setIsOpen(true), []);
+  const closeCart = useCallback(() => setIsOpen(false), []);
 
   const { count, subtotal } = useMemo(() => {
     let count = 0;
@@ -60,12 +79,32 @@ export function CartProvider({ children }) {
     return { count, subtotal: priced ? subtotal : null };
   }, [items]);
 
-  const value = {
-    items, addItem, removeItem, setQty,
-    count, subtotal, isOpen,
-    openCart: () => setIsOpen(true),
-    closeCart: () => setIsOpen(false),
-  };
+  const value = useMemo(
+    () => ({
+      items,
+      addItem,
+      removeItem,
+      setQty,
+      clearCart,
+      count,
+      subtotal,
+      isOpen,
+      openCart,
+      closeCart,
+    }),
+    [
+      items,
+      addItem,
+      removeItem,
+      setQty,
+      clearCart,
+      count,
+      subtotal,
+      isOpen,
+      openCart,
+      closeCart,
+    ],
+  );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }

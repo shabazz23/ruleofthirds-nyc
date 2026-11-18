@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useCart } from './cart';
 import { formatPrice } from './format';
 
@@ -68,10 +69,10 @@ export default function CartDrawer() {
               <span>Total</span>
               <span>{total != null ? formatPrice(total) : 'TBA'}</span>
             </div>
-            <button className="btn" disabled>
-              Checkout — coming soon
-            </button>
-            <p className="cart-note">Secure checkout opens with our store launch.</p>
+            <Link className="btn" href="/checkout" onClick={closeCart}>
+              Checkout
+            </Link>
+            <p className="cart-note">Secure checkout with Stripe or PayPal.</p>
           </div>
         )}
       </aside>

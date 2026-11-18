@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
 import { useCart } from './cart';
 
 const LINKS = [
@@ -17,6 +18,7 @@ const LINKS = [
 export default function Nav() {
   const pathname = usePathname();
   const { count, openCart } = useCart();
+  const { data: session, status } = useSession();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -51,6 +53,16 @@ export default function Nav() {
             ))}
           </nav>
           <div className="nav-right">
+            {status !== 'loading' &&
+              (session?.user ? (
+                <Link href="/account" className="nav-auth">
+                  Account
+                </Link>
+              ) : (
+                <Link href="/signin" className="nav-auth">
+                  Sign in
+                </Link>
+              ))}
             <button className="bag-btn" onClick={openCart} aria-label={`Open bag, ${count} items`}>
               <span aria-hidden="true">◈</span>
               {count > 0 && <span className="bag-count">{count}</span>}
@@ -74,6 +86,16 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
+          {status !== 'loading' &&
+            (session?.user ? (
+              <Link href="/account" onClick={() => setMenuOpen(false)}>
+                Account
+              </Link>
+            ) : (
+              <Link href="/signin" onClick={() => setMenuOpen(false)}>
+                Sign in
+              </Link>
+            ))}
         </nav>
       </div>
     </>

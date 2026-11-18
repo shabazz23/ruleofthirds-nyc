@@ -1,6 +1,7 @@
 import './globals.css';
 import { Inter, Newsreader } from 'next/font/google';
 import { CartProvider } from '../components/cart';
+import AuthProvider from '../components/AuthProvider';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import CartDrawer from '../components/CartDrawer';
@@ -30,12 +31,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
       <body>
-        <CartProvider>
-          <Nav />
-          <main>{children}</main>
-          <Footer />
-          <CartDrawer />
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Nav />
+            <main>{children}</main>
+            <Footer />
+            <CartDrawer />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

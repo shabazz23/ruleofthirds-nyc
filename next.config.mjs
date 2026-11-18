@@ -4,15 +4,18 @@ const isDev = process.env.NODE_ENV !== 'production';
 // scripts, images, fonts and media from, so injected code from elsewhere is
 // refused. 'unsafe-inline' is kept because the homepage intro uses a small
 // inline script. vercel.live is Vercel's preview toolbar (preview links only).
+// paypal.com / paypalobjects.com are the PayPal JS SDK + buttons on /checkout
+// (script, iframe, images, and API calls). Stripe needs no CSP entry: hosted
+// Checkout runs on Stripe's own page, reached by a normal redirect.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://vercel.live${isDev ? " 'unsafe-eval'" : ''}`,
+  `script-src 'self' 'unsafe-inline' https://vercel.live https://www.paypal.com https://www.paypalobjects.com${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline' https://vercel.live",
-  "img-src 'self' data: blob: https://vercel.live https://vercel.com",
+  "img-src 'self' data: blob: https://vercel.live https://vercel.com https://www.paypalobjects.com",
   "font-src 'self' data: https://vercel.live https://assets.vercel.com",
   "media-src 'self' blob:",
-  "connect-src 'self' https://vercel.live wss://ws-us3.pusher.com",
-  "frame-src https://vercel.live",
+  "connect-src 'self' https://vercel.live wss://ws-us3.pusher.com https://www.paypal.com https://www.paypalobjects.com",
+  "frame-src https://vercel.live https://www.paypal.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
