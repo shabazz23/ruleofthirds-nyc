@@ -32,6 +32,7 @@ export const GALLERY = [
     href: 'https://www.instagram.com/blackfolksrock/',
     linkLabel: 'Instagram',
     image: '/gallery/black-folks-rock.jpg',
+    alt: 'Black Folks Rock group photo in the loft',
   },
   {
     shape: 'wide',

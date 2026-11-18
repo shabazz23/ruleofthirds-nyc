@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 import { useCart } from './cart';
 import { formatPrice } from './format';
 import CheckoutButtons from './CheckoutButtons';
@@ -11,13 +12,31 @@ export default function CartDrawer() {
   const shipping = items.length > 0 ? Math.max(...items.map((i) => i.shippingCost || 0)) : 0;
   const total = subtotal != null ? subtotal + shipping : null;
 
+  // Keyboard and screen reader users: move into the bag when it opens, Escape closes it,
+  // and focus goes back to where it was when it closes.
+  const closeRef = useRef(null);
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const back = document.activeElement;
+    const t = window.setTimeout(() => closeRef.current?.focus(), 50);
+    const onKey = (e) => {
+      if (e.key === 'Escape') closeCart();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener('keydown', onKey);
+      if (back && back.focus && document.contains(back)) back.focus();
+    };
+  }, [isOpen, closeCart]);
+
   return (
     <>
       <div className="scrim" onClick={closeCart} aria-hidden="true" />
-      <aside className="cart-drawer" aria-hidden={!isOpen} aria-label="Shopping bag">
+      <aside className="cart-drawer" aria-hidden={!isOpen} inert={!isOpen} role="dialog" aria-modal={isOpen} aria-label="Shopping bag">
         <div className="cart-head">
           <h3>Your Bag</h3>
-          <button className="cart-close" onClick={closeCart} aria-label="Close bag">
+          <button className="cart-close" ref={closeRef} onClick={closeCart} aria-label="Close bag">
             ×
           </button>
         </div>
@@ -41,12 +60,12 @@ export default function CartDrawer() {
                     <button onClick={() => setQty(item.id, item.qty - 1)} aria-label="Decrease quantity">
                       −
                     </button>
-                    <span>{item.qty}</span>
+                    <span aria-label={`Quantity ${item.qty}`}>{item.qty}</span>
                     <button onClick={() => setQty(item.id, item.qty + 1)} aria-label="Increase quantity">
                       +
                     </button>
                   </div>
-                  <button className="ci-remove" onClick={() => removeItem(item.id)}>
+                  <button className="ci-remove" onClick={() => removeItem(item.id)} aria-label={`Remove ${item.name}`}>
                     Remove
                   </button>
                 </div>

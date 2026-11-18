@@ -49,6 +49,8 @@ export function CartProvider({ children }) {
   };
 
   const clearCart = useCallback(() => setItems([]), []);
+  const openCart = useCallback(() => setIsOpen(true), []);
+  const closeCart = useCallback(() => setIsOpen(false), []);
 
   const { count, subtotal } = useMemo(() => {
     let count = 0;
@@ -65,8 +67,7 @@ export function CartProvider({ children }) {
   const value = {
     items, addItem, removeItem, setQty, clearCart,
     count, subtotal, isOpen,
-    openCart: () => setIsOpen(true),
-    closeCart: () => setIsOpen(false),
+    openCart, closeCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

@@ -40,12 +40,11 @@ export default function ProductGallery({ images, badge }) {
         {badge && <span className="soon-badge">{badge}</span>}
         <span className="pg-zoom-hint">Click to zoom</span>
       </button>
-      <div className="pg-thumbs" role="tablist" aria-label="Product views">
+      <div className="pg-thumbs" role="group" aria-label="Product views">
         {images.map((img, i) => (
           <button
             key={img.src}
-            role="tab"
-            aria-selected={i === index}
+            aria-pressed={i === index}
             aria-label={`View ${img.label}`}
             className={`pg-thumb${i === index ? ' active' : ''}`}
             onClick={() => setIndex(i)}
@@ -57,7 +56,7 @@ export default function ProductGallery({ images, badge }) {
 
       {zoomed && (
         <div className="lightbox" onClick={close} role="dialog" aria-modal="true" aria-label={current.alt}>
-          <button className="lightbox-close" onClick={close} aria-label="Close zoom">
+          <button className="lightbox-close" onClick={close} aria-label="Close zoom" autoFocus>
             ×
           </button>
           <Image

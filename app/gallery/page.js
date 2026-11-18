@@ -18,7 +18,7 @@ export default function Gallery() {
           <p className={`gallery-script ${script.className}`}>shot inside the space</p>
         </Reveal>
       </section>
-      <section className="wrap" style={{ paddingBottom: '4rem' }}>
+      <section className="wrap gallery-wrap" style={{ paddingBottom: '4rem' }}>
         {GALLERY.length === 0 ? (
           <Reveal>
             <div className="gallery-blank">
