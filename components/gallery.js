@@ -29,8 +29,10 @@ export const GALLERY = [
   {
     shape: 'full',
     ratio: '2 / 1',
-    href: 'https://www.instagram.com/blackfolksrock/',
-    linkLabel: 'Instagram',
+    links: [
+      { label: 'Instagram', href: 'https://www.instagram.com/blackfolksrock/' },
+      { label: 'Add your business', href: 'https://blackfolksrock.kinsta.cloud/add-your-business/' },
+    ],
     image: '/gallery/black-folks-rock.jpg',
     alt: 'Black Folks Rock group photo in the loft',
   },

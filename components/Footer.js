@@ -38,6 +38,20 @@ export default function Footer() {
             <li><Link href="/terms">Terms of Service</Link></li>
           </ul>
         </div>
+        <div>
+          <h4>Community</h4>
+          <ul>
+            <li>
+              <a
+                href="https://blackfolksrock.kinsta.cloud/add-your-business/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Add your business to the Black Folks Rock directory
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
       <div className="footer-base">
         <span>© {year} Rule of Thirds. All rights reserved.</span>
