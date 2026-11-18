@@ -3,6 +3,9 @@ import { PRIVACY, LAST_UPDATED } from '../../components/legal';
 
 export const metadata = {
   title: 'Privacy Policy',
+  description:
+    'How Rule of Thirds collects, uses and protects information on ruleofthirds.nyc.',
+  alternates: { canonical: '/privacy' },
 };
 
 export default function Privacy() {

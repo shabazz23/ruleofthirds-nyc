@@ -4,7 +4,9 @@ import Reveal from '../components/Reveal';
 import HomeHero from '../components/HomeHero';
 
 export const metadata = {
-  title: 'Rule of Thirds — An Exercise in Perspective',
+  // "absolute" stops the "· Rule of Thirds" ending being added twice.
+  title: { absolute: 'Rule of Thirds | Brooklyn Photo & Film Studio, Golden Hour Loft' },
+  alternates: { canonical: '/' },
 };
 
 const PEERSPACE = 'https://www.peerspace.com/pages/listings/67981614acf549c7b9556489';

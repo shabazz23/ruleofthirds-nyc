@@ -3,6 +3,9 @@ import Reveal from '../../components/Reveal';
 
 export const metadata = {
   title: 'About',
+  description:
+    'Rule of Thirds runs Golden Hour Loft, a 5,000 sq ft sunlit production loft in Brooklyn, NY for photo shoots, film, music videos and events. Book it on Peerspace.',
+  alternates: { canonical: '/about' },
 };
 
 const PEERSPACE = 'https://www.peerspace.com/pages/listings/67981614acf549c7b9556489';

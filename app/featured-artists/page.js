@@ -4,6 +4,9 @@ import { ARTISTS } from '../../components/artists';
 
 export const metadata = {
   title: 'Featured Artists',
+  description:
+    'Meet the New York artists whose work hangs in Golden Hour Loft, the Brooklyn creative space run by Rule of Thirds.',
+  alternates: { canonical: '/featured-artists' },
 };
 
 export default function FeaturedArtists() {
