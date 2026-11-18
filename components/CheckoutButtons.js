@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import PaymentIcons from './PaymentIcons';
 
@@ -41,7 +42,14 @@ export default function CheckoutButtons({ items }) {
         </p>
       )}
       <PaymentIcons className="pay-icons-center" />
-      <p className="cart-note">Payments handled by Stripe and PayPal.</p>
+      <p className="cart-note">
+        Payments are processed securely by Stripe and PayPal; we never see or store your card
+        number.
+      </p>
+      <p className="cart-note cart-terms">
+        By placing your order you agree to our <Link href="/terms">Terms of Service</Link> and{' '}
+        <Link href="/terms#shipping-returns-and-exchanges">Refund Policy</Link>.
+      </p>
     </div>
   );
 }

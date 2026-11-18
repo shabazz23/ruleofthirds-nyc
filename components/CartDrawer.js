@@ -36,7 +36,7 @@ export default function CartDrawer() {
                 </div>
                 <div>
                   <p className="ci-name">{item.name}</p>
-                  <p className="ci-meta">{item.preorder ? 'Preorder' : 'In stock'}</p>
+                  <p className="ci-meta">{item.preorder ? `Preorder${item.shipWindow ? ` · ships in ${item.shipWindow}` : ''}` : 'In stock'}</p>
                   <div className="qty">
                     <button onClick={() => setQty(item.id, item.qty - 1)} aria-label="Decrease quantity">
                       −

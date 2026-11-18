@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Reveal from '../../components/Reveal';
 import AddToBag from '../../components/AddToBag';
 import ProductGallery from '../../components/ProductGallery';
@@ -55,6 +56,9 @@ export default function Shop() {
                 or PayPal.
               </p>
               <PaymentIcons />
+              <p className="form-note">
+                <Link href="/terms#shipping-returns-and-exchanges">Shipping &amp; refund policy</Link>
+              </p>
             </div>
           </div>
         </Reveal>

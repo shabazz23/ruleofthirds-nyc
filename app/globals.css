@@ -677,3 +677,4 @@ body.cart-open .cart-drawer { transform: none; }
   .pay-marks li:first-child { border-left: none; }
 }
 .pay-icons-center .pay-marks li:first-child { border-left: none; }
+.cart-terms { margin-top: 0.1rem; } .cart-note a { color: var(--ink); }

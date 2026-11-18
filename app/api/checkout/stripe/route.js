@@ -19,7 +19,11 @@ export async function POST(request) {
           unit_amount: unitCents,
           product_data: {
             name: product.name,
-            description: [product.detail, product.color, product.preorder ? 'Preorder' : null]
+            description: [
+              product.detail,
+              product.color,
+              product.preorder ? `Preorder, ships in ${product.shipWindow || 'a few weeks'}` : null,
+            ]
               .filter(Boolean)
               .join(' · '),
             images: product.image ? [`${origin}${product.image}`] : undefined,
@@ -40,7 +44,7 @@ export async function POST(request) {
       phone_number_collection: { enabled: false },
       custom_text: {
         submit: {
-          message: `By paying you agree to the Terms of Service at ${origin}/terms.`,
+          message: `By placing your order you agree to our Terms of Service and Refund Policy at ${origin}/terms.`,
         },
       },
       success_url: `${origin}/checkout/complete?provider=stripe&session_id={CHECKOUT_SESSION_ID}`,
