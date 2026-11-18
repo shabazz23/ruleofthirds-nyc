@@ -8,6 +8,9 @@ import PaymentIcons from '../../components/PaymentIcons';
 
 export const metadata = {
   title: 'Shop',
+  description:
+    'Thoughtfully made objects from Rule of Thirds, a Brooklyn creative studio. Shop pieces and preorders with card, Apple Pay, Google Pay or PayPal.',
+  alternates: { canonical: '/shop' },
 };
 
 export default function Shop() {

@@ -15,22 +15,45 @@ export const metadata = {
     template: '%s · Rule of Thirds',
   },
   description:
-    'A creative space dedicated to the intersection of imagery, storytelling, culture, and design. Photography, film, art, and thoughtfully made objects.',
+    'Rule of Thirds is a Brooklyn creative studio and home of Golden Hour Loft, a 5,000 sq ft sunlit production space for photo shoots, film, music videos and events.',
   metadataBase: new URL('https://ruleofthirds.nyc'),
   openGraph: {
     title: 'Rule of Thirds — An Exercise in Perspective',
     description:
-      'Photography, film, art, and thoughtfully made objects. An exercise in perspective.',
-    url: 'https://ruleofthirds.nyc',
+      'A Brooklyn creative studio and home of Golden Hour Loft, a sunlit production space for photo, film and events.',
     siteName: 'Rule of Thirds',
+    locale: 'en_US',
     type: 'website',
+    images: [{ url: '/images/living-wide.jpg', width: 1320, height: 880, alt: 'Golden Hour Loft, Brooklyn' }],
   },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/living-wide.jpg'],
+  },
+};
+
+// Tells Google who runs the site, so it can show the name and links properly.
+const ORGANIZATION = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Rule of Thirds',
+  url: 'https://ruleofthirds.nyc',
+  email: 'info@ruleofthirds.nyc',
+  slogan: 'An exercise in perspective.',
+  description:
+    'A Brooklyn creative studio and home of Golden Hour Loft, a 5,000 sq ft production space for photo, film and events.',
+  areaServed: 'New York City',
+  sameAs: ['https://www.peerspace.com/pages/listings/67981614acf549c7b9556489'],
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION) }}
+        />
         <a href="#main" className="skip-link">Skip to content</a>
         <CartProvider>
           <Nav />
