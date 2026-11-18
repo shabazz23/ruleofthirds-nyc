@@ -68,7 +68,6 @@ export const GALLERY = [
       { label: 'Instagram', href: 'https://www.instagram.com/chefmarie.a__/' },
       { label: 'Substack', href: 'https://chefmariea1.substack.com/' },
       { label: 'Linktree', href: 'https://linktr.ee/Zoeskitchen' },
-      { label: 'PCOS Blueprint', href: 'https://stan.store/zoeskitchen/p/pcos-weightloss-blueprint' },
     ],
     video: { mp4: '/gallery/chef-marie.mp4', webm: '/gallery/chef-marie.webm' },
     poster: '/gallery/chef-marie-poster.jpg',
