@@ -31,10 +31,10 @@ export default function Footer() {
         <div>
           <h4>Policies</h4>
           <ul>
-            <li>Shipping &amp; Returns</li>
-            <li>Preorder Policy</li>
-            <li>Privacy Policy</li>
-            <li>Terms &amp; Conditions</li>
+            <li><Link href="/terms#shipping-returns-and-exchanges">Shipping &amp; Returns</Link></li>
+            <li><Link href="/terms#preorders">Preorder Policy</Link></li>
+            <li><Link href="/privacy">Privacy Policy</Link></li>
+            <li><Link href="/terms">Terms of Service</Link></li>
           </ul>
         </div>
       </div>
