@@ -58,24 +58,38 @@ export async function POST(req) {
       );
     }
 
-    await recordOrder({
-      userId: unit.custom_id || null,
-      email: captured.payer?.email_address ?? null,
-      status: 'paid',
-      provider: 'paypal',
-      providerOrderId: captured.id,
-      providerPaymentId: capture.id ?? null,
-      items: (unit.items ?? []).map((item) => ({
-        name: item.name,
-        qty: Number(item.quantity) || 1,
-        unitCents: dollarsToCents(item.unit_amount?.value),
-      })),
-      subtotalCents: dollarsToCents(breakdown.item_total?.value),
-      shippingCents: dollarsToCents(breakdown.shipping?.value),
-      totalCents: dollarsToCents(capture.amount?.value ?? unit.amount?.value),
-      currency: capture.amount?.currency_code || 'USD',
-      shippingAddress: unit.shipping ?? null,
-    });
+    try {
+      await recordOrder({
+        userId: unit.custom_id || null,
+        email: captured.payer?.email_address ?? null,
+        status: 'paid',
+        provider: 'paypal',
+        providerOrderId: captured.id,
+        providerPaymentId: capture.id ?? null,
+        items: (unit.items ?? []).map((item) => ({
+          name: item.name,
+          qty: Number(item.quantity) || 1,
+          unitCents: dollarsToCents(item.unit_amount?.value),
+        })),
+        subtotalCents: dollarsToCents(breakdown.item_total?.value),
+        shippingCents: dollarsToCents(breakdown.shipping?.value),
+        totalCents: dollarsToCents(capture.amount?.value ?? unit.amount?.value),
+        currency: capture.amount?.currency_code || 'USD',
+        shippingAddress: unit.shipping ?? null,
+      });
+    } catch (recordErr) {
+      // The money already moved at PayPal — a second capture attempt would
+      // be rejected, so never tell the customer to retry. Log loudly so
+      // the owner can reconcile from PayPal → Activity.
+      console.error('PayPal payment captured but order could not be recorded:', recordErr, {
+        paypalOrderId: captured.id,
+        captureId: capture.id,
+      });
+      return NextResponse.json(
+        { error: `Payment captured, but the order could not be saved (PayPal order ${captured.id}). Please contact us with that order id — do not try paying again.` },
+        { status: 500 },
+      );
+    }
 
     return NextResponse.json({ ok: true, orderId: captured.id });
   } catch (err) {

@@ -29,9 +29,20 @@ export async function POST(req) {
   const rawBody = await req.text();
   const signature = req.headers.get('stripe-signature');
 
+  let stripe;
+  try {
+    stripe = getStripe();
+  } catch {
+    console.error('STRIPE_SECRET_KEY is not set; cannot verify webhook.');
+    return NextResponse.json(
+      { error: 'Payment provider not configured.' },
+      { status: 500 },
+    );
+  }
+
   let event;
   try {
-    event = getStripe().webhooks.constructEvent(
+    event = stripe.webhooks.constructEvent(
       rawBody,
       signature,
       webhookSecret,
