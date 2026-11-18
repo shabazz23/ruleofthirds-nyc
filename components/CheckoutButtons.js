@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import PaymentIcons from './PaymentIcons';
 
 // Sends the bag (product ids and quantities only) to the server, which prices
 // it and replies with the address of Stripe's or PayPal's secure payment page.
@@ -39,7 +40,8 @@ export default function CheckoutButtons({ items }) {
           {error}
         </p>
       )}
-      <p className="cart-note">Card, Apple Pay, Google Pay or PayPal. Secure payment by Stripe and PayPal.</p>
+      <PaymentIcons className="pay-icons-center" />
+      <p className="cart-note">Secure payment by Stripe and PayPal.</p>
     </div>
   );
 }

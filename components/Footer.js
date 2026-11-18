@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import PaymentIcons from './PaymentIcons';
 
 export default function Footer() {
   const [year, setYear] = useState(2026);
@@ -40,6 +41,7 @@ export default function Footer() {
       </div>
       <div className="footer-base">
         <span>© {year} Rule of Thirds. All rights reserved.</span>
+        <PaymentIcons className="pay-icons-footer" />
         <span>Brooklyn, New York</span>
       </div>
     </footer>

@@ -644,3 +644,14 @@ body.cart-open .cart-drawer { transform: none; }
   box-shadow: 0 0 0 3px rgba(185, 127, 46, 0.18);
 }
 @media (max-width: 760px) { .soon-badge { top: 0.75rem; left: 0.75rem; font-size: 0.62rem; } }
+
+/* Accepted-payment marks: small outlined chips, muted ink */
+.pay-icons { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; padding: 0; }
+.pay-icons li {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.6rem; height: 1.7rem; border: 1px solid var(--line); border-radius: 0.35rem;
+  background: var(--paper);
+}
+.pay-icons svg { width: 1.45rem; height: 1.45rem; fill: var(--muted); }
+.pay-icons-center { justify-content: center; margin-top: 0.4rem; }
+.pay-icons-footer { margin-top: 0; }

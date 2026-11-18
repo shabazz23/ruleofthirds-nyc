@@ -3,6 +3,7 @@ import AddToBag from '../../components/AddToBag';
 import ProductGallery from '../../components/ProductGallery';
 import { formatPrice } from '../../components/format';
 import { HAT } from '../../components/products';
+import PaymentIcons from '../../components/PaymentIcons';
 
 export const metadata = {
   title: 'Shop',
@@ -53,6 +54,7 @@ export default function Shop() {
                 This is a preorder item. {HAT.shipping}. Pay by card, Apple Pay, Google Pay
                 or PayPal.
               </p>
+              <PaymentIcons />
             </div>
           </div>
         </Reveal>
