@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 
-export default function ProductGallery({ images }) {
+export default function ProductGallery({ images, badge }) {
   const [index, setIndex] = useState(0);
   const [zoomed, setZoomed] = useState(false);
   const current = images[index];
@@ -37,6 +37,7 @@ export default function ProductGallery({ images }) {
           height={880}
           priority={index === 0}
         />
+        {badge && <span className="soon-badge">{badge}</span>}
         <span className="pg-zoom-hint">Click to zoom</span>
       </button>
       <div className="pg-thumbs" role="tablist" aria-label="Product views">

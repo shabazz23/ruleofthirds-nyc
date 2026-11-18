@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useCart } from './cart';
 import { formatPrice } from './format';
+import CheckoutButtons from './CheckoutButtons';
 
 export default function CartDrawer() {
   const { items, isOpen, closeCart, setQty, removeItem, subtotal } = useCart();
@@ -35,7 +36,7 @@ export default function CartDrawer() {
                 </div>
                 <div>
                   <p className="ci-name">{item.name}</p>
-                  <p className="ci-meta">{item.preorder ? 'Preorder' : 'In stock'}</p>
+                  <p className="ci-meta">{item.preorder ? `Preorder${item.shipWindow ? ` · ships in ${item.shipWindow}` : ''}` : 'In stock'}</p>
                   <div className="qty">
                     <button onClick={() => setQty(item.id, item.qty - 1)} aria-label="Decrease quantity">
                       −
@@ -68,10 +69,7 @@ export default function CartDrawer() {
               <span>Total</span>
               <span>{total != null ? formatPrice(total) : 'TBA'}</span>
             </div>
-            <button className="btn" disabled>
-              Checkout — coming soon
-            </button>
-            <p className="cart-note">Secure checkout opens with our store launch.</p>
+            <CheckoutButtons items={items} />
           </div>
         )}
       </aside>
