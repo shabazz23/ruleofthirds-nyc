@@ -10,7 +10,8 @@ export const HAT = {
   preorder: true,
   // Shows a "Coming soon" label on the product photos. Preorders stay open.
   comingSoon: true,
-  shipping: 'Ships in 7 days',
+  shipping: 'Ships in 7–9 days',
+  shipWindow: '7–9 days',
   shippingCost: 6.99,
   image: '/images/hat-front.jpg',
   images: [

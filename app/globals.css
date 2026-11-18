@@ -163,6 +163,9 @@ body.cart-open .cart-drawer { transform: none; }
 .cart-row-sub { font-weight: 400; color: var(--muted); font-size: 0.92rem; margin-bottom: 0.5rem; }
 .cart-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.8rem; text-align: center; }
 .cart-drawer .btn { width: 100%; }
+.checkout-buttons { display: grid; gap: 0.6rem; margin-top: 1rem; }
+.checkout-buttons .cart-note { margin-top: 0.2rem; }
+.checkout-error { font-size: 0.82rem; color: #9a3412; text-align: center; }
 
 /* ---------- page hero ---------- */
 .page-hero { max-width: var(--max); margin: 0 auto; padding: 9rem 1.5rem 3rem; }
@@ -623,6 +626,7 @@ body.cart-open .cart-drawer { transform: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .page-hero { padding-top: 7.5rem; }
 }
+.checkout-complete h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); }
 
 /* "Coming soon" label on product photos: frosted pill, thin outline */
 .soon-badge {
@@ -640,3 +644,37 @@ body.cart-open .cart-drawer { transform: none; }
   box-shadow: 0 0 0 3px rgba(185, 127, 46, 0.18);
 }
 @media (max-width: 760px) { .soon-badge { top: 0.75rem; left: 0.75rem; font-size: 0.62rem; } }
+
+/* Accepted-payment strip: frosted pill, hairline dividers, gold lock */
+.pay-strip {
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0.35rem 0.9rem;
+  margin-top: 1.25rem; padding: 0.45rem 0.55rem 0.45rem 1rem; align-self: flex-start;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: rgba(250, 248, 242, 0.7);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.pay-label {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-family: var(--font-serif); font-style: italic; font-size: 0.92rem; color: var(--ink);
+  letter-spacing: 0; text-transform: none;
+}
+.pay-lock { width: 0.9rem; height: 0.9rem; fill: none; stroke: var(--accent); stroke-width: 1.2; }
+.pay-marks { list-style: none; display: flex; align-items: center; padding: 0; margin: 0; }
+.pay-marks li {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.2rem 0.6rem; border-left: 1px solid var(--line);
+}
+.pay-marks svg {
+  width: 1.35rem; height: 1.35rem; fill: var(--ink); opacity: 0.55;
+  transition: opacity 0.25s, fill 0.25s, transform 0.25s;
+}
+.pay-marks li:hover svg { opacity: 1; fill: var(--accent); transform: translateY(-1px); }
+.pay-icons-center { display: flex; justify-content: center; margin: 0.6rem auto 0; padding-left: 0.9rem; align-self: stretch; }
+.pay-icons-footer { margin-top: 0; padding-top: 0.3rem; padding-bottom: 0.3rem; }
+@media (max-width: 760px) {
+  .pay-strip { border-radius: 1.1rem; justify-content: center; padding: 0.55rem 0.7rem; }
+  .pay-marks li { padding: 0.2rem 0.45rem; }
+  .pay-marks li:first-child { border-left: none; }
+}
+.pay-icons-center .pay-marks li:first-child { border-left: none; }
+.cart-terms { margin-top: 0.1rem; } .cart-note a { color: var(--ink); }

@@ -1,8 +1,10 @@
+import Link from 'next/link';
 import Reveal from '../../components/Reveal';
 import AddToBag from '../../components/AddToBag';
 import ProductGallery from '../../components/ProductGallery';
 import { formatPrice } from '../../components/format';
 import { HAT } from '../../components/products';
+import PaymentIcons from '../../components/PaymentIcons';
 
 export const metadata = {
   title: 'Shop',
@@ -50,8 +52,12 @@ export default function Shop() {
                 <AddToBag product={HAT} label="Preorder — Add to Bag" />
               </div>
               <p className="form-note" style={{ marginTop: '1.25rem' }}>
-                This is a preorder item. {HAT.shipping}. Secure checkout opens with our
-                store launch.
+                This is a preorder item. {HAT.shipping}. Pay by card, Apple Pay, Google Pay
+                or PayPal.
+              </p>
+              <PaymentIcons />
+              <p className="form-note">
+                <Link href="/terms#shipping-returns-and-exchanges">Shipping &amp; refund policy</Link>
               </p>
             </div>
           </div>
