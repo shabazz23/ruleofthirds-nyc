@@ -5,7 +5,7 @@ import HomeHero from '../components/HomeHero';
 
 export const metadata = {
   // "absolute" stops the "· Rule of Thirds" ending being added twice.
-  title: { absolute: 'Rule of Thirds | Brooklyn Photo & Film Studio, Golden Hour Loft' },
+  title: { absolute: 'Golden Hour Loft, Photo & Film Studio | Rule of Thirds by Good Life Collective' },
   alternates: { canonical: '/' },
 };
 

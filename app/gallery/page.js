@@ -8,7 +8,7 @@ const script = Pinyon_Script({ subsets: ['latin'], weight: '400' });
 export const metadata = {
   title: 'Gallery',
   description:
-    'Music videos, portraits and shoots made inside Golden Hour Loft, a Brooklyn photo and film studio by Rule of Thirds.',
+    'Music videos, portraits and shoots made inside Golden Hour Loft, the photo and film studio by Rule of Thirds.',
   alternates: { canonical: '/gallery' },
 };
 
