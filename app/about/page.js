@@ -114,29 +114,18 @@ export default function About() {
           </div>
         ))}
 
-        <div className="studio-grid" style={{ paddingTop: 0 }}>
-          <figure>
-            <Reveal>
-              <Image
-                src="/images/art-abstract.jpg"
-                alt="Abstract artwork in the loft"
-                width={1320}
-                height={880}
-              />
-            </Reveal>
-          </figure>
+        <div className="studio-closer">
           <Reveal>
-            <p className="studio-index">04</p>
-            <h2>The Details</h2>
-            <p className="lede">
-              Boxing gloves on the wall, records on the shelf, art that asks questions. The
-              loft is dressed with pieces that give every shoot a point of view — from
-              $125/hr on Peerspace.
-            </p>
-            <a href={PEERSPACE} target="_blank" rel="noopener" className="btn btn-ghost">
-              View on Peerspace
-            </a>
+            <Image
+              src="/images/art-abstract.jpg"
+              alt="Abstract artwork in the loft"
+              width={1320}
+              height={880}
+            />
           </Reveal>
+          <a href={PEERSPACE} target="_blank" rel="noopener" className="btn btn-ghost">
+            View on Peerspace
+          </a>
         </div>
       </section>
     </>
