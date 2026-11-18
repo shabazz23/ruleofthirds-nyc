@@ -6,7 +6,7 @@ import Reveal from '../../components/Reveal';
 // Messages are delivered to info@ruleofthirds.nyc by Web3Forms (web3forms.com).
 // This access key only lets the form send to that inbox, so it is safe to keep
 // in the site code. To change the inbox, create a new key at web3forms.com.
-const WEB3FORMS_KEY = '';
+const WEB3FORMS_KEY = '98753f79-3832-4bc7-969a-68a223eec02a';
 const INBOX = 'info@ruleofthirds.nyc';
 
 export default function Contact() {
