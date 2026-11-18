@@ -210,7 +210,7 @@ body.cart-open .cart-drawer { transform: none; visibility: visible; transition-d
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-text);
   border: 1px solid var(--accent-text); border-radius: 999px; padding: 0.35rem 0.9rem; margin-bottom: 1.25rem;
 }
-.product-info h3 { font-size: clamp(1.8rem, 3.4vw, 2.8rem); margin-bottom: 1rem; }
+.product-info h3 { font-size: min(clamp(1.8rem, 3.4vw, 2.8rem), 10vw); margin-bottom: 1rem; }
 .product-info .price { font-size: 1.25rem; font-weight: 600; margin: 1rem 0 1.5rem; }
 .product-info p.desc { color: var(--muted); line-height: 1.7; }
 .product-actions { display: flex; gap: 0.8rem; margin-top: 1.75rem; flex-wrap: wrap; }
@@ -628,7 +628,7 @@ body.cart-open .cart-drawer { transform: none; visibility: visible; transition-d
   .feature-grid, .studio-grid, .studio-grid.flip { grid-template-columns: 1fr; gap: 2rem; }
   .studio-grid.flip figure { order: 0; }
   .product-card { grid-template-columns: minmax(0, 1fr); }
-  .product-info { padding: 2.25rem 1.5rem; }
+  .product-info { padding: 2.25rem clamp(1rem, 5vw, 1.5rem); }
   .product-visual { min-height: 300px; }
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -703,7 +703,7 @@ main:focus { outline: none; }
 
 /* Large text and zoom: nothing may run off the right edge of a phone. */
 .nav-right { flex-shrink: 0; }
-.gallery-cta, .gallery-links a { max-width: 100%; overflow-wrap: anywhere; }
+.gallery-cta, .gallery-links a { max-width: 100%; overflow-wrap: break-word; }
 .gallery-links { max-height: calc(100% - 1.2rem); overflow-y: auto; scrollbar-width: none; }
 .gallery-links::-webkit-scrollbar { display: none; }
 .pg-zoom-hint { max-width: calc(100% - 2rem); }
@@ -716,11 +716,14 @@ main:focus { outline: none; }
 @media (max-width: 900px) {
   .brand { white-space: normal; min-width: 0; line-height: 1.15; }
 }
-/* Very narrow screens (zoomed in, or very large text): one piece per row so the links fit. */
-@media (max-width: 20em) {
+/* Very large text or zoom leaves too little room for two pieces side by side
+   (the gallery is narrower than 16 times the text size): one piece per row so the links fit. */
+.gallery-wrap { container-type: inline-size; }
+@container (max-width: 16rem) {
   .gallery-grid { grid-template-columns: minmax(0, 1fr); }
   .gallery-cell:has(.gallery-wide), .gallery-cell:has(.gallery-tall), .gallery-cell:has(.gallery-full) { grid-column: 1; }
   .gallery-cell:has(.gallery-portrait) { grid-row: auto; }
+  .gallery-portrait .gallery-media { aspect-ratio: 4 / 5; }
 }
 
 /* Phone hero: the same thirds layout as before, but the pieces stack in rows instead of
