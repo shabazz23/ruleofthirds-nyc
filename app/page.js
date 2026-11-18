@@ -1,10 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Reveal from '../components/Reveal';
-import AddToBag from '../components/AddToBag';
 import HomeHero from '../components/HomeHero';
-import { formatPrice } from '../components/format';
-import { HAT } from '../components/products';
 
 export const metadata = {
   title: 'Rule of Thirds — An Exercise in Perspective',
@@ -39,34 +36,6 @@ export default function Home() {
             ways in which art influences how we see and experience the world.
           </p>
           <Link href="/about" className="t-link">About Rule of Thirds</Link>
-        </Reveal>
-      </section>
-
-      {/* FEATURED OBJECT */}
-      <section className="t-sec">
-        <Reveal className="t-label"><p className="eyebrow">Featured Object</p></Reveal>
-        <Reveal className="t-object-img">
-          <div className="t-frame t-r45">
-            <Image
-              src="/images/hat-front.jpg"
-              alt='Rust corduroy hat embroidered with "Without Music, Life Would flat"'
-              fill
-              sizes="(max-width: 760px) 100vw, 33vw"
-            />
-            {HAT.comingSoon && <span className="soon-badge">Coming soon</span>}
-          </div>
-        </Reveal>
-        <Reveal className="t-object-info">
-          <span className="preorder-tag">Preorder</span>
-          <h3>{HAT.name}</h3>
-          <p className="desc">
-            {HAT.detail} — {HAT.color}. {HAT.blurb}
-          </p>
-          <p className="price">{formatPrice(HAT.price)}</p>
-          <div className="product-actions">
-            <AddToBag product={HAT} />
-            <Link href="/shop" className="btn btn-ghost">View in Shop</Link>
-          </div>
         </Reveal>
       </section>
 
