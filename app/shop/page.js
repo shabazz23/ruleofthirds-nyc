@@ -50,8 +50,8 @@ export default function Shop() {
                 <AddToBag product={HAT} label="Preorder — Add to Bag" />
               </div>
               <p className="form-note" style={{ marginTop: '1.25rem' }}>
-                This is a preorder item. {HAT.shipping}. Secure checkout opens with our
-                store launch.
+                This is a preorder item. {HAT.shipping}. Pay by card, Apple Pay, Google Pay
+                or PayPal.
               </p>
             </div>
           </div>

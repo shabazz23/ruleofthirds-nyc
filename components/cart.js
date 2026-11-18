@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 const CartContext = createContext(null);
 
@@ -48,6 +48,8 @@ export function CartProvider({ children }) {
     setItems((prev) => prev.map((i) => (i.id === id ? { ...i, qty } : i)));
   };
 
+  const clearCart = useCallback(() => setItems([]), []);
+
   const { count, subtotal } = useMemo(() => {
     let count = 0;
     let subtotal = 0;
@@ -61,7 +63,7 @@ export function CartProvider({ children }) {
   }, [items]);
 
   const value = {
-    items, addItem, removeItem, setQty,
+    items, addItem, removeItem, setQty, clearCart,
     count, subtotal, isOpen,
     openCart: () => setIsOpen(true),
     closeCart: () => setIsOpen(false),

@@ -163,6 +163,9 @@ body.cart-open .cart-drawer { transform: none; }
 .cart-row-sub { font-weight: 400; color: var(--muted); font-size: 0.92rem; margin-bottom: 0.5rem; }
 .cart-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.8rem; text-align: center; }
 .cart-drawer .btn { width: 100%; }
+.checkout-buttons { display: grid; gap: 0.6rem; margin-top: 1rem; }
+.checkout-buttons .cart-note { margin-top: 0.2rem; }
+.checkout-error { font-size: 0.82rem; color: #9a3412; text-align: center; }
 
 /* ---------- page hero ---------- */
 .page-hero { max-width: var(--max); margin: 0 auto; padding: 9rem 1.5rem 3rem; }
@@ -619,3 +622,4 @@ body.cart-open .cart-drawer { transform: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .page-hero { padding-top: 7.5rem; }
 }
+.checkout-complete h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); }
