@@ -41,7 +41,7 @@ export default function CheckoutButtons({ items }) {
         </p>
       )}
       <PaymentIcons className="pay-icons-center" />
-      <p className="cart-note">Secure payment by Stripe and PayPal.</p>
+      <p className="cart-note">Payments handled by Stripe and PayPal.</p>
     </div>
   );
 }

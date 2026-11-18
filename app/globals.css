@@ -645,13 +645,35 @@ body.cart-open .cart-drawer { transform: none; }
 }
 @media (max-width: 760px) { .soon-badge { top: 0.75rem; left: 0.75rem; font-size: 0.62rem; } }
 
-/* Accepted-payment marks: small outlined chips, muted ink */
-.pay-icons { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; padding: 0; }
-.pay-icons li {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 2.6rem; height: 1.7rem; border: 1px solid var(--line); border-radius: 0.35rem;
-  background: var(--paper);
+/* Accepted-payment strip: frosted pill, hairline dividers, gold lock */
+.pay-strip {
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0.35rem 0.9rem;
+  margin-top: 1.25rem; padding: 0.45rem 0.55rem 0.45rem 1rem; align-self: flex-start;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: rgba(250, 248, 242, 0.7);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
 }
-.pay-icons svg { width: 1.45rem; height: 1.45rem; fill: var(--muted); }
-.pay-icons-center { justify-content: center; margin-top: 0.4rem; }
-.pay-icons-footer { margin-top: 0; }
+.pay-label {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-family: var(--font-serif); font-style: italic; font-size: 0.92rem; color: var(--ink);
+  letter-spacing: 0; text-transform: none;
+}
+.pay-lock { width: 0.9rem; height: 0.9rem; fill: none; stroke: var(--accent); stroke-width: 1.2; }
+.pay-marks { list-style: none; display: flex; align-items: center; padding: 0; margin: 0; }
+.pay-marks li {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.2rem 0.6rem; border-left: 1px solid var(--line);
+}
+.pay-marks svg {
+  width: 1.35rem; height: 1.35rem; fill: var(--ink); opacity: 0.55;
+  transition: opacity 0.25s, fill 0.25s, transform 0.25s;
+}
+.pay-marks li:hover svg { opacity: 1; fill: var(--accent); transform: translateY(-1px); }
+.pay-icons-center { display: flex; justify-content: center; margin: 0.6rem auto 0; padding-left: 0.9rem; align-self: stretch; }
+.pay-icons-footer { margin-top: 0; padding-top: 0.3rem; padding-bottom: 0.3rem; }
+@media (max-width: 760px) {
+  .pay-strip { border-radius: 1.1rem; justify-content: center; padding: 0.55rem 0.7rem; }
+  .pay-marks li { padding: 0.2rem 0.45rem; }
+  .pay-marks li:first-child { border-left: none; }
+}
+.pay-icons-center .pay-marks li:first-child { border-left: none; }

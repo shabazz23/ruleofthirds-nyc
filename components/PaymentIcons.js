@@ -34,16 +34,25 @@ const MARKS = [
   }
 ];
 
-export default function PaymentIcons({ className = '' }) {
+export default function PaymentIcons({ className = '', label = 'Secure checkout' }) {
   return (
-    <ul className={`pay-icons ${className}`} aria-label="Accepted payment methods">
-      {MARKS.map((m) => (
-        <li key={m.key} title={m.label}>
-          <svg viewBox="0 0 24 24" role="img" aria-label={m.label} focusable="false">
-            <path d={m.d} />
-          </svg>
-        </li>
-      ))}
-    </ul>
+    <div className={`pay-strip ${className}`}>
+      <span className="pay-label">
+        <svg className="pay-lock" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <rect x="3" y="7" width="10" height="7" rx="1.6" />
+          <path d="M5.5 7V5.2a2.5 2.5 0 0 1 5 0V7" />
+        </svg>
+        {label}
+      </span>
+      <ul className="pay-marks" aria-label="Accepted payment methods">
+        {MARKS.map((m) => (
+          <li key={m.key} title={m.label}>
+            <svg viewBox="0 0 24 24" role="img" aria-label={m.label} focusable="false">
+              <path d={m.d} />
+            </svg>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
