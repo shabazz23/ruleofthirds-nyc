@@ -53,6 +53,7 @@ export default function Home() {
               fill
               sizes="(max-width: 760px) 100vw, 33vw"
             />
+            {HAT.comingSoon && <span className="soon-badge">Coming soon</span>}
           </div>
         </Reveal>
         <Reveal className="t-object-info">
