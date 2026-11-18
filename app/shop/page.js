@@ -24,7 +24,7 @@ export default function Shop() {
       <section className="wrap" style={{ paddingBottom: '4rem' }}>
         <Reveal>
           <div className="product-card product-card-shop">
-            <ProductGallery images={HAT.images} />
+            <ProductGallery images={HAT.images} badge={HAT.comingSoon ? 'Coming soon' : null} />
             <div className="product-info">
               <span className="preorder-tag">Preorder</span>
               <h3>{HAT.name}</h3>
