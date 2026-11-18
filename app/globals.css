@@ -626,9 +626,7 @@ body.cart-open .cart-drawer { transform: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .page-hero { padding-top: 7.5rem; }
 }
-<<<<<<< HEAD
 .checkout-complete h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); }
-=======
 
 /* "Coming soon" label on product photos: frosted pill, thin outline */
 .soon-badge {
@@ -646,4 +644,3 @@ body.cart-open .cart-drawer { transform: none; }
   box-shadow: 0 0 0 3px rgba(185, 127, 46, 0.18);
 }
 @media (max-width: 760px) { .soon-badge { top: 0.75rem; left: 0.75rem; font-size: 0.62rem; } }
->>>>>>> origin/master
