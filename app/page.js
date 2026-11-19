@@ -5,7 +5,7 @@ import HomeHero from '../components/HomeHero';
 
 export const metadata = {
   // "absolute" stops the "· Rule of Thirds" ending being added twice.
-  title: { absolute: 'Rule of Thirds | Brooklyn Photo & Film Studio, Golden Hour Loft' },
+  title: { absolute: 'Golden Hour Loft | Photo, Film & Podcast Studio · Rule of Thirds by Good Life Collective' },
   alternates: { canonical: '/' },
 };
 
@@ -53,7 +53,7 @@ export default function Home() {
           <Reveal className="t-studio-copy">
             <p className="lede">
               Our 5,000 sq ft Brooklyn production space — floor-to-ceiling windows, a working
-              chef&rsquo;s kitchen, and a private rooftop. Built for photo, film, and content.
+              chef&rsquo;s kitchen, and a private rooftop. Built for photo, film, podcasts, and content.
             </p>
             <div className="product-actions">
               <a href={PEERSPACE} target="_blank" rel="noopener" className="btn">Book the space</a>
