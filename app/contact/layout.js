@@ -3,7 +3,7 @@
 export const metadata = {
   title: 'Contact',
   description:
-    'Get in touch with Rule of Thirds about booking Golden Hour Loft in Brooklyn, shoots, collaborations or shop orders.',
+    'Get in touch with Rule of Thirds about booking Golden Hour Loft in Brooklyn for shoots, podcasts, collaborations or shop orders.',
   alternates: { canonical: '/contact' },
 };
 

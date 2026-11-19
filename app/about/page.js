@@ -4,7 +4,7 @@ import Reveal from '../../components/Reveal';
 export const metadata = {
   title: 'About',
   description:
-    'Rule of Thirds by Good Life Collective runs Golden Hour Loft, a 5,000 sq ft sunlit production loft in Brooklyn, NY for photo shoots, film, music videos and events. Book it on Peerspace.',
+    'Rule of Thirds by Good Life Collective runs Golden Hour Loft, a 5,000 sq ft sunlit production loft in Brooklyn, NY for photo shoots, film, music videos, podcast recording and events. Book it on Peerspace.',
   alternates: { canonical: '/about' },
 };
 

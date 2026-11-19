@@ -15,12 +15,12 @@ export const metadata = {
     template: '%s · Rule of Thirds',
   },
   description:
-    'Rule of Thirds by Good Life Collective is a creative studio for photography, film and art, and home of Golden Hour Loft, a 5,000 sq ft sunlit production space in Brooklyn for shoots and events.',
+    'Rule of Thirds by Good Life Collective is a creative studio for photography, film and art, and home of Golden Hour Loft, a 5,000 sq ft sunlit production space in Brooklyn for photo shoots, film, podcast recording and events.',
   metadataBase: new URL('https://ruleofthirds.nyc'),
   openGraph: {
     title: 'Rule of Thirds — An Exercise in Perspective',
     description:
-      'A creative studio by Good Life Collective and home of Golden Hour Loft, a sunlit production space for photo, film and events.',
+      'A creative studio by Good Life Collective and home of Golden Hour Loft, a sunlit production space for photo, film, podcasts and events.',
     siteName: 'Rule of Thirds',
     locale: 'en_US',
     type: 'website',
@@ -43,7 +43,7 @@ const ORGANIZATION = {
   email: 'info@ruleofthirds.nyc',
   slogan: 'An exercise in perspective.',
   description:
-    'A creative studio for photography, film and art, and home of Golden Hour Loft, a 5,000 sq ft production space for photo, film and events.',
+    'A creative studio for photography, film and art, and home of Golden Hour Loft, a 5,000 sq ft production space for photo, film, podcasts and events.',
   sameAs: ['https://www.peerspace.com/pages/listings/67981614acf549c7b9556489'],
 };
 
