@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-base">
-        <span>© {year} Rule of Thirds. All rights reserved.</span>
+        <span>© {year} Rule of Thirds by Good Life Collective. All rights reserved.</span>
         <PaymentIcons className="pay-icons-footer" label="We accept" />
         <span>Brooklyn, New York</span>
       </div>
