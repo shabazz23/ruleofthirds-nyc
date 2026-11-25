@@ -753,17 +753,6 @@ main:focus { outline: none; }
 .t-kitchen .t-credit a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
 .t-kitchen .t-credit a:hover { color: var(--accent-text); }
 
-/* Homepage scroll-through photo: a full-width band. On wide screens the picture is taller
-   than the band, and it pans from top to bottom while the band crosses the screen. */
-.t-scroll-photo {
-  position: relative; z-index: 1; overflow: hidden; background: var(--paper-soft);
-  height: min(88vh, 900px); margin-top: clamp(5rem, 11vw, 10rem);
-}
-.t-scroll-photo img { object-fit: cover; object-position: 50% 30%; }
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .t-scroll-photo img { animation: t-scroll-pan linear both; animation-timeline: view(); }
-  }
-}
-@keyframes t-scroll-pan { from { object-position: 50% 0%; } to { object-position: 50% 100%; } }
-@media (max-width: 760px) { .t-scroll-photo { height: auto; aspect-ratio: 3 / 4; } }
+/* Small, uncropped photo under the About label on the homepage. */
+.t-about-photo { display: block; width: min(100%, 240px); height: auto; margin-top: 1.5rem; border-radius: 3px; }
+@media (max-width: 760px) { .t-about-photo { width: min(60%, 240px); margin-bottom: 2rem; } }

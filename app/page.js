@@ -27,7 +27,17 @@ export default function Home() {
 
       {/* ABOUT */}
       <section className="t-sec" id="about">
-        <Reveal className="t-label"><p className="eyebrow">About</p></Reveal>
+        <Reveal className="t-label">
+          <p className="eyebrow">About</p>
+          <Image
+            className="t-about-photo"
+            src="/images/directors-chair.jpg"
+            alt="Director's chair beside a framed Grammy Awards poster and a carved mask in Golden Hour Loft"
+            width={1086}
+            height={1448}
+            sizes="(max-width: 760px) 60vw, 240px"
+          />
+        </Reveal>
         <Reveal className="t-statement">
           <h2>
             A creative space dedicated to the intersection of <em>imagery</em>, storytelling,{' '}
@@ -40,16 +50,6 @@ export default function Home() {
           <Link href="/about" className="t-link">About Rule of Thirds</Link>
         </Reveal>
       </section>
-
-      {/* SCROLL-THROUGH PHOTO: the frame pans down the picture as the page scrolls past it. */}
-      <div className="t-scroll-photo">
-        <Image
-          src="/images/directors-chair.jpg"
-          alt="Director's chair beside a framed Grammy Awards poster and a carved mask in Golden Hour Loft"
-          fill
-          sizes="100vw"
-        />
-      </div>
 
       {/* STUDIO */}
       <section className="t-sec" id="studio">
