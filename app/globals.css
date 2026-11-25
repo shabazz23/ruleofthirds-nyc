@@ -754,6 +754,11 @@ main:focus { outline: none; }
 .t-kitchen .t-credit a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
 .t-kitchen .t-credit a:hover { color: var(--accent-text); }
 
+/* Quiet photographer credit under the studio buttons (homepage and About). */
+.t-photo-credit { margin-top: 1.25rem; font-size: 0.78rem; color: var(--muted); }
+.t-photo-credit a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
+.t-photo-credit a:hover { color: var(--accent-text); }
+
 /* Small, uncropped photo under the About label on the homepage. */
 .t-about-photo { display: block; width: min(100%, 240px); height: auto; margin-top: 1.5rem; border-radius: 3px; }
 @media (max-width: 760px) { .t-about-photo { width: min(60%, 240px); margin-bottom: 2rem; } }

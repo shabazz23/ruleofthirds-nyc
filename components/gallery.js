@@ -62,6 +62,11 @@ export const GALLERY = [
   },
   {
     shape: 'square',
+    links: [
+      { label: 'Instagram', href: 'https://www.instagram.com/rene.vision/' },
+      { label: 'Website', href: 'https://www.renevision.net/' },
+    ],
+    credit: { label: 'Shot by', name: 'Rene Vision', href: 'https://www.instagram.com/rene.vision/' },
     image: '/gallery/record-wall.jpg',
     alt: 'Ella Fitzgerald and Mr. Appleton records on the wall under a slim light',
   },
@@ -87,6 +92,11 @@ export const GALLERY = [
   },
   {
     shape: 'portrait',
+    links: [
+      { label: 'Instagram', href: 'https://www.instagram.com/rene.vision/' },
+      { label: 'Website', href: 'https://www.renevision.net/' },
+    ],
+    credit: { label: 'Shot by', name: 'Rene Vision', href: 'https://www.instagram.com/rene.vision/' },
     image: '/gallery/framed-mask.jpg',
     alt: 'Carved wooden mask in a hand-carved frame on the wall',
   },

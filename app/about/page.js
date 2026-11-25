@@ -99,6 +99,10 @@ export default function About() {
             <a href={PEERSPACE} target="_blank" rel="noopener" className="btn">
               Book the space
             </a>
+            <p className="t-credit t-photo-credit">
+              Space photography by{' '}
+              <a href="https://www.renevision.net/" target="_blank" rel="noopener">Rene Vision</a>
+            </p>
           </Reveal>
         </div>
 
