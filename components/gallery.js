@@ -115,4 +115,10 @@ export const GALLERY = [
     video: { mp4: '/gallery/smoovl.mp4' },
     poster: '/gallery/smoovl-poster.jpg',
   },
+  {
+    shape: 'full',
+    ratio: '3 / 2',
+    image: '/gallery/loft-shoot-bts-2.jpg',
+    alt: 'Crew setting up lights and camera around an actor during a shoot in the loft',
+  },
 ];
