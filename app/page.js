@@ -9,6 +9,14 @@ export const metadata = {
   alternates: { canonical: '/' },
 };
 
+// SH's own photography and artwork, shown small on the right two thirds under "Work".
+// Add a piece by putting the file in public/images/ and adding a line here; pieces fill
+// the two columns in order and wrap to new rows. No captions.
+const OWN_WORK = [
+  { src: '/images/sunset-skyline.jpg', alt: 'Sunset over the Manhattan skyline from Brooklyn, a bird in flight', w: 1024, h: 768 },
+  { src: '/images/sky-hearts.jpg', alt: 'Two skywritten hearts above a rooftop with string lights and palms', w: 768, h: 1024 },
+];
+
 const PEERSPACE = 'https://www.peerspace.com/pages/listings/67981614acf549c7b9556489';
 
 // Studio photographs, placed on the thirds grid (see .t-photos in globals.css).
@@ -16,6 +24,7 @@ const STUDIO_PHOTOS = [
   { src: '/images/living-wide.jpg', alt: 'Dining area of Golden Hour Loft with orange chairs', w: 1320, h: 880, caption: 'Dining room', cls: 'p1' },
   { src: '/images/lounge-art.jpg', alt: 'Lounge with a colourful abstract painting', w: 1320, h: 881, caption: 'Lounge', cls: 'p4' },
   { src: '/images/vinyl-wall.jpg', alt: 'Seating corner with mirror and wall art', w: 1320, h: 1981, caption: 'Living room', cls: 'p5' },
+  { src: '/images/record-wall-wide.jpg', alt: 'Four album covers on a white wall under a slim light, with a plant below', w: 1086, h: 724, cls: 'p6' },
 ];
 
 export default function Home() {
@@ -27,7 +36,17 @@ export default function Home() {
 
       {/* ABOUT */}
       <section className="t-sec" id="about">
-        <Reveal className="t-label"><p className="eyebrow">About</p></Reveal>
+        <Reveal className="t-label">
+          <p className="eyebrow">About</p>
+          <Image
+            className="t-about-photo"
+            src="/images/directors-chair.jpg"
+            alt="Director's chair beside a framed Grammy Awards poster and a carved mask in Golden Hour Loft"
+            width={1086}
+            height={1448}
+            sizes="(max-width: 760px) 60vw, 240px"
+          />
+        </Reveal>
         <Reveal className="t-statement">
           <h2>
             A creative space dedicated to the intersection of <em>imagery</em>, storytelling,{' '}
@@ -64,11 +83,48 @@ export default function Home() {
             <Reveal key={p.src} className={`t-photo ${p.cls}`}>
               <figure>
                 <Image src={p.src} alt={p.alt} width={p.w} height={p.h} sizes="(max-width: 760px) 100vw, 66vw" />
-                <figcaption>
-                  <span>{p.caption}</span>
-                  <span>Golden Hour Loft</span>
-                </figcaption>
+                {p.caption && (
+                  <figcaption>
+                    <span>{p.caption}</span>
+                    <span>Golden Hour Loft</span>
+                  </figcaption>
+                )}
               </figure>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* FROM THE KITCHEN */}
+      <section className="t-sec t-kitchen">
+        <Reveal className="t-label"><p className="eyebrow">From the Kitchen</p></Reveal>
+        <Reveal className="t-object-img">
+          <div className="t-frame t-r45">
+            <Image
+              src="/gallery/chef-marie-pancakes.jpg"
+              alt="Lemon pancakes with berries, mint and powdered sugar by Chef Marie"
+              fill
+              sizes="(max-width: 760px) 100vw, 33vw"
+            />
+          </div>
+        </Reveal>
+        <Reveal className="t-object-info">
+          <p className="t-credit">
+            By{' '}
+            <a href="https://www.instagram.com/chefmarie.a__/" target="_blank" rel="noopener">Chef Marie</a>,{' '}
+            <a href="https://linktr.ee/Zoeskitchen" target="_blank" rel="noopener"><em>Zoe&rsquo;s Kitchen</em></a>
+          </p>
+          <Link href="/gallery" className="t-link">See the gallery</Link>
+        </Reveal>
+      </section>
+
+      {/* WORK: SH's photography and artwork */}
+      <section className="t-sec t-work">
+        <Reveal className="t-label"><p className="eyebrow">Work</p></Reveal>
+        <div className="t-work-grid">
+          {OWN_WORK.map((p) => (
+            <Reveal key={p.src} className="t-work-piece">
+              <Image src={p.src} alt={p.alt} width={p.w} height={p.h} sizes="(max-width: 760px) 100vw, 33vw" />
             </Reveal>
           ))}
         </div>
