@@ -95,18 +95,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WORK: SH's photography and artwork */}
-      <section className="t-sec t-work">
-        <Reveal className="t-label"><p className="eyebrow">Work</p></Reveal>
-        <div className="t-work-grid">
-          {OWN_WORK.map((p) => (
-            <Reveal key={p.src} className="t-work-piece">
-              <Image src={p.src} alt={p.alt} width={p.w} height={p.h} sizes="(max-width: 760px) 100vw, 33vw" />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* FROM THE KITCHEN */}
       <section className="t-sec t-kitchen">
         <Reveal className="t-label"><p className="eyebrow">From the Kitchen</p></Reveal>
@@ -128,6 +116,18 @@ export default function Home() {
           </p>
           <Link href="/gallery" className="t-link">See the gallery</Link>
         </Reveal>
+      </section>
+
+      {/* WORK: SH's photography and artwork */}
+      <section className="t-sec t-work">
+        <Reveal className="t-label"><p className="eyebrow">Work</p></Reveal>
+        <div className="t-work-grid">
+          {OWN_WORK.map((p) => (
+            <Reveal key={p.src} className="t-work-piece">
+              <Image src={p.src} alt={p.alt} width={p.w} height={p.h} sizes="(max-width: 760px) 100vw, 33vw" />
+            </Reveal>
+          ))}
+        </div>
       </section>
     </div>
   );

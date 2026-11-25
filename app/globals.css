@@ -748,7 +748,7 @@ main:focus { outline: none; }
 }
 
 /* Homepage "From the Kitchen": one plated dish beside a short note, closing the page. */
-.t-kitchen { padding-bottom: clamp(4rem, 9vw, 8rem); }
+.t-work { padding-bottom: clamp(4rem, 9vw, 8rem); }
 .t-kitchen .t-credit { margin-bottom: 1.5rem; font-size: 0.82rem; color: var(--muted); }
 .t-kitchen .t-credit em { font-family: var(--font-serif); font-style: italic; font-size: 1.08em; }
 .t-kitchen .t-credit a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
