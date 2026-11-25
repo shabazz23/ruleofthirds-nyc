@@ -518,6 +518,7 @@ body.cart-open .cart-drawer { transform: none; visibility: visible; transition-d
 .hero-lede { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.4rem, 2.2vw, 2rem); line-height: 1.15; color: var(--ink); }
 .hero-photo { position: absolute; z-index: 2; left: calc(66.666% + var(--gut)); right: var(--gut); top: calc(66.666% + var(--gut)); bottom: var(--gut); overflow: hidden; border-radius: 3px; }
 .hero-photo img { object-fit: cover; }
+.hero-photo-phone { display: none; }
 .hero-meta {
   position: absolute; z-index: 2; left: var(--gut); bottom: var(--gut); display: flex; gap: 1.5rem;
   font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
@@ -733,7 +734,7 @@ main:focus { outline: none; }
   .hero-stage {
     --third: max(186.67px, 33.333svh);
     display: grid; grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(var(--third), auto) minmax(var(--third), auto) auto 1fr;
+    grid-template-rows: minmax(var(--third), auto) auto minmax(11rem, 1fr) auto auto;
   }
   .hero-eyebrow, .hero-title, .hero-aside, .hero-meta {
     position: relative; left: auto; right: auto; top: auto; bottom: auto; width: auto;
@@ -743,8 +744,17 @@ main:focus { outline: none; }
     grid-row: 1; align-self: end; margin: 0 var(--gut) calc(0.62 * min(clamp(3.25rem, 17vw, 7rem), 17vw) + 1rem);
   }
   .hero-title { grid-row: 2; align-self: start; margin: -0.62em 0 0 calc(var(--gut) - 0.04em); }
-  .hero-aside { grid-row: 3; margin: 1.25rem var(--gut) 0; }
-  .hero-meta { grid-row: 4; align-self: end; margin: 1.5rem var(--gut) var(--gut); flex-wrap: wrap; }
+  /* The painting sits in the right two thirds, its left edge on the first grid line. */
+  .hero-photo-phone {
+    display: block; position: relative; inset: auto; grid-column: 1; grid-row: 3;
+    margin: 1.75rem 0 0 calc(33.333% + var(--gut));
+    /* Sized by the space left on screen, keeping the photo's shape so the painting is never cut off. */
+    justify-self: start; align-self: stretch; aspect-ratio: 1309 / 2048;
+    width: auto; max-width: calc(66.666% - 2 * var(--gut));
+  }
+  .hero-photo-phone img { object-position: 50% 45%; }
+  .hero-aside { grid-row: 4; margin: 1.5rem var(--gut) 0; }
+  .hero-meta { grid-row: 5; align-self: end; margin: 1.5rem var(--gut) var(--gut); flex-wrap: wrap; }
 }
 
 /* Homepage "From the Kitchen": one plated dish beside a short note, closing the page. */

@@ -228,6 +228,17 @@ export default function HomeHero() {
         />
       </div>
 
+      {/* Phones: the colorful painting fills the space between the name and the tagline. */}
+      <div className="hero-photo hero-photo-phone">
+        <Image
+          src="/images/painting-sofa.jpg"
+          alt="Colorful abstract painting hanging above a cream sofa in the Golden Hour Loft"
+          fill
+          sizes="(max-width: 760px) 70vw, 0px"
+          priority
+        />
+      </div>
+
       <div className="hero-meta">
         <NycClock />
         <Link href="#about">Scroll</Link>
