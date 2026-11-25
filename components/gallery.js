@@ -167,6 +167,8 @@ export const GALLERY = [
   {
     shape: 'full',
     ratio: '3 / 2',
+    href: 'https://truluvent.com/',
+    linkLabel: 'Tru Luv Ent',
     image: '/gallery/loft-shoot-bts-2.jpg',
     alt: 'Crew setting up lights and camera around an actor during a shoot in the loft',
   },
