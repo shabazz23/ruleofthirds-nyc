@@ -591,6 +591,7 @@ body.cart-open .cart-drawer { transform: none; visibility: visible; transition-d
 .t-photo.p1 { grid-column: 2 / 4; grid-row: 1; }
 .t-photo.p4 { grid-column: 1 / 3; grid-row: 2; align-self: end; }
 .t-photo.p5 { grid-column: 3; grid-row: 2; }
+.t-photo.p6 { grid-column: 2 / 4; grid-row: 3; }
 
 @media (max-width: 760px) {
   .hero-title { left: calc(var(--gut) - 0.04em); font-size: min(clamp(3.25rem, 17vw, 7rem), 17vw); }

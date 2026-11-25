@@ -16,6 +16,7 @@ const STUDIO_PHOTOS = [
   { src: '/images/living-wide.jpg', alt: 'Dining area of Golden Hour Loft with orange chairs', w: 1320, h: 880, caption: 'Dining room', cls: 'p1' },
   { src: '/images/lounge-art.jpg', alt: 'Lounge with a colourful abstract painting', w: 1320, h: 881, caption: 'Lounge', cls: 'p4' },
   { src: '/images/vinyl-wall.jpg', alt: 'Seating corner with mirror and wall art', w: 1320, h: 1981, caption: 'Living room', cls: 'p5' },
+  { src: '/images/record-wall-wide.jpg', alt: 'Four album covers on a white wall under a slim light, with a plant below', w: 1086, h: 724, cls: 'p6' },
 ];
 
 export default function Home() {
@@ -74,10 +75,12 @@ export default function Home() {
             <Reveal key={p.src} className={`t-photo ${p.cls}`}>
               <figure>
                 <Image src={p.src} alt={p.alt} width={p.w} height={p.h} sizes="(max-width: 760px) 100vw, 66vw" />
-                <figcaption>
-                  <span>{p.caption}</span>
-                  <span>Golden Hour Loft</span>
-                </figcaption>
+                {p.caption && (
+                  <figcaption>
+                    <span>{p.caption}</span>
+                    <span>Golden Hour Loft</span>
+                  </figcaption>
+                )}
               </figure>
             </Reveal>
           ))}
