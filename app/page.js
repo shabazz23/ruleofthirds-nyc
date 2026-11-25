@@ -73,6 +73,32 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* FROM THE KITCHEN */}
+      <section className="t-sec t-kitchen">
+        <Reveal className="t-label"><p className="eyebrow">From the Kitchen</p></Reveal>
+        <Reveal className="t-object-img">
+          <div className="t-frame t-r45">
+            <Image
+              src="/gallery/chef-marie-pancakes.jpg"
+              alt="Lemon pancakes with berries, mint and powdered sugar by Chef Marie"
+              fill
+              sizes="(max-width: 760px) 100vw, 33vw"
+            />
+          </div>
+        </Reveal>
+        <Reveal className="t-object-info">
+          <h3>
+            Plated in the <em>light</em>.
+          </h3>
+          <p className="desc">
+            Lemon pancakes by{' '}
+            <a href="https://www.instagram.com/chefmarie.a__/" target="_blank" rel="noopener">Chef Marie</a>.
+            A working chef&rsquo;s kitchen and all-day window light make the loft a natural set for food.
+          </p>
+          <Link href="/gallery" className="t-link">See the gallery</Link>
+        </Reveal>
+      </section>
     </div>
   );
 }

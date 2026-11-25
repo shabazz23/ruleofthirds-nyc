@@ -745,3 +745,10 @@ main:focus { outline: none; }
   .hero-aside { grid-row: 3; margin: 1.25rem var(--gut) 0; }
   .hero-meta { grid-row: 4; align-self: end; margin: 1.5rem var(--gut) var(--gut); flex-wrap: wrap; }
 }
+
+/* Homepage "From the Kitchen": one plated dish beside a short note, closing the page. */
+.t-kitchen { padding-bottom: clamp(4rem, 9vw, 8rem); }
+.t-kitchen .t-object-info h3 em { font-family: var(--font-serif); font-style: italic; font-weight: 500; }
+.t-kitchen .desc { margin-bottom: 1.75rem; }
+.t-kitchen .desc a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
+.t-kitchen .desc a:hover { color: var(--accent-text); }

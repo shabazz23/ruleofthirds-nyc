@@ -65,6 +65,40 @@ export const GALLERY = [
     image: '/gallery/record-wall.jpg',
     alt: 'Ella Fitzgerald and Mr. Appleton records on the wall under a slim light',
   },
+  // Chef Marie's plates: one row of three, right above her clip.
+  {
+    shape: 'tall',
+    links: [
+      { label: 'Instagram', href: 'https://www.instagram.com/chefmarie.a__/' },
+      { label: 'Substack', href: 'https://chefmariea1.substack.com/' },
+      { label: 'Linktree', href: 'https://linktr.ee/Zoeskitchen' },
+    ],
+    credit: { label: 'Food by', name: 'Chef Marie', href: 'https://www.instagram.com/chefmarie.a__/' },
+    image: '/gallery/chef-marie-pancakes.jpg',
+    alt: 'Lemon pancakes with berries, mint and powdered sugar by Chef Marie',
+  },
+  {
+    shape: 'tall',
+    links: [
+      { label: 'Instagram', href: 'https://www.instagram.com/chefmarie.a__/' },
+      { label: 'Substack', href: 'https://chefmariea1.substack.com/' },
+      { label: 'Linktree', href: 'https://linktr.ee/Zoeskitchen' },
+    ],
+    credit: { label: 'Food by', name: 'Chef Marie', href: 'https://www.instagram.com/chefmarie.a__/' },
+    image: '/gallery/chef-marie-chicken-rice.jpg',
+    alt: 'Chicken, crispy chickpeas, tomatoes and rice with a creamy drizzle by Chef Marie',
+  },
+  {
+    shape: 'tall',
+    links: [
+      { label: 'Instagram', href: 'https://www.instagram.com/chefmarie.a__/' },
+      { label: 'Substack', href: 'https://chefmariea1.substack.com/' },
+      { label: 'Linktree', href: 'https://linktr.ee/Zoeskitchen' },
+    ],
+    credit: { label: 'Food by', name: 'Chef Marie', href: 'https://www.instagram.com/chefmarie.a__/' },
+    image: '/gallery/chef-marie-salad.jpg',
+    alt: 'Chicken salad with avocado, feta and red onion by Chef Marie',
+  },
   {
     shape: 'portrait',
     links: [
