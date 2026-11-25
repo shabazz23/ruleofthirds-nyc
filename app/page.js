@@ -92,7 +92,7 @@ export default function Home() {
             Plated in the <em>light</em>.
           </h3>
           <p className="desc">
-            Lemon pancakes by{' '}
+            By{' '}
             <a href="https://www.instagram.com/chefmarie.a__/" target="_blank" rel="noopener">Chef Marie</a>.
           </p>
           <Link href="/gallery" className="t-link">See the gallery</Link>
