@@ -94,7 +94,6 @@ export default function Home() {
           <p className="desc">
             Lemon pancakes by{' '}
             <a href="https://www.instagram.com/chefmarie.a__/" target="_blank" rel="noopener">Chef Marie</a>.
-            A working chef&rsquo;s kitchen and all-day window light make the loft a natural set for food.
           </p>
           <Link href="/gallery" className="t-link">See the gallery</Link>
         </Reveal>
