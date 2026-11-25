@@ -41,6 +41,16 @@ export default function Home() {
         </Reveal>
       </section>
 
+      {/* SCROLL-THROUGH PHOTO: the frame pans down the picture as the page scrolls past it. */}
+      <div className="t-scroll-photo">
+        <Image
+          src="/images/directors-chair.jpg"
+          alt="Director's chair beside a framed Grammy Awards poster and a carved mask in Golden Hour Loft"
+          fill
+          sizes="100vw"
+        />
+      </div>
+
       {/* STUDIO */}
       <section className="t-sec" id="studio">
         <Reveal className="t-label"><p className="eyebrow">The Studio</p></Reveal>
