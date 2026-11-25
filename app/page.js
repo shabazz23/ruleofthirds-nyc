@@ -88,12 +88,10 @@ export default function Home() {
           </div>
         </Reveal>
         <Reveal className="t-object-info">
-          <h3>
-            Plated in the <em>light</em>.
-          </h3>
-          <p className="desc">
+          <p className="t-credit">
             By{' '}
-            <a href="https://www.instagram.com/chefmarie.a__/" target="_blank" rel="noopener">Chef Marie</a>.
+            <a href="https://www.instagram.com/chefmarie.a__/" target="_blank" rel="noopener">Chef Marie</a>,{' '}
+            <a href="https://linktr.ee/Zoeskitchen" target="_blank" rel="noopener"><em>Zoe&rsquo;s Kitchen</em></a>
           </p>
           <Link href="/gallery" className="t-link">See the gallery</Link>
         </Reveal>
