@@ -757,3 +757,12 @@ main:focus { outline: none; }
 /* Small, uncropped photo under the About label on the homepage. */
 .t-about-photo { display: block; width: min(100%, 240px); height: auto; margin-top: 1.5rem; border-radius: 3px; }
 @media (max-width: 760px) { .t-about-photo { width: min(60%, 240px); margin-bottom: 2rem; } }
+
+/* Homepage "Work": SH's own photos and artwork, small, uncropped, on the right two thirds. */
+.t-work-grid {
+  grid-column: 2 / 4; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: end; row-gap: clamp(2rem, 4vw, 3.5rem); padding-inline: 0;
+}
+.t-work-grid > * { padding-inline: var(--gut); min-width: 0; }
+.t-work-piece img { display: block; width: 100%; height: auto; border-radius: 3px; }
+@media (max-width: 760px) { .t-work-grid { padding-inline: calc(var(--gut) / 2); } .t-work-grid > * { padding-inline: calc(var(--gut) / 2); } }

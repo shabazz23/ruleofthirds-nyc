@@ -9,6 +9,14 @@ export const metadata = {
   alternates: { canonical: '/' },
 };
 
+// SH's own photography and artwork, shown small on the right two thirds under "Work".
+// Add a piece by putting the file in public/images/ and adding a line here; pieces fill
+// the two columns in order and wrap to new rows. No captions.
+const OWN_WORK = [
+  { src: '/images/sunset-skyline.jpg', alt: 'Sunset over the Manhattan skyline from Brooklyn, a bird in flight', w: 1024, h: 768 },
+  { src: '/images/sky-hearts.jpg', alt: 'Two skywritten hearts above a rooftop with string lights and palms', w: 768, h: 1024 },
+];
+
 const PEERSPACE = 'https://www.peerspace.com/pages/listings/67981614acf549c7b9556489';
 
 // Studio photographs, placed on the thirds grid (see .t-photos in globals.css).
@@ -82,6 +90,18 @@ export default function Home() {
                   </figcaption>
                 )}
               </figure>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* WORK: SH's photography and artwork */}
+      <section className="t-sec t-work">
+        <Reveal className="t-label"><p className="eyebrow">Work</p></Reveal>
+        <div className="t-work-grid">
+          {OWN_WORK.map((p) => (
+            <Reveal key={p.src} className="t-work-piece">
+              <Image src={p.src} alt={p.alt} width={p.w} height={p.h} sizes="(max-width: 760px) 100vw, 33vw" />
             </Reveal>
           ))}
         </div>
