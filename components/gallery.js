@@ -125,19 +125,34 @@ export const GALLERY = [
     alt: 'Carved wooden mask in a hand-carved frame on the wall',
   },
   {
-    shape: 'portrait',
-    image: '/gallery/loft-shoot-bts.jpg',
-    alt: 'Behind the scenes of a film shoot in the loft',
-  },
-  {
-    shape: 'wide',
-    ratio: '16 / 9',
+    shape: 'full',
     links: [
       { label: 'YouTube', href: 'https://www.youtube.com/watch?v=3xMrVAhUy_M' },
       { label: 'Instagram', href: 'https://www.instagram.com/reel/DX95mHJuyc1/' },
     ],
     video: { mp4: '/gallery/slizzy.mp4' },
     poster: '/gallery/slizzy-poster.jpg',
+  },
+  {
+    shape: 'portrait',
+    image: '/gallery/loft-shoot-bts.jpg',
+    alt: 'Behind the scenes of a film shoot in the loft',
+  },
+  {
+    shape: 'square',
+    links: [
+      { label: 'Always 1', href: 'https://www.instagram.com/reel/DdHvxulM0ed/' },
+      { label: 'Always 2', href: 'https://www.instagram.com/reel/DchEnuOMMJ5/' },
+    ],
+    video: { mp4: '/gallery/always.mp4' },
+    poster: '/gallery/always-poster.jpg',
+  },
+  {
+    shape: 'square',
+    href: 'https://www.instagram.com/reel/DdeLa8wEgCf/',
+    linkLabel: 'Scentbird',
+    video: { mp4: '/gallery/scentbird.mp4' },
+    poster: '/gallery/scentbird-poster.jpg',
   },
   {
     shape: 'wide',
