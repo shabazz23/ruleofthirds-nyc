@@ -130,7 +130,15 @@ export const GALLERY = [
     video: { mp4: '/gallery/smoovl.mp4' },
     poster: '/gallery/smoovl-poster.jpg',
   },
-  // Chef Marie's plates: one row of three near the end, above the closing photo.
+  {
+    shape: 'full',
+    ratio: '3 / 2',
+    href: 'https://truluvent.com/',
+    linkLabel: 'Tru Luv Ent',
+    image: '/gallery/loft-shoot-bts-2.jpg',
+    alt: 'Crew setting up lights and camera around an actor during a shoot in the loft',
+  },
+  // Chef Marie's plates: one row of three, the last thing on the page.
   {
     shape: 'tall',
     links: [
@@ -163,13 +171,5 @@ export const GALLERY = [
     credit: { label: 'Food by', name: 'Chef Marie', href: 'https://www.instagram.com/chefmarie.a__/' },
     image: '/gallery/chef-marie-salad.jpg',
     alt: 'Chicken salad with avocado, feta and red onion by Chef Marie',
-  },
-  {
-    shape: 'full',
-    ratio: '3 / 2',
-    href: 'https://truluvent.com/',
-    linkLabel: 'Tru Luv Ent',
-    image: '/gallery/loft-shoot-bts-2.jpg',
-    alt: 'Crew setting up lights and camera around an actor during a shoot in the loft',
   },
 ];
