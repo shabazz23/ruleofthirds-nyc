@@ -35,7 +35,7 @@ export default function Gallery() {
           <div className="gallery-grid">
             <GalleryTap />
             {GALLERY.map((g) => (
-              <Reveal key={g.href || g.links?.[0].href || g.image || g.video.mp4} className="gallery-cell">
+              <Reveal key={g.image || g.video?.mp4 || g.href} className="gallery-cell">
                 <figure className={`gallery-item gallery-${g.shape || 'wide'}`} style={g.ratio && { '--ratio': g.ratio }}>
                   {g.links ? (
                     <div className="gallery-media gallery-media-multi">
