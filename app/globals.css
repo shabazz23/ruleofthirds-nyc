@@ -734,25 +734,23 @@ main:focus { outline: none; }
   .hero-stage {
     --third: max(186.67px, 33.333svh);
     display: grid; grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(var(--third), auto) auto minmax(11rem, 1fr) auto auto;
+    grid-template-rows: auto auto minmax(15rem, 1fr) auto auto;
   }
   .hero-eyebrow, .hero-title, .hero-aside, .hero-meta {
     position: relative; left: auto; right: auto; top: auto; bottom: auto; width: auto;
     grid-column: 1;
   }
-  .hero-eyebrow {
-    grid-row: 1; align-self: end; margin: 0 var(--gut) calc(0.62 * min(clamp(3.25rem, 17vw, 7rem), 17vw) + 1rem);
-  }
-  .hero-title { grid-row: 2; align-self: start; margin: -0.62em 0 0 calc(var(--gut) - 0.04em); }
-  /* The painting sits in the right two thirds, its left edge on the first grid line. */
+  .hero-eyebrow { grid-row: 1; align-self: end; margin: 6rem var(--gut) 0.9rem; }
+  .hero-title { grid-row: 2; align-self: start; margin: 0 0 0 calc(var(--gut) - 0.04em); }
+  /* Once the intro is over, phones keep only the vertical thirds lines; the banner takes the
+     place of the horizontal ones. */
+  .hero-stage:has(#rot-intro[data-skip]) .hero-guides .h { visibility: hidden; }
+  /* The painting runs edge to edge as a banner, filling whatever height the screen has left. */
   .hero-photo-phone {
     display: block; position: relative; inset: auto; grid-column: 1; grid-row: 3;
-    margin: 1.75rem 0 0 calc(33.333% + var(--gut));
-    /* Sized by the space left on screen, keeping the photo's shape so the painting is never cut off. */
-    justify-self: start; align-self: stretch; aspect-ratio: 1309 / 2048;
-    width: auto; max-width: calc(66.666% - 2 * var(--gut));
+    margin: 1.5rem 0 0; border-radius: 0;
   }
-  .hero-photo-phone img { object-position: 50% 45%; }
+  .hero-photo-phone img { object-position: 50% 42%; }
   .hero-aside { grid-row: 4; margin: 1.5rem var(--gut) 0; }
   .hero-meta { grid-row: 5; align-self: end; margin: 1.5rem var(--gut) var(--gut); flex-wrap: wrap; }
 }

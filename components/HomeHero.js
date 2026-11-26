@@ -169,8 +169,9 @@ export default function HomeHero() {
           goHome();
           flipTween = Flip.from(state, { duration: 1.4, ease: 'power3.inOut', scale: true, stagger: 0.035 });
         }, null, '+=0.15')
-        // 6. Guides settle into faint layout lines; the rest of the page arrives
-        .to('.hero-guides span', { autoAlpha: 1, backgroundColor: line, duration: 0.8, ease: 'power1.out' }, '+=1.1')
+        // 6. Guides settle into faint layout lines (phones keep only the vertical ones, since the
+        //    painting banner crosses the screen); the rest of the page arrives
+        .to(narrow ? '.hero-guides .v' : '.hero-guides span', { autoAlpha: 1, backgroundColor: line, duration: 0.8, ease: 'power1.out' }, '+=1.1')
         .set(chars, { clearProps: 'color,opacity' })
         .call(finish)
         .to(chrome, { autoAlpha: 1, duration: 0.7, ease: 'power3.out', stagger: 0.08 }, '<');
