@@ -78,10 +78,6 @@ export default function Home() {
               <a href={PEERSPACE} target="_blank" rel="noopener" className="btn">Book the space</a>
               <Link href="/about#studio" className="btn btn-ghost">About the studio</Link>
             </div>
-            <p className="t-credit t-photo-credit">
-              Space photography by{' '}
-              <a href="https://www.renevision.net/" target="_blank" rel="noopener">Rene Vision</a>
-            </p>
           </Reveal>
           {STUDIO_PHOTOS.map((p) => (
             <Reveal key={p.src} className={`t-photo ${p.cls}`}>

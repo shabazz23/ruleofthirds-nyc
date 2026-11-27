@@ -67,18 +67,6 @@ export const ARTISTS = [
     links: [{ label: 'Instagram', href: 'https://www.instagram.com/richpapi_/' }],
   },
   {
-    first: 'Sena',
-    role: 'Attorney, Artist & Creative Director',
-    hometown: 'South Jamaica, Queens',
-    portrait: '/artists/sena.jpg',
-    bio: 'Sena is an attorney, artist and creative director from South Jamaica, Queens.',
-    work: {
-      image: '/artists/sena-gloves.jpg',
-      also: { image: '/artists/sena-abstract.jpg' },
-      context: '/artists/sena-gloves-wall.jpg',
-    },
-  },
-  {
     first: 'Rene',
     last: 'Vision',
     role: 'Photographer',
@@ -93,5 +81,17 @@ export const ARTISTS = [
       { label: 'Instagram', href: 'https://www.instagram.com/rene.vision/' },
       { label: 'Website', href: 'https://www.renevision.net/' },
     ],
+  },
+  {
+    first: 'Sena',
+    role: 'Attorney, Artist & Creative Director',
+    hometown: 'South Jamaica, Queens',
+    portrait: '/artists/sena.jpg',
+    bio: 'Sena is an attorney, artist and creative director from South Jamaica, Queens.',
+    work: {
+      image: '/artists/sena-gloves.jpg',
+      also: { image: '/artists/sena-abstract.jpg' },
+      context: '/artists/sena-gloves-wall.jpg',
+    },
   },
 ];
