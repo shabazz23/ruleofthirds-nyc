@@ -735,7 +735,6 @@ main:focus { outline: none; }
   .hero-stage {
     display: grid; grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(6rem, 1fr) auto auto auto auto;
-    background: #2a2723;
   }
   .hero-eyebrow, .hero-title, .hero-aside, .hero-meta {
     position: relative; left: auto; right: auto; top: auto; bottom: auto; width: auto;
@@ -744,6 +743,8 @@ main:focus { outline: none; }
   .hero-photo-phone {
     display: block; position: relative; inset: auto; grid-column: 1; grid-row: 1 / -1;
     margin: 0; border-radius: 0; z-index: 0;
+    /* Dark backing only while the photo loads; it stays hidden during the cream opening. */
+    background: #2a2723;
   }
   .hero-photo-phone img { object-position: 50% 45%; filter: saturate(0.88); }
   .hero-photo-phone::after {
