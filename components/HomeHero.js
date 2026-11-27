@@ -68,10 +68,16 @@ export default function HomeHero() {
     const tok = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
     const ink = tok('--ink');
     const muted = tok('--muted');
-    const line = tok('--line');
 
     // Letter grid: one reserved cell per headline letter, kept in reading order.
-    const narrow = window.innerWidth < 760;
+    const narrow = window.innerWidth <= 760;
+    // The photo fills the hero, so the lines settle to faint white and the name turns white
+    // as the photo fades up behind it.
+    const guideColor = 'rgba(255, 255, 255, 0.22)';
+    const revealPainting = () =>
+      gsap.timeline()
+        .to('.hero-photo', { autoAlpha: 1, duration: 0.8, ease: 'power1.out' }, 0)
+        .to(chars, { color: '#fff', duration: 0.8, ease: 'power1.out' }, 0);
     const cols = narrow ? 6 : 12;
     const rows = narrow ? 9 : 6;
     grid.style.setProperty('--cols', cols);
@@ -131,7 +137,8 @@ export default function HomeHero() {
             goHome();
             flipTween = Flip.from(state, { duration: 1, ease: 'power3.inOut', scale: true, stagger: 0.02 });
           }, null, '+=0.05')
-          .set(chars, { clearProps: 'color,opacity' }, '+=1.25')
+          .add(revealPainting(), '+=0.9')
+          .set(chars, { clearProps: 'color,opacity' }, '+=0.4')
           .call(finish)
           .to(chrome, { autoAlpha: 1, duration: 0.5, ease: 'power3.out', stagger: 0.05 }, '<-0.3');
         return;
@@ -169,8 +176,10 @@ export default function HomeHero() {
           goHome();
           flipTween = Flip.from(state, { duration: 1.4, ease: 'power3.inOut', scale: true, stagger: 0.035 });
         }, null, '+=0.15')
-        // 6. Guides settle into faint layout lines; the rest of the page arrives
-        .to('.hero-guides span', { autoAlpha: 1, backgroundColor: line, duration: 0.8, ease: 'power1.out' }, '+=1.1')
+        // 6. Guides settle into faint layout lines; the rest of the page arrives (the photo
+        //    fades up behind the name as it turns white)
+        .to('.hero-guides span', { autoAlpha: 1, backgroundColor: guideColor, duration: 0.8, ease: 'power1.out' }, '+=1.1')
+        .add(revealPainting(), '<')
         .set(chars, { clearProps: 'color,opacity' })
         .call(finish)
         .to(chrome, { autoAlpha: 1, duration: 0.7, ease: 'power3.out', stagger: 0.08 }, '<');
@@ -223,7 +232,18 @@ export default function HomeHero() {
           src="/images/living-staircase.jpg"
           alt="Sunlit interior of the Golden Hour Loft studio"
           fill
-          sizes="(max-width: 760px) 0px, 34vw"
+          sizes="(max-width: 760px) 0px, 100vw"
+          priority
+        />
+      </div>
+
+      {/* Phones: the colorful painting fills the space between the name and the tagline. */}
+      <div className="hero-photo hero-photo-phone">
+        <Image
+          src="/images/painting-sofa.jpg"
+          alt="Colorful abstract painting hanging above a cream sofa in the Golden Hour Loft"
+          fill
+          sizes="(max-width: 760px) 70vw, 0px"
           priority
         />
       </div>
