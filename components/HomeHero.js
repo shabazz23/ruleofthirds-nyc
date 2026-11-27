@@ -68,18 +68,16 @@ export default function HomeHero() {
     const tok = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
     const ink = tok('--ink');
     const muted = tok('--muted');
-    const line = tok('--line');
 
     // Letter grid: one reserved cell per headline letter, kept in reading order.
     const narrow = window.innerWidth <= 760;
-    // Phones: the painting fills the hero, so lines are faint white and the name turns white.
-    const guideColor = narrow ? 'rgba(255, 255, 255, 0.22)' : line;
+    // The photo fills the hero, so the lines settle to faint white and the name turns white
+    // as the photo fades up behind it.
+    const guideColor = 'rgba(255, 255, 255, 0.22)';
     const revealPainting = () =>
-      narrow
-        ? gsap.timeline()
-            .to('.hero-photo-phone', { autoAlpha: 1, duration: 0.8, ease: 'power1.out' }, 0)
-            .to(chars, { color: '#fff', duration: 0.8, ease: 'power1.out' }, 0)
-        : gsap.timeline();
+      gsap.timeline()
+        .to('.hero-photo', { autoAlpha: 1, duration: 0.8, ease: 'power1.out' }, 0)
+        .to(chars, { color: '#fff', duration: 0.8, ease: 'power1.out' }, 0);
     const cols = narrow ? 6 : 12;
     const rows = narrow ? 9 : 6;
     grid.style.setProperty('--cols', cols);
@@ -178,8 +176,8 @@ export default function HomeHero() {
           goHome();
           flipTween = Flip.from(state, { duration: 1.4, ease: 'power3.inOut', scale: true, stagger: 0.035 });
         }, null, '+=0.15')
-        // 6. Guides settle into faint layout lines; the rest of the page arrives (on phones the
-        //    painting fades up behind the name as it turns white)
+        // 6. Guides settle into faint layout lines; the rest of the page arrives (the photo
+        //    fades up behind the name as it turns white)
         .to('.hero-guides span', { autoAlpha: 1, backgroundColor: guideColor, duration: 0.8, ease: 'power1.out' }, '+=1.1')
         .add(revealPainting(), '<')
         .set(chars, { clearProps: 'color,opacity' })
@@ -234,7 +232,7 @@ export default function HomeHero() {
           src="/images/living-staircase.jpg"
           alt="Sunlit interior of the Golden Hour Loft studio"
           fill
-          sizes="(max-width: 760px) 0px, 34vw"
+          sizes="(max-width: 760px) 0px, 100vw"
           priority
         />
       </div>

@@ -23,10 +23,10 @@ export default function Nav() {
   const onHome = pathname === '/';
 
   useEffect(() => {
-    // On the phone homepage the bar floats over the full-screen painting in white, and only
-    // turns cream once you scroll past the painting.
+    // On the homepage the bar floats over the full-screen photo in white, and only turns
+    // cream once you scroll past it.
     const threshold = () => {
-      const hero = onHome && window.innerWidth <= 760 && document.querySelector('.hero-stage');
+      const hero = onHome && document.querySelector('.hero-stage');
       return hero ? hero.offsetHeight - 64 : 24;
     };
     const onScroll = () => setScrolled(window.scrollY > threshold());

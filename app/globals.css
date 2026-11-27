@@ -746,27 +746,49 @@ main:focus { outline: none; }
     /* Dark backing only while the photo loads; it stays hidden during the cream opening. */
     background: #2a2723;
   }
-  .hero-photo-phone img { object-position: 50% 45%; filter: saturate(0.88); }
-  .hero-photo-phone::after {
-    content: ''; position: absolute; inset: 0;
+  .hero-photo-phone img { object-position: 50% 45%; }
+  .hero-guides { z-index: 1; }
+  .hero-eyebrow { grid-row: 2; margin: 0 var(--gut) 0.9rem; }
+  .hero-title { grid-row: 3; margin: 0 0 0 calc(var(--gut) - 0.04em); }
+  .hero-aside { grid-row: 4; margin: 1.5rem var(--gut) 0; }
+  .hero-meta { grid-row: 5; margin: 1.5rem var(--gut) var(--gut); flex-wrap: wrap; }
+}
+
+/* Homepage hero, every screen size: the photo (painting on phones, living room on computers)
+   fills the first screen behind a soft grey veil, with the lettering in white. */
+.hero-photo::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(24, 22, 20, 0.34) 0%, rgba(24, 22, 20, 0.2) 35%, rgba(24, 22, 20, 0.52) 68%, rgba(24, 22, 20, 0.7) 100%),
+    rgba(120, 116, 110, 0.18);
+}
+.hero-photo img { filter: saturate(0.88); }
+.hero-stage:has(#rot-intro[data-skip]) .hero-guides span { background: rgba(255, 255, 255, 0.22); }
+.hero-eyebrow { color: rgba(255, 255, 255, 0.82); }
+.hero-title { color: #fff; }
+.hero-aside { color: rgba(255, 255, 255, 0.82); }
+.hero-lede { color: #fff; }
+.hero-meta { color: rgba(255, 255, 255, 0.78); }
+.hero-meta a:hover { color: #fff; }
+@media (min-width: 761px) {
+  .hero-photo:not(.hero-photo-phone) { inset: 0; z-index: 0; border-radius: 0; background: #2a2723; }
+  /* The living room photo is brighter than the painting, so the veil is a touch deeper up top. */
+  .hero-photo:not(.hero-photo-phone)::after {
     background:
-      linear-gradient(to bottom, rgba(24, 22, 20, 0.34) 0%, rgba(24, 22, 20, 0.2) 35%, rgba(24, 22, 20, 0.52) 68%, rgba(24, 22, 20, 0.7) 100%),
+      linear-gradient(to bottom, rgba(24, 22, 20, 0.5) 0%, rgba(24, 22, 20, 0.32) 35%, rgba(24, 22, 20, 0.5) 68%, rgba(24, 22, 20, 0.66) 100%),
       rgba(120, 116, 110, 0.18);
   }
   .hero-guides { z-index: 1; }
-  .hero-stage:has(#rot-intro[data-skip]) .hero-guides span { background: rgba(255, 255, 255, 0.22); }
-  .hero-eyebrow { grid-row: 2; margin: 0 var(--gut) 0.9rem; color: rgba(255, 255, 255, 0.82); }
-  .hero-title { grid-row: 3; margin: 0 0 0 calc(var(--gut) - 0.04em); color: #fff; }
-  .hero-aside { grid-row: 4; margin: 1.5rem var(--gut) 0; color: rgba(255, 255, 255, 0.82); }
-  .hero-lede { color: #fff; }
-  .hero-meta { grid-row: 5; margin: 1.5rem var(--gut) var(--gut); flex-wrap: wrap; color: rgba(255, 255, 255, 0.78); }
-  .hero-meta a:hover { color: #fff; }
-
-  /* Home only: the top bar is white while it floats over the painting. */
-  body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .brand { color: #fff; }
-  body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .bag-btn { color: #fff; border-color: #fff; }
-  body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .burger span { background: #fff; }
 }
+
+/* Home only: the top bar is white while it floats over the photo. */
+body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .brand { color: #fff; }
+body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .nav-links a { color: rgba(255, 255, 255, 0.8); }
+body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .nav-links a:hover,
+body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .nav-links a.active { color: #fff; }
+body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .bag-btn { color: #fff; border-color: #fff; }
+body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .bag-btn:hover { background: #fff; color: var(--ink); }
+body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .burger span { background: #fff; }
 
 /* Homepage "From the Kitchen": one plated dish beside a short note, closing the page. */
 .t-work { padding-bottom: clamp(4rem, 9vw, 8rem); }
