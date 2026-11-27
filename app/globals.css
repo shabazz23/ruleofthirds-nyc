@@ -728,31 +728,43 @@ main:focus { outline: none; }
   .gallery-portrait .gallery-media { aspect-ratio: 4 / 5; }
 }
 
-/* Phone hero: the same thirds layout as before, but the pieces stack in rows instead of
-   floating on top of each other, so larger text pushes things down rather than overlapping. */
+/* Phone hero: the painting fills the whole first screen behind a soft grey veil, and the
+   name, tagline and clock sit on it in white near the bottom. The pieces stack in grid rows
+   rather than floating, so larger text pushes things up instead of overlapping. */
 @media (max-width: 760px) {
   .hero-stage {
-    --third: max(186.67px, 33.333svh);
     display: grid; grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto minmax(15rem, 1fr) auto auto;
+    grid-template-rows: minmax(6rem, 1fr) auto auto auto auto;
+    background: #2a2723;
   }
   .hero-eyebrow, .hero-title, .hero-aside, .hero-meta {
     position: relative; left: auto; right: auto; top: auto; bottom: auto; width: auto;
-    grid-column: 1;
+    grid-column: 1; z-index: 2;
   }
-  .hero-eyebrow { grid-row: 1; align-self: end; margin: 6rem var(--gut) 0.9rem; }
-  .hero-title { grid-row: 2; align-self: start; margin: 0 0 0 calc(var(--gut) - 0.04em); }
-  /* Once the intro is over, phones keep only the vertical thirds lines; the banner takes the
-     place of the horizontal ones. */
-  .hero-stage:has(#rot-intro[data-skip]) .hero-guides .h { visibility: hidden; }
-  /* The painting runs edge to edge as a banner, filling whatever height the screen has left. */
   .hero-photo-phone {
-    display: block; position: relative; inset: auto; grid-column: 1; grid-row: 3;
-    margin: 1.5rem 0 0; border-radius: 0;
+    display: block; position: relative; inset: auto; grid-column: 1; grid-row: 1 / -1;
+    margin: 0; border-radius: 0; z-index: 0;
   }
-  .hero-photo-phone img { object-position: 50% 42%; }
-  .hero-aside { grid-row: 4; margin: 1.5rem var(--gut) 0; }
-  .hero-meta { grid-row: 5; align-self: end; margin: 1.5rem var(--gut) var(--gut); flex-wrap: wrap; }
+  .hero-photo-phone img { object-position: 50% 45%; filter: saturate(0.88); }
+  .hero-photo-phone::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(24, 22, 20, 0.34) 0%, rgba(24, 22, 20, 0.2) 35%, rgba(24, 22, 20, 0.52) 68%, rgba(24, 22, 20, 0.7) 100%),
+      rgba(120, 116, 110, 0.18);
+  }
+  .hero-guides { z-index: 1; }
+  .hero-stage:has(#rot-intro[data-skip]) .hero-guides span { background: rgba(255, 255, 255, 0.22); }
+  .hero-eyebrow { grid-row: 2; margin: 0 var(--gut) 0.9rem; color: rgba(255, 255, 255, 0.82); }
+  .hero-title { grid-row: 3; margin: 0 0 0 calc(var(--gut) - 0.04em); color: #fff; }
+  .hero-aside { grid-row: 4; margin: 1.5rem var(--gut) 0; color: rgba(255, 255, 255, 0.82); }
+  .hero-lede { color: #fff; }
+  .hero-meta { grid-row: 5; margin: 1.5rem var(--gut) var(--gut); flex-wrap: wrap; color: rgba(255, 255, 255, 0.78); }
+  .hero-meta a:hover { color: #fff; }
+
+  /* Home only: the top bar is white while it floats over the painting. */
+  body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .brand { color: #fff; }
+  body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .bag-btn { color: #fff; border-color: #fff; }
+  body:not(.menu-open) .site-nav.on-hero:not(.scrolled) .burger span { background: #fff; }
 }
 
 /* Homepage "From the Kitchen": one plated dish beside a short note, closing the page. */

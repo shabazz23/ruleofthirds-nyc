@@ -20,12 +20,24 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const onHome = pathname === '/';
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    // On the phone homepage the bar floats over the full-screen painting in white, and only
+    // turns cream once you scroll past the painting.
+    const threshold = () => {
+      const hero = onHome && window.innerWidth <= 760 && document.querySelector('.hero-stage');
+      return hero ? hero.offsetHeight - 64 : 24;
+    };
+    const onScroll = () => setScrolled(window.scrollY > threshold());
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
     onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, [onHome]);
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', menuOpen);
@@ -38,7 +50,7 @@ export default function Nav() {
 
   return (
     <>
-      <header className={`site-nav${scrolled ? ' scrolled' : ''}`}>
+      <header className={`site-nav${scrolled ? ' scrolled' : ''}${onHome ? ' on-hero' : ''}`}>
         <div className="nav-inner">
           <Link href="/" className="brand">
             Rule of Thirds

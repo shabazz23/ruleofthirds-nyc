@@ -71,7 +71,15 @@ export default function HomeHero() {
     const line = tok('--line');
 
     // Letter grid: one reserved cell per headline letter, kept in reading order.
-    const narrow = window.innerWidth < 760;
+    const narrow = window.innerWidth <= 760;
+    // Phones: the painting fills the hero, so lines are faint white and the name turns white.
+    const guideColor = narrow ? 'rgba(255, 255, 255, 0.22)' : line;
+    const revealPainting = () =>
+      narrow
+        ? gsap.timeline()
+            .to('.hero-photo-phone', { autoAlpha: 1, duration: 0.8, ease: 'power1.out' }, 0)
+            .to(chars, { color: '#fff', duration: 0.8, ease: 'power1.out' }, 0)
+        : gsap.timeline();
     const cols = narrow ? 6 : 12;
     const rows = narrow ? 9 : 6;
     grid.style.setProperty('--cols', cols);
@@ -131,7 +139,8 @@ export default function HomeHero() {
             goHome();
             flipTween = Flip.from(state, { duration: 1, ease: 'power3.inOut', scale: true, stagger: 0.02 });
           }, null, '+=0.05')
-          .set(chars, { clearProps: 'color,opacity' }, '+=1.25')
+          .add(revealPainting(), '+=0.9')
+          .set(chars, { clearProps: 'color,opacity' }, '+=0.4')
           .call(finish)
           .to(chrome, { autoAlpha: 1, duration: 0.5, ease: 'power3.out', stagger: 0.05 }, '<-0.3');
         return;
@@ -169,9 +178,10 @@ export default function HomeHero() {
           goHome();
           flipTween = Flip.from(state, { duration: 1.4, ease: 'power3.inOut', scale: true, stagger: 0.035 });
         }, null, '+=0.15')
-        // 6. Guides settle into faint layout lines (phones keep only the vertical ones, since the
-        //    painting banner crosses the screen); the rest of the page arrives
-        .to(narrow ? '.hero-guides .v' : '.hero-guides span', { autoAlpha: 1, backgroundColor: line, duration: 0.8, ease: 'power1.out' }, '+=1.1')
+        // 6. Guides settle into faint layout lines; the rest of the page arrives (on phones the
+        //    painting fades up behind the name as it turns white)
+        .to('.hero-guides span', { autoAlpha: 1, backgroundColor: guideColor, duration: 0.8, ease: 'power1.out' }, '+=1.1')
+        .add(revealPainting(), '<')
         .set(chars, { clearProps: 'color,opacity' })
         .call(finish)
         .to(chrome, { autoAlpha: 1, duration: 0.7, ease: 'power3.out', stagger: 0.08 }, '<');
