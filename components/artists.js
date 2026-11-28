@@ -19,6 +19,8 @@
 //       poster: '/artists/jane-doe-work-poster.jpg',
 //       also: { title: 'Second Piece', image: '/artists/jane-doe-work-2.jpg' }, // optional second piece (3:4), shown instead of a clip
 //       context: '/artists/jane-doe-work-wall.jpg', // optional smaller wider shot of the piece on the wall (3:4), under the bio
+//       alt: 'Describe the photo',                  // optional, for work that isn't a painting hanging in the space
+//       caption: 'Photographed in the space',       // optional, replaces "In the space" under the photo
 //     },
 //     links: [
 //       { label: 'Instagram', href: 'https://instagram.com/janedoe' },
@@ -63,6 +65,22 @@ export const ARTISTS = [
       wide: true,
     },
     links: [{ label: 'Instagram', href: 'https://www.instagram.com/richpapi_/' }],
+  },
+  {
+    first: 'Rene',
+    last: 'Vision',
+    role: 'Photographer',
+    bio: 'Rene Vision is the photographer behind many of the photographs of Golden Hour Loft on this site.',
+    work: {
+      image: '/images/living-staircase.jpg',
+      wide: true,
+      alt: 'The Golden Hour Loft living room with orange chairs and a staircase, photographed by Rene Vision',
+      caption: 'Photographed in the space',
+    },
+    links: [
+      { label: 'Instagram', href: 'https://www.instagram.com/rene.vision/' },
+      { label: 'Website', href: 'https://www.renevision.net/' },
+    ],
   },
   {
     first: 'Sena',

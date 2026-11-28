@@ -73,13 +73,13 @@ function Artist({ a, index }) {
             <div className={`fa-frame ${w.wide ? 'fa-r43' : 'fa-r34'}`}>
               <Image
                 src={w.image}
-                alt={`${workName}, hanging in the space`}
+                alt={w.alt || `${workName}, hanging in the space`}
                 fill
                 sizes={w.wide ? '(max-width: 900px) 100vw, 66vw' : '(max-width: 900px) 100vw, 42vw'}
               />
             </div>
             <figcaption>
-              <span>In the space</span>
+              <span>{w.caption || 'In the space'}</span>
               <span>Golden Hour Loft</span>
             </figcaption>
           </figure>
